@@ -22,11 +22,8 @@ info: toolchain not updated; already up-to-date
 info: mathlib: running post-update hooks
 
 [lake] build Wolfram modules (strict)
-✔ [422/422] Built HeytingLean.WPP.MultiwayRel (4.0s)
 Build completed successfully (422 jobs).
-✔ [677/677] Built HeytingLean.WPP.Wolfram.MultiwayBridge (2.7s)
 Build completed successfully (677 jobs).
-✔ [570/570] Built HeytingLean.WPP.Wolfram.MultiwayRel (1.5s)
 Build completed successfully (570 jobs).
 Build completed successfully (583 jobs).
 Build completed successfully (711 jobs).
@@ -37,6 +34,24 @@ Build completed successfully (1416 jobs).
 [run] wolfram_multiway_demo (CE2)
 
 [visuals] DOT/SVG exports (optional)
+
+[audit] print axioms (kernel footprint)
+HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :
+  (¬∀ {V P : Type} (sys : HeytingLean.WPP.Wolfram.System V P) [inst : DecidableEq V],
+        HeytingLean.WPP.Wolfram.Properties.ConfluentNF sys → HeytingLean.WPP.Wolfram.Properties.CausalInvariant sys) ∧
+    ¬∀ {V P : Type} (sys : HeytingLean.WPP.Wolfram.System V P) [inst : DecidableEq V],
+        HeytingLean.WPP.Wolfram.Properties.CausalInvariant sys → HeytingLean.WPP.Wolfram.Properties.ConfluentNF sys
+'HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE1.confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE1.not_causalInvariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.System.stepStates_iff_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar' depends on axioms: [propext, Classical.choice, Quot.sound]
 [artifacts] collect compiler outputs (olean + C IR)
 [hashes] sha256 over bundle (excluding .lake/, build/, vendor/)
 [verify_wolfram] OK

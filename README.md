@@ -14,6 +14,7 @@ for the Wolfram Physics (multiway) work, analogous to `WIP/ClosingTheLoop_PaperP
 - `03_Reproducibility.md` — exact commands to rebuild and verify.
 - `04_Dependencies.md` — Lean/Lake pin + Mathlib dependency notes.
 - `05_Technical_Report.md` — full technical report of what was built and why.
+- `06_Final_Audit.md` — final submission-readiness audit (strict QA + axiom footprint).
 - `artifacts/` — generated demo outputs (JSON) for CE1/CE2 multiway + branchial slices.
   - `artifacts/wolfram_viewer.html` — offline viewer (pan/zoom, node inspection).
   - `artifacts/visuals/` — GraphViz DOT + rendered SVGs (multiway / branchial / combined).

@@ -8,6 +8,7 @@ mkdir -p reports artifacts artifacts/compiler/ir artifacts/compiler/olean
 
 TRANSCRIPT="reports/BUILD_TRANSCRIPT_STRICT.txt"
 GREP_OUT="reports/GREP_AXIOM_SORRY_ADMIT.txt"
+AXIOMS_OUT="reports/AXIOMS_PRINT.txt"
 SHA_OUT="reports/SHA256SUMS.txt"
 GITCFG="reports/GITCONFIG_EFFECTIVE.txt"
 
@@ -81,6 +82,10 @@ EOF
   else
     echo "skipping: python3 not found"
   fi
+
+  echo
+  echo "[audit] print axioms (kernel footprint)"
+  lake env lean HeytingLean/WPP/Wolfram/AxiomsAudit.lean | tee "$AXIOMS_OUT"
 } 2>&1 | tee -a "$TRANSCRIPT"
 
 echo "[audit] grep for markers under HeytingLean/" | tee "$GREP_OUT"

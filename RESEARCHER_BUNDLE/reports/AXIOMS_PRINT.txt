@@ -1,0 +1,16 @@
+HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :
+  (¬∀ {V P : Type} (sys : HeytingLean.WPP.Wolfram.System V P) [inst : DecidableEq V],
+        HeytingLean.WPP.Wolfram.Properties.ConfluentNF sys → HeytingLean.WPP.Wolfram.Properties.CausalInvariant sys) ∧
+    ¬∀ {V P : Type} (sys : HeytingLean.WPP.Wolfram.System V P) [inst : DecidableEq V],
+        HeytingLean.WPP.Wolfram.Properties.CausalInvariant sys → HeytingLean.WPP.Wolfram.Properties.ConfluentNF sys
+'HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE1.confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE1.not_causalInvariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.System.stepStates_iff_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar' depends on axioms: [propext, Classical.choice, Quot.sound]
