@@ -1,0 +1,469 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Wolfram Multiway Viewer (offline)</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --panel: #121826;
+    --text: #e6edf3;
+    --muted: #9aa4b2;
+    --accent: #7aa2f7;
+    --edge: rgba(230, 237, 243, 0.35);
+    --branchial: rgba(122, 162, 247, 0.6);
+    --node: #1f2a3b;
+    --node-stroke: rgba(230, 237, 243, 0.35);
+  }
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(230, 237, 243, 0.08);
+    background: linear-gradient(180deg, rgba(18, 24, 38, 0.9), rgba(18, 24, 38, 0.5));
+  }
+  header .title {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  header .hint {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    height: calc(100vh - 62px);
+  }
+  .left {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(1200px 700px at 20% 10%, rgba(122, 162, 247, 0.12), transparent 50%),
+                radial-gradient(1200px 700px at 80% 30%, rgba(158, 206, 106, 0.08), transparent 55%);
+  }
+  .toolbar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    background: rgba(18, 24, 38, 0.75);
+    border: 1px solid rgba(230, 237, 243, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+  .toolbar label {
+    font-size: 12px;
+    color: var(--muted);
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .toolbar button {
+    border: 1px solid rgba(230, 237, 243, 0.12);
+    background: rgba(31, 42, 59, 0.75);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .toolbar button:hover { border-color: rgba(122, 162, 247, 0.55); }
+  .toolbar .status { margin-left: auto; font-size: 12px; color: var(--muted); }
+  .right {
+    border-left: 1px solid rgba(230, 237, 243, 0.08);
+    background: var(--panel);
+    padding: 12px;
+    overflow: auto;
+  }
+  .card {
+    border: 1px solid rgba(230, 237, 243, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(11, 14, 20, 0.35);
+  }
+  .card h2 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  pre {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: rgba(230, 237, 243, 0.9);
+  }
+  .kv { color: var(--muted); }
+  svg { width: 100%; height: 100%; }
+  .edge { stroke: var(--edge); stroke-width: 1.2; fill: none; }
+  .branchial { stroke: var(--branchial); stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
+  .node { fill: var(--node); stroke: var(--node-stroke); stroke-width: 1.2; }
+  .nodeText { fill: rgba(230, 237, 243, 0.92); font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  .edgeLabel { fill: rgba(230, 237, 243, 0.75); font-size: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+</style>
+
+<header>
+  <div class="title">Wolfram Multiway Viewer (offline)</div>
+  <div class="hint">
+    Open this file, then load a JSON output from <code>wolfram_multiway_demo</code> (e.g. <code>ce1_multiway_depth3.json</code>).
+    Pan: drag background. Zoom: mouse wheel. Click a node to inspect it.
+  </div>
+</header>
+
+<div class="layout">
+  <div class="left">
+    <div class="toolbar">
+      <input id="file" type="file" accept=".json,application/json" />
+      <label><input id="showMultiway" type="checkbox" checked /> multiway edges</label>
+      <label><input id="showBranchial" type="checkbox" checked /> branchial edges</label>
+      <label><input id="showLabels" type="checkbox" /> edge labels</label>
+      <button id="fit">fit</button>
+      <button id="download">download SVG</button>
+      <span class="status" id="status">no data loaded</span>
+    </div>
+
+    <svg id="svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(230,237,243,0.42)"></path>
+        </marker>
+      </defs>
+      <g id="viewport">
+        <g id="edges"></g>
+        <g id="branchial"></g>
+        <g id="labels"></g>
+        <g id="nodes"></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <h2>Selection</h2>
+      <pre id="details">Load a JSON file to begin.</pre>
+    </div>
+    <div style="height: 12px;"></div>
+    <div class="card">
+      <h2>Schema</h2>
+      <pre class="kv">
+Expected keys:
+  - maxDepth
+  - basis_len1_len2
+  - nodes (counts over basis)
+  - edges (src, dst, label={ruleIdx,sigma})
+  - levels (node ids per depth)
+  - branchial (i,j)
+  - pathCounts
+      </pre>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fileInput = document.getElementById("file");
+  const statusEl = document.getElementById("status");
+  const detailsEl = document.getElementById("details");
+  const svg = document.getElementById("svg");
+  const viewport = document.getElementById("viewport");
+  const edgesG = document.getElementById("edges");
+  const branchialG = document.getElementById("branchial");
+  const labelsG = document.getElementById("labels");
+  const nodesG = document.getElementById("nodes");
+
+  const showMultiway = document.getElementById("showMultiway");
+  const showBranchial = document.getElementById("showBranchial");
+  const showLabels = document.getElementById("showLabels");
+
+  let data = null;
+  let positions = new Map(); // nodeId -> {x,y,depth,idx}
+
+  // pan/zoom
+  let panX = 0, panY = 0, scale = 1;
+  let dragging = false;
+  let dragStart = null;
+
+  function setTransform() {
+    viewport.setAttribute("transform", `translate(${panX},${panY}) scale(${scale})`);
+  }
+  setTransform();
+
+  svg.addEventListener("mousedown", (ev) => {
+    if (ev.target && (ev.target.classList && (ev.target.classList.contains("node")))) return;
+    dragging = true;
+    dragStart = {x: ev.clientX, y: ev.clientY, panX, panY};
+  });
+  window.addEventListener("mousemove", (ev) => {
+    if (!dragging || !dragStart) return;
+    panX = dragStart.panX + (ev.clientX - dragStart.x);
+    panY = dragStart.panY + (ev.clientY - dragStart.y);
+    setTransform();
+  });
+  window.addEventListener("mouseup", () => { dragging = false; dragStart = null; });
+
+  svg.addEventListener("wheel", (ev) => {
+    ev.preventDefault();
+    const delta = Math.sign(ev.deltaY);
+    const factor = delta > 0 ? 0.9 : 1.1;
+    scale = Math.min(4.0, Math.max(0.2, scale * factor));
+    setTransform();
+  }, {passive: false});
+
+  function exprStr(expr) {
+    if (!Array.isArray(expr)) return "?";
+    return "[" + expr.map(x => String(x)).join(",") + "]";
+  }
+
+  function nodeSummary(nodeId) {
+    if (!data) return "";
+    const basis = Array.isArray(data["basis_len1_len2"]) ? data["basis_len1_len2"] : null;
+    const counts = Array.isArray(data["nodes"]) ? data["nodes"][nodeId] : null;
+    if (!Array.isArray(counts)) return `id=${nodeId}`;
+    const nz = [];
+    for (let i = 0; i < counts.length; i++) {
+      const c = counts[i];
+      if (typeof c === "number" && c !== 0) nz.push([i, c]);
+    }
+    nz.sort((a,b) => (b[1] - a[1]) || (a[0] - b[0]));
+    let out = [`id=${nodeId}`];
+    if (nz.length === 0) { out.push("∅"); return out.join("\n"); }
+    const maxItems = 10;
+    for (const [i, c] of nz.slice(0, maxItems)) {
+      const b = basis && basis[i] ? exprStr(basis[i]) : `b${i}`;
+      out.push(`${b}×${c}`);
+    }
+    if (nz.length > maxItems) out.push("…");
+    return out.join("\n");
+  }
+
+  function edgeLabel(e) {
+    const lab = e && e["label"];
+    if (!lab || typeof lab !== "object") return "";
+    const r = lab["ruleIdx"];
+    const s = lab["sigma"];
+    if (typeof r === "number" && Array.isArray(s) && s.length === 2) {
+      return `r${r} σ=(${s[0]},${s[1]})`;
+    }
+    return "";
+  }
+
+  function computePositions() {
+    positions = new Map();
+    if (!data) return;
+    const levels = Array.isArray(data["levels"]) ? data["levels"] : [];
+    const dx = 260, dy = 90, margin = 60;
+    let maxDepth = 0;
+    let maxHeight = 1;
+    for (let d = 0; d < levels.length; d++) {
+      const lvl = levels[d];
+      if (!Array.isArray(lvl)) continue;
+      maxDepth = Math.max(maxDepth, d);
+      maxHeight = Math.max(maxHeight, lvl.length);
+      for (let i = 0; i < lvl.length; i++) {
+        const nodeId = lvl[i];
+        if (typeof nodeId !== "number") continue;
+        positions.set(nodeId, {x: margin + d * dx, y: margin + i * dy, depth: d, idx: i});
+      }
+    }
+    const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
+    for (let i = 0; i < n; i++) {
+      if (!positions.has(i)) {
+        positions.set(i, {x: margin, y: margin + i * dy, depth: 0, idx: i});
+      }
+    }
+    const width = margin * 2 + (maxDepth + 1) * dx;
+    const height = margin * 2 + (maxHeight + 1) * dy;
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  }
+
+  function clearG(g) { while (g.firstChild) g.removeChild(g.firstChild); }
+
+  function render() {
+    clearG(edgesG); clearG(branchialG); clearG(labelsG); clearG(nodesG);
+    if (!data) return;
+
+    const edges = Array.isArray(data["edges"]) ? data["edges"] : [];
+    const branchial = Array.isArray(data["branchial"]) ? data["branchial"] : [];
+    const rNode = 18;
+
+    for (const e of edges) {
+      if (!e || typeof e !== "object") continue;
+      const src = e["src"], dst = e["dst"];
+      if (typeof src !== "number" || typeof dst !== "number") continue;
+      const ps = positions.get(src), pt = positions.get(dst);
+      if (!ps || !pt) continue;
+      const x1 = ps.x + rNode, y1 = ps.y;
+      const x2 = pt.x - rNode, y2 = pt.y;
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("class", "edge");
+      path.setAttribute("marker-end", "url(#arrow)");
+      path.setAttribute("d", `M ${x1} ${y1} L ${x2} ${y2}`);
+      path.style.display = showMultiway.checked ? "" : "none";
+      edgesG.appendChild(path);
+
+      const lab = edgeLabel(e);
+      if (lab) {
+        const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+        title.textContent = lab;
+        path.appendChild(title);
+      }
+
+      if (showLabels.checked && lab) {
+        const tx = (x1 + x2) / 2, ty = (y1 + y2) / 2 - 6;
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("class", "edgeLabel");
+        text.setAttribute("x", tx);
+        text.setAttribute("y", ty);
+        text.setAttribute("text-anchor", "middle");
+        text.textContent = lab;
+        labelsG.appendChild(text);
+      }
+    }
+
+    for (const be of branchial) {
+      if (!be || typeof be !== "object") continue;
+      const i = be["i"], j = be["j"];
+      if (typeof i !== "number" || typeof j !== "number") continue;
+      const pi = positions.get(i), pj = positions.get(j);
+      if (!pi || !pj) continue;
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("class", "branchial");
+      path.setAttribute("d", `M ${pi.x} ${pi.y} L ${pj.x} ${pj.y}`);
+      path.style.display = showBranchial.checked ? "" : "none";
+      branchialG.appendChild(path);
+    }
+
+    const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
+    for (let id = 0; id < n; id++) {
+      const p = positions.get(id);
+      if (!p) continue;
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("cursor", "pointer");
+
+      const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      c.setAttribute("class", "node");
+      c.setAttribute("cx", p.x);
+      c.setAttribute("cy", p.y);
+      c.setAttribute("r", rNode);
+      g.appendChild(c);
+
+      const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      t.setAttribute("class", "nodeText");
+      t.setAttribute("x", p.x);
+      t.setAttribute("y", p.y + 4);
+      t.setAttribute("text-anchor", "middle");
+      t.textContent = String(id);
+      g.appendChild(t);
+
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      title.textContent = nodeSummary(id);
+      g.appendChild(title);
+
+      g.addEventListener("click", () => selectNode(id));
+
+      nodesG.appendChild(g);
+    }
+  }
+
+  function selectNode(nodeId) {
+    if (!data) return;
+    const p = positions.get(nodeId);
+    const levels = Array.isArray(data["levels"]) ? data["levels"] : [];
+    let depth = p ? p.depth : null;
+    if (depth === null) {
+      for (let d = 0; d < levels.length; d++) {
+        const lvl = levels[d];
+        if (Array.isArray(lvl) && lvl.includes(nodeId)) { depth = d; break; }
+      }
+    }
+
+    const edges = Array.isArray(data["edges"]) ? data["edges"] : [];
+    const outgoing = edges.filter(e => e && typeof e === "object" && e["src"] === nodeId);
+    const incoming = edges.filter(e => e && typeof e === "object" && e["dst"] === nodeId);
+
+    const pathCounts = Array.isArray(data["pathCounts"]) ? data["pathCounts"] : [];
+    const pc = [];
+    for (let d = 0; d < pathCounts.length; d++) {
+      const arr = pathCounts[d];
+      if (!Array.isArray(arr)) continue;
+      const hit = arr.find(o => o && typeof o === "object" && o["id"] === nodeId);
+      if (hit && typeof hit["count"] === "number") pc.push([d, hit["count"]]);
+    }
+
+    const lines = [];
+    lines.push(`node ${nodeId}`);
+    if (depth !== null) lines.push(`depth: ${depth}`);
+    lines.push("");
+    lines.push("state (nonzero counts):");
+    lines.push(nodeSummary(nodeId));
+    lines.push("");
+    lines.push(`outgoing edges: ${outgoing.length}`);
+    for (const e of outgoing.slice(0, 25)) {
+      lines.push(`  -> ${e["dst"]}  ${edgeLabel(e)}`);
+    }
+    if (outgoing.length > 25) lines.push("  …");
+    lines.push("");
+    lines.push(`incoming edges: ${incoming.length}`);
+    lines.push("");
+    if (pc.length) {
+      lines.push("pathCounts:");
+      for (const [d, c] of pc) lines.push(`  depth ${d}: ${c}`);
+      lines.push("");
+    }
+    detailsEl.textContent = lines.join("\n");
+  }
+
+  function fit() { panX = 0; panY = 0; scale = 1; setTransform(); }
+
+  function downloadSvg() {
+    const clone = svg.cloneNode(true);
+    const v = clone.getElementById("viewport");
+    if (v) v.setAttribute("transform", `translate(${panX},${panY}) scale(${scale})`);
+    const xml = new XMLSerializer().serializeToString(clone);
+    const blob = new Blob([xml], {type: "image/svg+xml"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "wolfram_multiway.svg";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  document.getElementById("fit").addEventListener("click", fit);
+  document.getElementById("download").addEventListener("click", downloadSvg);
+  showMultiway.addEventListener("change", render);
+  showBranchial.addEventListener("change", render);
+  showLabels.addEventListener("change", render);
+
+  fileInput.addEventListener("change", async (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    const text = await file.text();
+    try {
+      data = JSON.parse(text);
+      const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
+      const m = Array.isArray(data["edges"]) ? data["edges"].length : 0;
+      statusEl.textContent = `loaded: nodes=${n} edges=${m}`;
+      computePositions();
+      fit();
+      render();
+      detailsEl.textContent = "Click a node to inspect it.";
+    } catch (e) {
+      statusEl.textContent = "failed to parse JSON";
+      detailsEl.textContent = String(e);
+      data = null;
+      render();
+    }
+  });
+</script>
+

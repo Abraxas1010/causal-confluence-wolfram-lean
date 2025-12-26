@@ -1,0 +1,10 @@
+{"pathCounts":
+ [[{"id": 0, "count": 1}], [{"id": 1, "count": 1}, {"id": 2, "count": 1}], []],
+ "nodes": [[1, 0, 0, 1, 1, 0], [2, 0, 0, 0, 0, 0], [1, 1, 0, 0, 0, 0]],
+ "maxDepth": 2,
+ "levels": [[0], [1, 2], []],
+ "edges":
+ [{"src": 0, "label": {"sigma": [0, 1], "ruleIdx": 0}, "dst": 1},
+  {"src": 0, "label": {"sigma": [1, 0], "ruleIdx": 0}, "dst": 2}],
+ "branchial": [{"j": 2, "i": 1}],
+ "basis_len1_len2": [[0], [1], [0, 0], [0, 1], [1, 0], [1, 1]]}
