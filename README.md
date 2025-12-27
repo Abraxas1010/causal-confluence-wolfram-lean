@@ -128,6 +128,34 @@ The formalization uses only standard Lean kernel axioms:
 
 ---
 
+## Interactive Proof Graph Viewers
+
+Explore the proof structure in 2D and 3D:
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>2D Proof Map</strong><br/>
+<em>Pan, zoom, search declarations</em><br/>
+<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a>
+</td>
+<td align="center" width="50%">
+<strong>3D Proof Map</strong><br/>
+<em>Rotate, zoom, explore clusters</em><br/>
+<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a>
+</td>
+</tr>
+</table>
+
+**154 declarations** visualized with UMAP embeddings:
+- Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
+- Click nodes to see theorem details, file location, and code snippets
+- kNN edges show proof similarity relationships
+
+Also available: [Interactive Multiway Viewer](RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
+
+---
+
 ## Documentation
 
 | File | Description |
