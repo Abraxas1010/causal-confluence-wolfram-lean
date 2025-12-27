@@ -2,6 +2,8 @@
 
 This is the concept-to-Lean map for the Wolfram/SetReplace formalization.
 
+For the standalone PaperPack, the pinned Lean sources live under `RESEARCHER_BUNDLE/HeytingLean/…`.
+
 ## Core namespaces
 
 - `HeytingLean.WPP.Multiway`
@@ -64,9 +66,21 @@ This is the concept-to-Lean map for the Wolfram/SetReplace formalization.
 - `HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance`
   - `Properties.ConfluentNF`, `Properties.CausalInvariant`
   - Piskunov counterexamples CE1/CE2 + independence theorem
+
+- `HeytingLean.WPP.Wolfram.CausalInvarianceSingleLHS`
+  - causal invariance as branch-pair resolution (up to `HGraph.Iso`) for **fresh-vertex** rewriting
+
+- `HeytingLean.WPP.Wolfram.WM148`
+  - Wolfram Physics WM148 system definition (`{{x,y}} → {{x,y},{y,z}}`) with explicit fresh allocation
+
+- `HeytingLean.WPP.Wolfram.WM148CausalInvariant`
+  - proof: `WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`
   
 - `HeytingLean.CLI.WolframMultiwayMain`
   - executable demo: bounded multiway + branchial (CE1/CE2), emits JSON
+
+- `HeytingLean.CLI.WolframWM148Main`
+  - executable demo: bounded multiway exploration for WM148, emits JSON
 
 ## Optional extensions (not required for the current Wolfram bundle)
 

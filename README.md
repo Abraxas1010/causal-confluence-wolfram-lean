@@ -14,6 +14,8 @@
 
 ---
 
+Part of the broader HeytingLean formal verification project: https://apoth3osis.io
+
 ## The Independence Theorem
 
 <p align="center">
@@ -86,6 +88,19 @@ Explore the proof structure in 2D and 3D:
 
 Declarations visualized with UMAP embeddings:
 - Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
+- Click nodes to see theorem details, file location, and code snippets.
+- kNN edges show proof similarity neighborhoods.
+
+Interactive multiway viewer (load `generated_ce1.json` / `generated_ce2.json` / `generated_wm148.json`):
+- GitHub Pages: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html
+- Offline: `RESEARCHER_BUNDLE/wolfram_viewer.html` (wrapper) or `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html` (direct)
+
+**UMAP note (interpretation + limitations):**
+- UMAP is a non-linear projection of high-dimensional feature vectors into 2D/3D; here the features are derived from Lean source text statistics and structural signals.
+- Only *local neighborhoods* are intended to be meaningful; global distances/cluster geometry are not proof-theoretic invariants.
+- The layout depends on hyperparameters and a random seed; reruns can rotate/warp the embedding while preserving similar local structure.
+- Treat these maps as navigational aids; the formal guarantee is always the Lean kernel check, not the embedding.
+- GitHub README pages block embedded iframes/WebGL; the README shows a lightweight preview, while the full interactive 3D viewer is on GitHub Pages.
 
 ---
 
@@ -102,6 +117,7 @@ Declarations visualized with UMAP embeddings:
 | **Counterexamples** | CE1: confluent ∧ ¬causal-invariant, CE2: causal-invariant ∧ ¬confluent |
 | **Main Theorem** | `confluence_causal_invariance_independent` |
 | **Multiway Infrastructure** | Finite enumerators, branchial graphs, WPP bridges |
+| **WM148 (Wolfram Physics)** | `{{x,y}} → {{x,y},{y,z}}` with explicit fresh vertices + causal invariance proof (branch-pair resolution up to `HGraph.Iso`) |
 
 ---
 
@@ -120,7 +136,7 @@ This runs strict builds, runs the Wolfram multiway demo, and also emits + checks
 ### Run the Demo
 
 ```bash
-cd lean
+cd RESEARCHER_BUNDLE
 lake exe wolfram_multiway_demo              # CE1 (default)
 lake exe wolfram_multiway_demo -- --sys ce2  # CE2
 lake exe wolfram_wm148_demo                 # WM148 (fresh-vertex semantics; bounded multiway JSON)
@@ -196,6 +212,9 @@ theorem CE1.not_causalInvariant : ¬CausalInvariant CE1.system
 theorem CE2.causalInvariant : CausalInvariant CE2.system
 theorem CE2.not_confluentNF : ¬ConfluentNF CE2.system
 
+-- WM148: causally invariant (fresh-vertex semantics; branch-pair resolution up to renaming)
+theorem WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)
+
 -- Bridge: finite enumerator agrees with Step relation
 theorem stepStates_iff_step : t ∈ stepStates s ↔ Step s t
 
@@ -221,24 +240,13 @@ The formalization uses only standard Lean kernel axioms:
 **No project-specific axioms introduced.**
 
 ---
-- Click nodes to see theorem details, file location, and code snippets
-- kNN edges show proof similarity relationships
-
-**UMAP note (interpretation + limitations):**
-- UMAP is a non-linear projection of high-dimensional feature vectors into 2D/3D; here the features are derived from Lean source text statistics and structural signals.
-- Only *local neighborhoods* are intended to be meaningful; global distances/cluster geometry are not proof-theoretic invariants.
-- The layout depends on hyperparameters and a random seed; reruns can rotate/warp the embedding while preserving similar local structure.
-- Treat these maps as navigational aids; the formal guarantee is always the Lean kernel check, not the embedding.
-- GitHub README pages block embedded iframes/WebGL; the README shows a lightweight animated SVG preview, while the full interactive 3D viewer is on GitHub Pages.
-
----
 
 ## Documentation
 
 | File | Description |
 |------|-------------|
 | `01_Lean_Map.md` | Concept → Lean mapping |
-| `02_Proof_Index.md` | What's proved and where (33 indexed results) |
+| `02_Proof_Index.md` | What's proved and where (incl. WM148 causal invariance) |
 | `03_Reproducibility.md` | Build/run commands |
 | `04_Dependencies.md` | Lean/mathlib pins |
 | `05_Technical_Report.md` | Technical summary |

@@ -1,16 +1,15 @@
 # Dependencies / pins
 
-This repo is a Lean 4 + mathlib project built with Lake.
+This PaperPack is a documentation + artifact bundle. The **standalone Lake project** is under `RESEARCHER_BUNDLE/`.
 
 ## Lean toolchain
 
-- `lean-toolchain` (repo root) pins the Lean version.
-- The RESEARCHER_BUNDLE ships its own `lean-toolchain` for independent verification.
+- `RESEARCHER_BUNDLE/lean-toolchain` pins the Lean version for independent verification.
 
 ## mathlib
 
-- Pinned in `lean/lakefile.lean`.
-- Concrete commit recorded in `lake-manifest.json`.
+- Pinned in `RESEARCHER_BUNDLE/lakefile.lean`.
+- Concrete commit recorded in `RESEARCHER_BUNDLE/lake-manifest.json`.
 
 ## Wolfram-specific Mathlib imports
 
@@ -47,10 +46,7 @@ Notable packages (non-exhaustive):
 
 ## Other Lake packages
 
-The complete dependency set is recorded in:
-
-- `lean/lake-manifest.json` (main repo)
-- `RESEARCHER_BUNDLE/lake-manifest.json` (bundle)
+The complete dependency set is recorded in `RESEARCHER_BUNDLE/lake-manifest.json`.
 
 ## OS/runtime tools used by QA scripts (non-Lean)
 

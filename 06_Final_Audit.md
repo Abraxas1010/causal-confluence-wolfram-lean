@@ -1,8 +1,8 @@
 # Final Audit — Wolfram / SetReplace Formalization (HeytingLean WPP)
 
-**Date:** 2025-12-26  
-**Branch:** `quantum_extended`  
-**Commit (baseline):** `101de91` (“Wolfram: complete PaperPack + WppRel + visuals”)
+**Date:** 2025-12-27  
+**Source branch (HeytingLean monorepo):** `quantum_extended`  
+**Source commit (baseline):** `102957ac` (“Wolfram: add WM148 causal invariance proof + demo bundle”)
 
 ## [STATUS: PASSED]
 
@@ -14,15 +14,16 @@ This audit is a submission-readiness check: the *Lean proof tree used for the Wo
    - `lean/HeytingLean/WPP/**`
    - `lean/HeytingLean/WPP/Wolfram/**`
    - `lean/HeytingLean/CLI/WolframMultiwayMain.lean`
+   - `lean/HeytingLean/CLI/WolframWM148Main.lean`
 2. **Researcher bundle (self-contained)**:
-   - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/**`
+   - `RESEARCHER_BUNDLE/**`
 
 ### Strict QA (AGENTS.md) — Main Repo
 
 All commands succeeded **with strict flags**:
 
 1. Strict library build (no sorries, warnings-as-errors):
-   - `cd lean && lake build -- -DwarningAsError=true`
+   - `cd lean && lake build -- -DwarningAsError=true -Dno sorry`
 2. Strict executable compilation (C backend / linking exercised):
    - `./scripts/build_all_exes.sh --strict`
 3. Mandatory runtime execution (happy paths + expected-failure checks):
@@ -46,13 +47,14 @@ Repo-wide, `./scripts/guard_no_sorry.sh` also passed (fast guard).
 
 The bundle verifier passed end-to-end:
 
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/scripts/verify_wolfram.sh`
+- `RESEARCHER_BUNDLE/scripts/verify_wolfram.sh`
 
 It performs:
 
 - `lake update` in the bundle
-- strict builds under `-DwarningAsError=true`
+- strict builds under `-DwarningAsError=true -Dno sorry`
 - runs `wolfram_multiway_demo` for both CE1 and CE2
+- runs `wolfram_wm148_demo` (WM148 bounded multiway; fresh-vertex semantics)
 - runs `wolfram_bundle_demo` and compiles the emitted C artifact
 - greps bundle Lean sources for `axiom|sorry|admit`
 - collects `.olean` and compiler IR artifacts
@@ -60,17 +62,17 @@ It performs:
 
 Artifacts and transcripts are under:
 
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/reports/`
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/artifacts/`
+- `RESEARCHER_BUNDLE/reports/`
+- `RESEARCHER_BUNDLE/artifacts/`
 
 ### Kernel Footprint (“Axioms Print”)
 
 To make the proof foundations explicit for reviewers, the bundle now also records `#print axioms` for the key theorems.
 
 - Input file:
-  - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/AxiomsAudit.lean`
+  - `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/AxiomsAudit.lean`
 - Output:
-  - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/reports/AXIOMS_PRINT.txt`
+  - `RESEARCHER_BUNDLE/reports/AXIOMS_PRINT.txt`
 
 The key theorems depend only on the standard Lean kernel axioms:
 
@@ -82,11 +84,5 @@ No project-specific axioms were introduced.
 
 ### Notes on Token-Scan “False Positives”
 
-The repo contains many *documentation* and *WIP planning* files that mention strings like “sorry” (e.g. in flag names `-Dno sorry`) or contain `TODO` checklists. These do not affect the Wolfram proof tree or the strict builds above.
-
-The token scan outputs are tracked in:
-
-- `WIP/proof_audit_summary.md`
-- `WIP/proof_audit_index.jsonl`
-
-and show **0 findings in `lean/`**.
+Documentation may mention strings like “sorry” (e.g. in flag names `-Dno sorry`) or contain `TODO` checklists.
+The PaperPack verifier only fails if such markers appear in the Lean sources under `RESEARCHER_BUNDLE/HeytingLean/`.

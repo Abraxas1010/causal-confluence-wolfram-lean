@@ -21,8 +21,9 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 
 This performs:
 - `lake update` (fetch pinned dependencies)
-- Strict build with `-DwarningAsError=true` (treats proof holes as errors)
+- Strict build with `-DwarningAsError=true -Dno sorry`
 - Runs `wolfram_multiway_demo` for both CE1 and CE2
+- Runs `wolfram_wm148_demo` (WM148 bounded multiway; fresh-vertex semantics)
 - Runs `wolfram_bundle_demo` to emit LambdaIR → MiniC → C and compiles the emitted C program
 - Greps for `axiom`/`sorry`/`admit` in sources
 - Generates SHA256 checksums
@@ -45,42 +46,42 @@ Lean version is pinned by `lean-toolchain` (see `04_Dependencies.md`).
 
 ## Build only the Wolfram modules (fast)
 
-From repo root:
+From the PaperPack root:
 
 ```bash
-cd lean
-lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -DwarningAsError=true
+cd RESEARCHER_BUNDLE
+lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -DwarningAsError=true -Dno sorry
 ```
 
 ## Build the full library strictly (incremental)
 
 ```bash
-cd lean
-lake build -- -DwarningAsError=true
+cd RESEARCHER_BUNDLE
+lake build -- -DwarningAsError=true -Dno sorry
 ```
 
-## Build all executables (C backend + linking)
+## Build the PaperPack executables (C backend + linking)
 
-From repo root:
+From the PaperPack root:
 
 ```bash
-scripts/build_all_exes.sh --strict
+cd RESEARCHER_BUNDLE
+lake build wolfram_multiway_demo -- -DwarningAsError=true -Dno sorry
+lake build wolfram_wm148_demo -- -DwarningAsError=true -Dno sorry
+lake build wolfram_bundle_demo -- -DwarningAsError=true -Dno sorry
 ```
 
 ## Run executables (happy path)
 
 ```bash
 # Default (CE1, depth 3)
-cd lean && lake exe wolfram_multiway_demo
+cd RESEARCHER_BUNDLE && lake exe wolfram_multiway_demo
 
 # CE2 (depth 2)
-cd lean && lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2
-```
+cd RESEARCHER_BUNDLE && lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2
 
-Or from repo root:
-
-```bash
-scripts/run_all_exes.sh
+# WM148 (bounded; fresh vertices)
+cd RESEARCHER_BUNDLE && lake exe wolfram_wm148_demo -- --maxDepth 6
 ```
 
 ## Optional: Wolfram Language replication (no Lean required)
@@ -118,17 +119,10 @@ Visual reference:
 
 - `RESEARCHER_BUNDLE/artifacts/visuals/wl_crosscheck_pipeline.svg`
 
-## Robustness checks (missing files/env/PATH)
+## Robustness / portability (bundle verifier)
 
-```bash
-scripts/qa_robustness_all.sh
-```
-
-## Portability (dynamic dependencies)
-
-```bash
-scripts/qa_portability.sh
-```
+`RESEARCHER_BUNDLE/scripts/verify_wolfram.sh` already runs minimal-environment checks (empty env + empty `PATH`),
+an unwritable-output negative test, and records `ldd` output when available.
 
 ## Optional: regenerate visuals (offline)
 
@@ -150,21 +144,11 @@ python3 RESEARCHER_BUNDLE/scripts/wolfram_json_to_dot.py \
 
 ## Optional: generate UMAP proof maps
 
-From repo root (requires Node.js):
+The UMAP proof maps shipped under `RESEARCHER_BUNDLE/artifacts/visuals/` are pre-generated.
+Regeneration currently lives in the main HeytingLean monorepo tooling (not vendored into this PaperPack).
 
-```bash
-node server/scripts/export_wolfram_viz.js
-```
-
-This generates `wolfram_proofs.json` and `wolfram_proofs_data.js` for the 2D/3D viewers.
-
-## Full local QA (repo contract)
+## Full local QA (PaperPack contract)
 
 From the repo root:
 
-1. `cd lean && lake build -- -DwarningAsError=true`
-   - (This flag makes `sorry` a hard error, since `sorry` emits a warning.)
-2. `./scripts/build_all_exes.sh --strict`
-3. `./scripts/run_all_exes.sh`
-4. `./scripts/qa_robustness_all.sh`
-5. `./scripts/qa_portability.sh`
+1. `cd RESEARCHER_BUNDLE && ./scripts/verify_wolfram.sh`

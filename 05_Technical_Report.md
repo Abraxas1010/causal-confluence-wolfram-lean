@@ -1,7 +1,7 @@
 # Wolfram / SetReplace Formalization — Technical Report (HeytingLean WPP)
 
-**Date:** 2025-12-26  
-**Primary scope:** `lean/HeytingLean/WPP/Wolfram/*` (+ WPP multiway interfaces and demos)  
+**Date:** 2025-12-27  
+**Primary scope:** `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/*` (+ WPP multiway interfaces and demos)  
 **Deliverable:** a researcher-grade, locally verifiable package with strict QA: no `sorry`/`admit`/axioms/stubs in the Lean proof tree, executable builds, runtime execution, robustness checks, and portability checks.
 
 This report is written to be readable by a category-/rewriting-/Wolfram-physics audience, while remaining faithful to the actual Lean artifacts in this repository.
@@ -21,7 +21,7 @@ This report is written to be readable by a category-/rewriting-/Wolfram-physics 
 4. Provide **bridges** to HeytingLean’s generic multiway interfaces:
    - finite (`Finset`) interface, and
    - enumeration-free (`Prop`-level) interface, for infinite state spaces.
-5. Ship a **researcher bundle** (`WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE`) with pinned toolchain + scripts + artifacts.
+5. Ship a **researcher bundle** (`RESEARCHER_BUNDLE/`) with pinned toolchain + scripts + artifacts.
 6. Provide **offline visuals** suitable for sharing and inspection without installing the full repo.
 7. Provide a minimal, independently verifiable **proof → program** artifact: emit and check a small certified **LambdaIR → C**
    compilation output inside the researcher bundle (C backend + linking exercised, and the emitted C is compiled and run).
@@ -30,7 +30,7 @@ This report is written to be readable by a category-/rewriting-/Wolfram-physics 
 
 The completion is required to satisfy local QA expectations:
 
-- strict build with `-DwarningAsError=true` (treats proof holes as errors)
+- strict build with `-DwarningAsError=true -Dno sorry`
 - build all `lean_exe` targets (C backend + linking)
 - run executables on happy path
 - robustness checks (missing files/env vars/PATH)
@@ -183,8 +183,8 @@ This executable:
 
 Sample artifacts (committed):
 
-- `WIP/Wolfram_PaperPack/artifacts/ce1_multiway_depth3.json`
-- `WIP/Wolfram_PaperPack/artifacts/ce2_multiway_depth2.json`
+- `artifacts/ce1_multiway_depth3.json`
+- `artifacts/ce2_multiway_depth2.json`
 
 ---
 
@@ -193,26 +193,26 @@ Sample artifacts (committed):
 Two offline options are provided:
 
 1. **HTML viewer** (no dependencies; pan/zoom; node inspection):
-   - `WIP/Wolfram_PaperPack/artifacts/wolfram_viewer.html`
-   - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
+   - `artifacts/wolfram_viewer.html`
+   - `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
 
 2. **GraphViz exports** from JSON:
    - Script:
-     - `WIP/Wolfram_PaperPack/tools/wolfram_json_to_dot.py`
-     - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/scripts/wolfram_json_to_dot.py`
+     - `tools/wolfram_json_to_dot.py`
+     - `RESEARCHER_BUNDLE/scripts/wolfram_json_to_dot.py`
    - Outputs (DOT + rendered SVGs):
      - `*_multiway.dot/.svg`
      - `*_branchial.dot/.svg`
      - `*_combined.dot/.svg`
 
 3. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema):
-   - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
-   - `WIP/Wolfram_PaperPack/tools/wolfram_ce1_ce2.wl` (convenience loader)
+   - `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
+   - `tools/wolfram_ce1_ce2.wl` (convenience loader)
 
 Pre-generated visuals are committed in:
 
-- `WIP/Wolfram_PaperPack/artifacts/visuals/`
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/artifacts/visuals/`
+- `artifacts/visuals/`
+- `RESEARCHER_BUNDLE/artifacts/visuals/`
 
 ---
 
@@ -222,13 +222,13 @@ Pre-generated visuals are committed in:
 
 See:
 
-- `WIP/Wolfram_PaperPack/03_Reproducibility.md`
+- `03_Reproducibility.md`
 
 ### 5.2 Self-contained researcher bundle
 
 Folder:
 
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/`
+- `RESEARCHER_BUNDLE/`
 
 One-command verification:
 
@@ -237,8 +237,9 @@ One-command verification:
 What it does:
 
 - `lake update` (pinned deps)
-- strict builds `-DwarningAsError=true` for all Wolfram modules + bridge modules + demo exe
+- strict builds `-DwarningAsError=true -Dno sorry` for all Wolfram modules + bridge modules + demo exes
 - runs `wolfram_multiway_demo` to produce JSON
+- runs `wolfram_wm148_demo` to produce JSON (WM148)
 - greps for `axiom`/`sorry`/`admit` in bundle sources
 - collects compiler artifacts (`.olean` + C IR)
 - computes `sha256sum` over the bundle (excluding `.lake/`, `build/`, `vendor/`)
@@ -246,7 +247,7 @@ What it does:
 
 Entry docs:
 
-- `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/README_VERIFY.md`
+- `RESEARCHER_BUNDLE/README_VERIFY.md`
 
 ---
 
@@ -256,7 +257,7 @@ Within this Wolfram scope:
 
 - no `sorry`/`admit` markers in the relevant Lean proof tree,
 - no new axioms are introduced for the Wolfram development,
-- strict builds are supported (`-DwarningAsError=true`),
+- strict builds are supported (`-DwarningAsError=true -Dno sorry`),
 - executable builds/run/robustness/portability checks are supported locally.
 
 ---

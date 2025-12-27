@@ -1,7 +1,7 @@
 # Wolfram Project — Audit & Outstanding Work (Living Checklist)
 
-**Date:** 2025-12-26  
-**Scope:** `lean/HeytingLean/WPP/Wolfram/*` (+ bridges to the generic WPP multiway nucleus)
+**Date:** 2025-12-27  
+**Scope:** `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/*` (+ bridges to the generic WPP multiway nucleus)
 
 This file is the working checklist for “buttoning up” the Wolfram project to a
 researcher-grade package (formal + reproducible), with **no `sorry`/axioms/stubs**
@@ -13,40 +13,40 @@ in the Lean proof tree.
 
 ✅ Implemented and proof-complete (workspace Lean sources have no proof escapes):
 
-- `lean/HeytingLean/WPP/Multiway.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Multiway.lean`
   - `JR` forward-invariance kernel (contractive, idempotent, meet-preserving)
   - inflationary `reachabilityNucleus` packaging (LoF convention)
-- `lean/HeytingLean/WPP/Wolfram/Hypergraph.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Hypergraph.lean`
   - SetReplace-faithful states: `Expr V := List V`, `HGraph V := Multiset (Expr V)`
   - vertex-renaming + `HGraph.Iso`
-- `lean/HeytingLean/WPP/Wolfram/Rewrite.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Rewrite.lean`
   - rule instantiation by substitution `σ : P → V` (**not assumed injective**; SetReplace permits non-injective matches)
   - **multi-rule** systems (SetReplace-style): `System.rules : List (Rule P)`
   - singleway evolutions + normal forms
-- `lean/HeytingLean/WPP/Wolfram/FreshSupply.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/FreshSupply.lean`
   - explicit fresh-vertex supply interface (`FreshSupply V`) for rules that allocate new vertices
-- `lean/HeytingLean/WPP/Wolfram/RewriteFresh.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/RewriteFresh.lean`
   - rewrite semantics with fresh vertices + α-equivalence up to renaming
-- `lean/HeytingLean/WPP/Wolfram/SimpleHypergraph.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/SimpleHypergraph.lean`
   - injective-WLOG lemma under a “simple edges” invariant
-- `lean/HeytingLean/WPP/Wolfram/CausalGraph.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraph.lean`
   - SetReplace causal graph (unlabeled edges): “created then destroyed”
-- `lean/HeytingLean/WPP/Wolfram/CausalGraphLabeled.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphLabeled.lean`
   - multiplicity-aware causal graph (`output ∩ input` labels) + forgetful map back to `CausalGraph`
-- `lean/HeytingLean/WPP/Wolfram/Multiway.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Multiway.lean`
   - finite enumerators for substitutions / event-data (finite `P`/`V`)
   - multiway step edges + multiway reachable sets at depth
   - ordering/scheduler API + bridge to `HeytingLean.WPP.Multiway.WppRule`
-- `lean/HeytingLean/WPP/Wolfram/MultiwayBridge.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/MultiwayBridge.lean`
   - proof-level bridge: `t ∈ stepStates s ↔ System.Step s t`
   - `WppRule.StepStar (sys.toWppRule) ↔ System.StepStar`
-- `lean/HeytingLean/WPP/Wolfram/Branchial.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Branchial.lean`
   - branchial edges at depth (siblings share a predecessor)
   - bounded event-data path enumeration + `pathCountAtDepth`
-- `lean/HeytingLean/WPP/Wolfram/ConfluenceTheory.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceTheory.lean`
   - relation-theoretic layer: `Step`, `StepStar`, Church–Rosser predicates
   - bounded-termination predicate `TerminatingFrom`
-- `lean/HeytingLean/WPP/Wolfram/ConfluenceCausalInvariance.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceCausalInvariance.lean`
   - terminating notions:
     - `Properties.ConfluentNF` (unique normal form up to `HGraph.Iso`)
     - `Properties.CausalInvariant` (causal graphs of normal-form evolutions are iso)
@@ -55,18 +55,21 @@ in the Lean proof tree.
     - CE2: causally invariant but not confluent
   - independence theorem
   - `Counterexamples.CE1.terminatingFrom_init`, `Counterexamples.CE2.terminatingFrom_init`
-- `lean/HeytingLean/CLI/WolframMultiwayMain.lean`
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalInvarianceSingleLHS.lean`
+  - causal invariance as branch-pair resolution (fresh-vertex semantics)
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/WM148.lean`
+  - WM148 system definition (`{{x,y}} → {{x,y},{y,z}}`) with explicit fresh vertices
+- `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/WM148CausalInvariant.lean`
+  - proof: `WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`
+- `RESEARCHER_BUNDLE/HeytingLean/CLI/WolframMultiwayMain.lean`
   - executable demo: bounded multiway + branchial (CE1/CE2), emits JSON
+- `RESEARCHER_BUNDLE/HeytingLean/CLI/WolframWM148Main.lean`
+  - executable demo: bounded multiway exploration for WM148, emits JSON
 
 ✅ Guard/build/QA checks (local; strict per `AGENTS.md`):
 
-- `./scripts/guard_no_sorry.sh`
-- `cd lean && lake build -- -DwarningAsError=true`
-- `./scripts/build_all_exes.sh --strict`
-- `./scripts/run_all_exes.sh`
-- `./scripts/qa_robustness_all.sh`
-- `./scripts/qa_portability.sh`
-- Researcher bundle: `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/scripts/verify_wolfram.sh`
+- PaperPack verifier (strict, builds+runs demos, robustness checks, `ldd`, reproducible hashes):
+  - `cd RESEARCHER_BUNDLE && ./scripts/verify_wolfram.sh`
 
 ---
 
@@ -74,8 +77,8 @@ in the Lean proof tree.
 
 ### A. Hard blockers / hygiene
 
-- No `TODO`/`FIXME`/`STUB` markers in `lean/HeytingLean/WPP/Wolfram/`.
-- No `sorry`/`admit` in `lean/HeytingLean/WPP/Wolfram/`.
+- No `TODO`/`FIXME`/`STUB` markers in `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/`.
+- No `sorry`/`admit` in `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/`.
 - No unnecessary `classical` usage in CE2 proof case split (removed).
 
 ### B. Conceptual scope gaps (real “future work”)
@@ -94,8 +97,7 @@ Optional follow-ons (now implemented):
 
 ### C. Documentation debt (not a Lean blocker)
 
-- `WIP/wolfram_combinators.md` has been rewritten as a clean entrypoint pointing to the
-  implemented modules and the paper pack (no draft `sorry` code remains).
+- PaperPack docs are consolidated under `0[1-6]_*.md` and `TECHNICAL_REPORT_FULL.md`.
 
 ---
 

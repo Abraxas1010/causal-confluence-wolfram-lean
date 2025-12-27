@@ -8,6 +8,8 @@
 
 This report documents the complete formal verification, in Lean 4, of Max Piskunov's 2020 result demonstrating that **confluence** and **causal invariance** are **independent properties** of terminating Wolfram-model multiway systems. The formalization is fully mechanized with no proof gaps (`sorry`/`admit`), depends only on standard Lean kernel axioms, and includes executable demonstrations, visualization tools, and a self-contained researcher verification bundle.
 
+In addition, the bundle includes a Wolfram Physics case study (**WM148**) in the fresh-vertex semantics, together with a mechanized causal-invariance proof and an executable demo (`wolfram_wm148_demo`) that emits bounded multiway JSON.
+
 **Main Theorem (Mechanized):**
 ```
 confluence_causal_invariance_independent :
@@ -219,12 +221,18 @@ Wolfram_PaperPack/
     ├── lake-manifest.json         # Locked dependency versions
     │
     ├── HeytingLean/               # Lean source files
+    │   ├── CLI/
+    │   │   ├── WolframMultiwayMain.lean
+    │   │   ├── WolframBundleDemoMain.lean
+    │   │   └── WolframWM148Main.lean
     │   └── WPP/
     │       ├── Multiway.lean
     │       ├── MultiwayRel.lean
     │       └── Wolfram/
     │           ├── Hypergraph.lean
     │           ├── Rewrite.lean
+    │           ├── RewriteFresh.lean
+    │           ├── CausalInvarianceSingleLHS.lean
     │           ├── CausalGraph.lean
     │           ├── CausalGraphLabeled.lean
     │           ├── ConfluenceTheory.lean
@@ -233,6 +241,8 @@ Wolfram_PaperPack/
     │           ├── Branchial.lean
     │           ├── MultiwayBridge.lean
     │           ├── MultiwayRel.lean
+    │           ├── WM148.lean
+    │           ├── WM148CausalInvariant.lean
     │           └── AxiomsAudit.lean
     │
     ├── scripts/
@@ -240,6 +250,9 @@ Wolfram_PaperPack/
     │   └── wolfram_json_to_dot.py # Visual export tool
     │
     ├── artifacts/                 # Bundle-local artifacts
+    │   ├── generated_ce1.json
+    │   ├── generated_ce2.json
+    │   ├── generated_wm148.json
     │   ├── wolfram_viewer.html
     │   └── visuals/
     │
@@ -258,6 +271,7 @@ Wolfram_PaperPack/
 | **Quick verification** | `RESEARCHER_BUNDLE/scripts/verify_wolfram.sh` |
 | **Read the proofs** | `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/` |
 | **View multiway graphs** | `artifacts/wolfram_viewer.html` |
+| **Run WM148 demo** | `cd RESEARCHER_BUNDLE && lake exe wolfram_wm148_demo` |
 | **Understand the math** | `01_Lean_Map.md` + `02_Proof_Index.md` |
 | **Check axiom footprint** | `RESEARCHER_BUNDLE/reports/AXIOMS_PRINT.txt` |
 
@@ -546,18 +560,19 @@ From the `RESEARCHER_BUNDLE/` directory:
 
 This performs:
 1. `lake update` (fetch pinned dependencies)
-2. Strict build with `-DwarningAsError=true`
+2. Strict build with `-DwarningAsError=true -Dno sorry`
 3. Runs `wolfram_multiway_demo` for both CE1 and CE2
-4. Runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C) and compiles/runs the emitted C
-5. Greps for `axiom`/`sorry`/`admit` in sources
-6. Generates SHA256 checksums
+4. Runs `wolfram_wm148_demo` (WM148 bounded multiway; fresh vertices)
+5. Runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C) and compiles/runs the emitted C
+6. Greps for `axiom`/`sorry`/`admit` in sources
+7. Generates SHA256 checksums
 
 ### 9.2 Strict Build Requirements
 
 All proofs pass strict verification:
 ```bash
 cd RESEARCHER_BUNDLE
-lake build -- -DwarningAsError=true
+lake build -- -DwarningAsError=true -Dno sorry
 ```
 
 ### 9.3 Marker Scans
@@ -764,7 +779,7 @@ theorem wpp_stepStar_iff_stepStar :
 ./scripts/verify_wolfram.sh
 
 # Manual strict build
-lake build -- -DwarningAsError=true
+lake build -- -DwarningAsError=true -Dno sorry
 
 # Check for forbidden markers
 rg "\b(sorry|admit)\b" --type lean HeytingLean/
@@ -774,12 +789,13 @@ lake env lean -c 'import HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance
 #print axioms HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent'
 
 # Run executable demos
-lake exe wolfram_multiway_demo --sys ce1 --maxDepth 3
-lake exe wolfram_multiway_demo --sys ce2 --maxDepth 2
+lake exe wolfram_multiway_demo -- --sys ce1 --maxDepth 3
+lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2
+lake exe wolfram_wm148_demo -- --maxDepth 6
 
 # Generate visuals (requires Python 3 + graphviz)
-python3 scripts/wolfram_json_to_dot.py artifacts/generated_ce1.json
-dot -Tsvg ce1_multiway.dot -o ce1_multiway.svg
+python3 scripts/wolfram_json_to_dot.py artifacts/generated_ce1.json artifacts/visuals/generated_ce1 --render-svg
+python3 scripts/wolfram_json_to_dot.py artifacts/generated_ce2.json artifacts/visuals/generated_ce2 --render-svg
 ```
 
 ---
