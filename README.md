@@ -145,6 +145,8 @@ See also the (static) pipeline diagram:
 
 - `RESEARCHER_BUNDLE/artifacts/visuals/wl_crosscheck_pipeline.svg`
 
+![WL cross-check pipeline (Mathics / Wolfram Engine)](RESEARCHER_BUNDLE/artifacts/visuals/wl_crosscheck_pipeline.svg)
+
 ---
 
 ## Key Theorems
