@@ -194,7 +194,7 @@ Declarations visualized with UMAP embeddings:
 | File | Description |
 |------|-------------|
 | `01_Lean_Map.md` | Concept → Lean mapping |
-| `02_Proof_Index.md` | What's proved and where (29 indexed results) |
+| `02_Proof_Index.md` | What's proved and where (33 indexed results) |
 | `03_Reproducibility.md` | Build/run commands |
 | `04_Dependencies.md` | Lean/mathlib pins |
 | `05_Technical_Report.md` | Technical summary |
