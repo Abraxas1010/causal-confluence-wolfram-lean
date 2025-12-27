@@ -372,3 +372,4 @@ b1e1893e2a28328c0ce17e97db134a82554067e85493c3343e594b656de66bff  ./reports/Wolf
 c8679982033d1626975d2625b83aacaccb7282da0ac9f9533b00f3eb8424cc67  ./scripts/render_umap_previews.js
 06fd8971efb15718cceb66d79e39e4d7d96af6ffa9adcfb7a802b4bd15853376  ./scripts/verify_wolfram.sh
 cf5f0943996b64758f23dda917ff38687ab5f5cb336ec72cdec8f66d77fdcf1b  ./scripts/wolfram_json_to_dot.py
+d9815d7f045fd27015d720d0e2747f8a596cf60af25a402d2c72171e7baee034  ./wolfram_viewer.html
