@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wolfram Physics Formalization — Proof/Declaration Map</title>
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; font: 14px/1.4 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:#0b0f14; color:#e6eef7; }
+      a { color:#8ab4f8; text-decoration:none; }
+      a:hover { text-decoration:underline; }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 28px 18px; }
+      .card { background:#0f1721; border:1px solid #1c2a3a; border-radius:12px; padding: 16px 18px; }
+      .grid { display:grid; grid-template-columns: 1fr; gap: 12px; }
+      @media (min-width: 760px){ .grid { grid-template-columns: 1fr 1fr; } }
+      .muted { color:#b8c7d9; }
+      code { background:#0b1320; border:1px solid #1c2a3a; border-radius: 6px; padding:2px 6px; }
+      h1 { color:#fff; }
+      h2 { color:#e6eef7; margin-top: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Wolfram Physics — Proof/Declaration Map</h1>
+      <p class="muted">
+        Standalone 2D/3D visualizations of the <code>HeytingLean.WPP.Wolfram</code> slice
+        (confluence/causal-invariance independence + multiway infrastructure).
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h2>2D Viewer</h2>
+          <p class="muted">Pan/zoom, hover for names, click for details.</p>
+          <p><a href="./wolfram_2d.html">Open <code>wolfram_2d.html</code></a></p>
+        </div>
+        <div class="card">
+          <h2>3D Viewer</h2>
+          <p class="muted">Drag to rotate, wheel to zoom, hover/click nodes.</p>
+          <p><a href="./wolfram_3d.html">Open <code>wolfram_3d.html</code></a></p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h2>Multiway Graph Visualizations</h2>
+        <p class="muted">Static DOT/SVG graphs of the two counterexamples:</p>
+        <ul>
+          <li><strong>CE1</strong> (Confluent but NOT causally invariant):
+            <ul>
+              <li><a href="./ce1_depth3_multiway.svg">Multiway graph (depth 3)</a></li>
+              <li><a href="./ce1_depth3_branchial.svg">Branchial graph</a></li>
+              <li><a href="./ce1_depth3_combined.svg">Combined view</a></li>
+            </ul>
+          </li>
+          <li><strong>CE2</strong> (Causally invariant but NOT confluent):
+            <ul>
+              <li><a href="./ce2_depth2_multiway.svg">Multiway graph (depth 2)</a></li>
+              <li><a href="./ce2_depth2_branchial.svg">Branchial graph</a></li>
+              <li><a href="./ce2_depth2_combined.svg">Combined view</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h2>Key Theorems (Proof DAGs)</h2>
+        <ul>
+          <li><code>confluence_causal_invariance_independent</code> — Main independence theorem</li>
+          <li><code>CE1.confluentNF</code> — CE1 is confluent</li>
+          <li><code>CE1.not_causalInvariant</code> — CE1 is NOT causally invariant</li>
+          <li><code>CE2.causalInvariant</code> — CE2 is causally invariant</li>
+          <li><code>CE2.not_confluentNF</code> — CE2 is NOT confluent</li>
+          <li><code>stepStates_iff_step</code> — Bridge: Finset ↔ Step relation</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h2>Interactive Multiway Viewer</h2>
+        <p class="muted">Explore the JSON multiway data interactively:</p>
+        <p><a href="../../wolfram_viewer.html">Open <code>wolfram_viewer.html</code></a></p>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        Data source: <code>wolfram_proofs.json</code> (UMAP over Lean source text features).
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8" />
-<title>Wolfram Multiway Viewer (offline)</title>
+<title>Wolfram Multiway Viewer</title>
 <style>
   :root {
     --bg: #0b0e14;
@@ -66,7 +66,7 @@
     gap: 6px;
     align-items: center;
   }
-  .toolbar button {
+  .toolbar button, .toolbar select {
     border: 1px solid rgba(230, 237, 243, 0.12);
     background: rgba(31, 42, 59, 0.75);
     color: var(--text);
@@ -75,7 +75,7 @@
     cursor: pointer;
     font-size: 12px;
   }
-  .toolbar button:hover { border-color: rgba(122, 162, 247, 0.55); }
+  .toolbar button:hover, .toolbar select:hover { border-color: rgba(122, 162, 247, 0.55); }
   .toolbar .status { margin-left: auto; font-size: 12px; color: var(--muted); }
   .right {
     border-left: 1px solid rgba(230, 237, 243, 0.08);
@@ -112,9 +112,9 @@
 </style>
 
 <header>
-  <div class="title">Wolfram Multiway Viewer (offline)</div>
+  <div class="title">Wolfram Multiway Viewer</div>
   <div class="hint">
-    Open this file, then load a JSON output from <code>wolfram_multiway_demo</code> (e.g. <code>ce1_multiway_depth3.json</code>).
+    Exploring multiway graphs from <code>wolfram_multiway_demo</code>.
     Pan: drag background. Zoom: mouse wheel. Click a node to inspect it.
   </div>
 </header>
@@ -122,13 +122,18 @@
 <div class="layout">
   <div class="left">
     <div class="toolbar">
-      <input id="file" type="file" accept=".json,application/json" />
+      <select id="demoSelect">
+        <option value="ce1">CE1 (depth 3)</option>
+        <option value="ce2">CE2 (depth 2)</option>
+        <option value="custom">Load custom...</option>
+      </select>
+      <input id="file" type="file" accept=".json,application/json" style="display:none;" />
       <label><input id="showMultiway" type="checkbox" checked /> multiway edges</label>
       <label><input id="showBranchial" type="checkbox" checked /> branchial edges</label>
       <label><input id="showLabels" type="checkbox" /> edge labels</label>
       <button id="fit">fit</button>
       <button id="download">download SVG</button>
-      <span class="status" id="status">no data loaded</span>
+      <span class="status" id="status">loading...</span>
     </div>
 
     <svg id="svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
@@ -149,26 +154,35 @@
   <div class="right">
     <div class="card">
       <h2>Selection</h2>
-      <pre id="details">Load a JSON file to begin.</pre>
+      <pre id="details">Click a node to inspect it.</pre>
     </div>
     <div style="height: 12px;"></div>
     <div class="card">
-      <h2>Schema</h2>
+      <h2>About</h2>
       <pre class="kv">
-Expected keys:
-  - maxDepth
-  - basis_len1_len2
-  - nodes (counts over basis)
-  - edges (src, dst, label={ruleIdx,sigma})
-  - levels (node ids per depth)
-  - branchial (i,j)
-  - pathCounts
+CE1: Confluent but NOT causally invariant
+  - All paths reach the same normal form
+  - But causal graphs differ along paths
+
+CE2: Causally invariant but NOT confluent
+  - Multiple distinct normal forms
+  - But all causal graphs are isomorphic
+
+This proves confluence and causal
+invariance are independent properties.
       </pre>
     </div>
   </div>
 </div>
 
 <script>
+  // Embedded demo data
+  const DEMO_DATA = {
+    ce1: {"pathCounts":[[{"id":0,"count":1}],[{"id":1,"count":1},{"id":2,"count":1}],[{"id":2,"count":1}],[]],"nodes":[[1,0,0,0,1,1,0,0,1,0,0,0],[0,1,0,0,1,1,0,0,1,0,0,0],[0,0,1,0,1,1,0,0,1,0,0,0]],"maxDepth":3,"levels":[[0],[1,2],[2],[]],"edges":[{"src":0,"label":{"sigma":[0,1],"ruleIdx":0},"dst":1},{"src":0,"label":{"sigma":[0,2],"ruleIdx":0},"dst":2},{"src":1,"label":{"sigma":[1,2],"ruleIdx":0},"dst":2}],"branchial":[{"j":2,"i":1}],"basis_len1_len2":[[0],[1],[2],[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]},
+    ce2: {"pathCounts":[[{"id":0,"count":1}],[{"id":1,"count":1},{"id":2,"count":1}],[]],"nodes":[[1,0,0,0,1,1,0,0,1,0,0,0],[0,1,0,0,0,1,0,0,1,0,0,0],[0,0,1,0,1,0,0,0,1,0,0,0]],"maxDepth":2,"levels":[[0],[1,2],[]],"edges":[{"src":0,"label":{"sigma":[0,1],"ruleIdx":0},"dst":1},{"src":0,"label":{"sigma":[0,2],"ruleIdx":1},"dst":2}],"branchial":[{"j":2,"i":1}],"basis_len1_len2":[[0],[1],[2],[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]}
+  };
+
+  const demoSelect = document.getElementById("demoSelect");
   const fileInput = document.getElementById("file");
   const statusEl = document.getElementById("status");
   const detailsEl = document.getElementById("details");
@@ -184,9 +198,8 @@ Expected keys:
   const showLabels = document.getElementById("showLabels");
 
   let data = null;
-  let positions = new Map(); // nodeId -> {x,y,depth,idx}
+  let positions = new Map();
 
-  // pan/zoom
   let panX = 0, panY = 0, scale = 1;
   let dragging = false;
   let dragStart = null;
@@ -197,7 +210,6 @@ Expected keys:
   setTransform();
 
   svg.addEventListener("mousedown", (ev) => {
-    // allow dragging only if background (not node)
     if (ev.target && (ev.target.classList && (ev.target.classList.contains("node")))) return;
     dragging = true;
     dragStart = {x: ev.clientX, y: ev.clientY, panX, panY};
@@ -274,7 +286,6 @@ Expected keys:
         positions.set(nodeId, {x: margin + d * dx, y: margin + i * dy, depth: d, idx: i});
       }
     }
-    // fallback positions for nodes not in levels
     const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
     for (let i = 0; i < n; i++) {
       if (!positions.has(i)) {
@@ -286,9 +297,7 @@ Expected keys:
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   }
 
-  function clearG(g) {
-    while (g.firstChild) g.removeChild(g.firstChild);
-  }
+  function clearG(g) { while (g.firstChild) g.removeChild(g.firstChild); }
 
   function render() {
     clearG(edgesG); clearG(branchialG); clearG(labelsG); clearG(nodesG);
@@ -298,7 +307,6 @@ Expected keys:
     const branchial = Array.isArray(data["branchial"]) ? data["branchial"] : [];
     const rNode = 18;
 
-    // multiway edges
     for (const e of edges) {
       if (!e || typeof e !== "object") continue;
       const src = e["src"], dst = e["dst"];
@@ -333,7 +341,6 @@ Expected keys:
       }
     }
 
-    // branchial edges
     for (const be of branchial) {
       if (!be || typeof be !== "object") continue;
       const i = be["i"], j = be["j"];
@@ -347,7 +354,6 @@ Expected keys:
       branchialG.appendChild(path);
     }
 
-    // nodes
     const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
     for (let id = 0; id < n; id++) {
       const p = positions.get(id);
@@ -392,12 +398,10 @@ Expected keys:
       }
     }
 
-    // outgoing edges
     const edges = Array.isArray(data["edges"]) ? data["edges"] : [];
     const outgoing = edges.filter(e => e && typeof e === "object" && e["src"] === nodeId);
     const incoming = edges.filter(e => e && typeof e === "object" && e["dst"] === nodeId);
 
-    // pathCounts at each depth
     const pathCounts = Array.isArray(data["pathCounts"]) ? data["pathCounts"] : [];
     const pc = [];
     for (let d = 0; d < pathCounts.length; d++) {
@@ -430,14 +434,10 @@ Expected keys:
     detailsEl.textContent = lines.join("\n");
   }
 
-  function fit() {
-    panX = 0; panY = 0; scale = 1;
-    setTransform();
-  }
+  function fit() { panX = 0; panY = 0; scale = 1; setTransform(); }
 
   function downloadSvg() {
     const clone = svg.cloneNode(true);
-    // apply current transform into clone
     const v = clone.getElementById("viewport");
     if (v) v.setAttribute("transform", `translate(${panX},${panY}) scale(${scale})`);
     const xml = new XMLSerializer().serializeToString(clone);
@@ -452,25 +452,40 @@ Expected keys:
     URL.revokeObjectURL(url);
   }
 
+  function loadData(d, name) {
+    data = d;
+    const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
+    const m = Array.isArray(data["edges"]) ? data["edges"].length : 0;
+    statusEl.textContent = `${name}: nodes=${n} edges=${m}`;
+    computePositions();
+    fit();
+    render();
+    detailsEl.textContent = "Click a node to inspect it.";
+  }
+
   document.getElementById("fit").addEventListener("click", fit);
   document.getElementById("download").addEventListener("click", downloadSvg);
   showMultiway.addEventListener("change", render);
   showBranchial.addEventListener("change", render);
   showLabels.addEventListener("change", render);
 
+  demoSelect.addEventListener("change", (ev) => {
+    const val = ev.target.value;
+    if (val === "custom") {
+      fileInput.click();
+    } else if (DEMO_DATA[val]) {
+      loadData(DEMO_DATA[val], val.toUpperCase());
+    }
+  });
+
   fileInput.addEventListener("change", async (ev) => {
     const file = ev.target.files && ev.target.files[0];
     if (!file) return;
     const text = await file.text();
     try {
-      data = JSON.parse(text);
-      const n = Array.isArray(data["nodes"]) ? data["nodes"].length : 0;
-      const m = Array.isArray(data["edges"]) ? data["edges"].length : 0;
-      statusEl.textContent = `loaded: nodes=${n} edges=${m}`;
-      computePositions();
-      fit();
-      render();
-      detailsEl.textContent = "Click a node to inspect it.";
+      const parsed = JSON.parse(text);
+      loadData(parsed, file.name);
+      demoSelect.value = "custom";
     } catch (e) {
       statusEl.textContent = "failed to parse JSON";
       detailsEl.textContent = String(e);
@@ -478,5 +493,7 @@ Expected keys:
       render();
     }
   });
-</script>
 
+  // Auto-load CE1 on page load
+  loadData(DEMO_DATA.ce1, "CE1");
+</script>
