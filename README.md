@@ -59,6 +59,36 @@ This formalization proves they are **independent**:
 
 ---
 
+## Interactive Proof Graph Viewers
+
+Explore the proof structure in 2D and 3D:
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>2D Proof Map</strong><br/>
+<em>Pan, zoom, search declarations</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d_preview.svg" alt="UMAP 2D preview" width="100%"/>
+</a><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (GitHub Pages)
+</td>
+<td align="center" width="50%">
+<strong>3D Proof Map</strong><br/>
+<em>Rotate, zoom, explore clusters</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview_animated.svg" alt="UMAP 3D animated preview" width="100%"/>
+</a><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
+</td>
+</tr>
+</table>
+
+Declarations visualized with UMAP embeddings:
+- Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
+
+---
+
 ## What's Formalized
 
 | Component | Description |
@@ -190,34 +220,6 @@ The formalization uses only standard Lean kernel axioms:
 **No project-specific axioms introduced.**
 
 ---
-
-## Interactive Proof Graph Viewers
-
-Explore the proof structure in 2D and 3D:
-
-<table>
-<tr>
-<td align="center" width="50%">
-<strong>2D Proof Map</strong><br/>
-<em>Pan, zoom, search declarations</em><br/>
-<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">
-  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d_preview.svg" alt="UMAP 2D preview" width="100%"/>
-</a><br/>
-<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (GitHub Pages)
-</td>
-<td align="center" width="50%">
-<strong>3D Proof Map</strong><br/>
-<em>Rotate, zoom, explore clusters</em><br/>
-<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
-  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview_animated.svg" alt="UMAP 3D animated preview" width="100%"/>
-</a><br/>
-<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
-</td>
-</tr>
-</table>
-
-Declarations visualized with UMAP embeddings:
-- Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
 - Click nodes to see theorem details, file location, and code snippets
 - kNN edges show proof similarity relationships
 
