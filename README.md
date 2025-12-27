@@ -179,22 +179,6 @@ Explore the proof structure in 2D and 3D:
 - Treat these maps as navigational aids; the formal guarantee is always the Lean kernel check, not the embedding.
 - GitHub README pages block embedded iframes/WebGL; the README shows a lightweight animated SVG preview, while the full interactive 3D viewer is on GitHub Pages.
 
-Also available: [Interactive Multiway Viewer](https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
-
-### GitHub Pages (rendered HTML)
-
-GitHub will show HTML files as source code when clicked inside the repo browser. To get clickable, rendered versions,
-enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
-
-1. GitHub repo → **Settings** → **Pages**
-2. **Build and deployment** → **Source:** “Deploy from a branch”
-3. Select **Branch:** `main` and **Folder:** `/ (root)` and save
-4. After Pages publishes, open:
-   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/` (landing page)
-   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html`
-   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html`
-   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
-
 ---
 
 ## Documentation
@@ -214,15 +198,24 @@ enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
 ## Repository Structure
 
 ```
-├── README.md                    # This file
-├── 0[1-6]_*.md                 # Documentation
-├── TECHNICAL_REPORT_FULL.md    # Full report
-├── artifacts/                   # JSON outputs, SVG graphs
+├── README.md                 # This file
+├── .nojekyll                 # GitHub Pages helper
+├── index.html                # GitHub Pages landing
+├── 0[1-6]_*.md               # Documentation
+├── TECHNICAL_REPORT_FULL.md  # Full report
+├── artifacts/                # Static artifacts (SVG graphs, etc.)
+├── tools/                    # Local tooling for this PaperPack
 └── RESEARCHER_BUNDLE/
-    ├── HeytingLean/            # Lean source (WPP/Wolfram slice)
-    ├── scripts/                # verify_wolfram.sh
-    ├── artifacts/visuals/      # SVG multiway/branchial graphs
-    └── reports/                # Build transcripts, checksums
+    ├── README_VERIFY.md              # One-command verification instructions
+    ├── lean-toolchain               # Lean pin
+    ├── lakefile.lean                # Lake package + pinned deps
+    ├── lake-manifest.json           # Locked transitive dependency pins
+    ├── HeytingLean/                 # Lean sources (WPP/Wolfram + compiler slice)
+    ├── scripts/                     # `verify_wolfram.sh` (+ small helpers)
+    ├── artifacts/
+    │   ├── visuals/                 # 2D/3D viewers, previews, SVG graphs
+    │   └── compiler/                # LambdaIR → MiniC → C outputs (+ `.olean` bundle)
+    └── reports/                     # Build transcripts, hashes, portability checks
 ```
 
 ---
@@ -240,5 +233,5 @@ enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
 ---
 
 <p align="center">
-  <em>Part of the <a href="https://github.com/Abraxas1010">HeytingLean</a> formal verification project</em>
+  <em>Part of the <a href="https://apoth3osis.io">HeytingLean</a> formal verification project</em>
 </p>
