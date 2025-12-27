@@ -106,6 +106,14 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram_wl.sh
 ```
 
+If you do not have Wolfram Engine installed, you can run the same check with the open-source WL runtime `mathics`:
+
+```bash
+python3 -m pip install --user mathics3 packaging
+cd RESEARCHER_BUNDLE
+./scripts/verify_wolfram_wl.sh
+```
+
 ## Robustness checks (missing files/env/PATH)
 
 ```bash

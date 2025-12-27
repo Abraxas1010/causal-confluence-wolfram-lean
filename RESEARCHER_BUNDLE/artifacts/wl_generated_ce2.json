@@ -1,0 +1,1 @@
+{"maxDepth":2,"basis_len1_len2":[[0],[1],[0,0],[0,1],[1,0],[1,1]],"nodes":[[1,0,0,1,1,0],[2,0,0,0,0,0],[1,1,0,0,0,0]],"edges":[{"src":0,"dst":1,"label":{"ruleIdx":0,"sigma":[0,1]}},{"src":0,"dst":2,"label":{"ruleIdx":0,"sigma":[1,0]}}],"levels":[[0],[1,2],[]],"branchial":[{"i":1,"j":2}],"pathCounts":[[{"id":0,"count":1}],[{"id":1,"count":1},{"id":2,"count":1}],[]]}

@@ -133,6 +133,14 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram_wl.sh
 ```
 
+If you do not have Wolfram Engine installed, the same cross-check can be run with the open-source WL runtime `mathics`:
+
+```bash
+python3 -m pip install --user mathics3 packaging
+cd RESEARCHER_BUNDLE
+./scripts/verify_wolfram_wl.sh
+```
+
 ---
 
 ## Key Theorems

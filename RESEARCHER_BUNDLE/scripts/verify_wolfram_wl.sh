@@ -5,18 +5,25 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 WL_BIN="${WOLFRAM_WOLFRAMSCRIPT:-}"
+WL_KIND=""
 if [[ -z "$WL_BIN" ]]; then
   if command -v wolframscript >/dev/null 2>&1; then
     WL_BIN="wolframscript"
+    WL_KIND="wolframscript"
+  elif command -v mathics >/dev/null 2>&1; then
+    WL_BIN="mathics"
+    WL_KIND="mathics"
   fi
+else
+  WL_KIND="wolframscript-override"
 fi
 
 if [[ -z "$WL_BIN" ]]; then
-  echo "[verify_wolfram_wl] skipping: wolframscript not found (set WOLFRAM_WOLFRAMSCRIPT=... to override)"
+  echo "[verify_wolfram_wl] skipping: no WL runtime found (wolframscript or mathics)"
   exit 0
 fi
 
-echo "[verify_wolfram_wl] using wolframscript: $WL_BIN"
+echo "[verify_wolfram_wl] using WL runtime ($WL_KIND): $WL_BIN"
 
 LEAN_CE1="artifacts/generated_ce1.json"
 LEAN_CE2="artifacts/generated_ce2.json"
@@ -30,7 +37,23 @@ if [[ ! -f "$LEAN_CE1" || ! -f "$LEAN_CE2" ]]; then
 fi
 
 echo "[verify_wolfram_wl] generating Wolfram Language JSON via tools/wolfram_ce1_ce2.wl"
-"$WL_BIN" -code 'Get["tools/wolfram_ce1_ce2.wl"]; Export["artifacts/wl_generated_ce1.json", CE1JSON[3], "JSON"]; Export["artifacts/wl_generated_ce2.json", CE2JSON[2], "JSON"]; Print["ok"];'
+if [[ "$WL_KIND" == "wolframscript" || "$WL_KIND" == "wolframscript-override" ]]; then
+  "$WL_BIN" -code 'Get["tools/wolfram_ce1_ce2.wl"]; Export["artifacts/wl_generated_ce1.json", CE1JSON[3], "JSON"]; Export["artifacts/wl_generated_ce2.json", CE2JSON[2], "JSON"]; Print["ok"];'
+elif [[ "$WL_KIND" == "mathics" ]]; then
+  TMP_OUT="$(mktemp)"
+  "$WL_BIN" --quiet --colors None --code 'Get["tools/wolfram_ce1_ce2.wl"]; Print[HeytingLeanWolframBridge`CE1JSONString[3]]; Print[HeytingLeanWolframBridge`CE2JSONString[2]]; Quit[];' >"$TMP_OUT"
+  mapfile -t WL_LINES < <(grep -v '^[[:space:]]*$' "$TMP_OUT" || true)
+  rm -f "$TMP_OUT"
+  if [[ "${#WL_LINES[@]}" -lt 2 ]]; then
+    echo "[verify_wolfram_wl] E: mathics did not print two JSON payloads"
+    exit 1
+  fi
+  printf '%s\n' "${WL_LINES[0]}" >"$WL_CE1"
+  printf '%s\n' "${WL_LINES[1]}" >"$WL_CE2"
+else
+  echo "[verify_wolfram_wl] E: unknown WL_KIND=$WL_KIND"
+  exit 1
+fi
 
 if [[ ! -f "$WL_CE1" || ! -f "$WL_CE2" ]]; then
   echo "[verify_wolfram_wl] E: Wolfram Language did not produce expected JSON outputs"
@@ -81,4 +104,3 @@ if not ok:
 PY
 
 echo "[verify_wolfram_wl] OK"
-

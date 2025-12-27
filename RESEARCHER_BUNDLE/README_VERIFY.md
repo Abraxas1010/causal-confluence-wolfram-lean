@@ -23,7 +23,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - strict builds (warnings as errors; proof-hole markers are forbidden)
 - builds and runs `wolfram_multiway_demo`
 - builds and runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C)
-- optional: if `wolframscript` is available, runs a Wolfram Language cross-check for CE1/CE2 JSON
+- optional: if `wolframscript` **or** `mathics` is available, runs a Wolfram Language cross-check for CE1/CE2 JSON
 - compiles and runs the emitted C program (`cc`, then run output check)
 - grep audit for `axiom`/`sorry`/`admit` in the bundle Lean sources
 - collects compiler artifacts (`.olean`, C IR) for the Wolfram + compiler modules
@@ -39,7 +39,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - `artifacts/wolfram_viewer.html` (offline viewer)
 - `artifacts/visuals/` (GraphViz DOT + SVG exports)
 - `tools/wolfram_ce1_ce2.wl` (Wolfram Language replication of CE1/CE2 JSON)
-- `scripts/verify_wolfram_wl.sh` (optional automated WL cross-check; skips if `wolframscript` missing)
+- `scripts/verify_wolfram_wl.sh` (optional automated WL cross-check; skips if no WL runtime is installed)
 - `artifacts/compiler/ir/wpp_add1.lambdair.txt`
 - `artifacts/compiler/ir/wpp_add1.minic.txt`
 - `artifacts/compiler/c/wpp_add1.c`

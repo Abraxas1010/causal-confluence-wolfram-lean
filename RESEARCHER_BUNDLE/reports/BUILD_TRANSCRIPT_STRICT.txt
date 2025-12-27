@@ -53,7 +53,12 @@ wpp_add1 output=42
 [visuals] DOT/SVG exports (optional)
 
 [wolfram-language] CE1/CE2 cross-check (optional)
-[verify_wolfram_wl] skipping: wolframscript not found (set WOLFRAM_WOLFRAMSCRIPT=... to override)
+[verify_wolfram_wl] using WL runtime (mathics): mathics
+[verify_wolfram_wl] generating Wolfram Language JSON via tools/wolfram_ce1_ce2.wl
+[verify_wolfram_wl] comparing canonicalized JSON (order-insensitive object keys)
+ok: artifacts/generated_ce1.json == artifacts/wl_generated_ce1.json
+ok: artifacts/generated_ce2.json == artifacts/wl_generated_ce2.json
+[verify_wolfram_wl] OK
 
 [robustness] minimal environment
 [wolfram_bundle_demo] generating LambdaIR + C artifacts
@@ -74,23 +79,23 @@ wpp_add1 output=42
 [demo] runNatFunFrag wpp_add1(41) = some 42
 
 [portability] dynamic deps (best effort)
-	linux-vdso.so.1 (0x00007fffc04ef000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e2538200000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007e254209c000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007e2542086000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007e2542081000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007e254207c000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007e2538519000)
-	linux-vdso.so.1 (0x00007ffd1d3f8000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007dcfdfc00000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007dcfe0705000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007dcfe06ef000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007dcfe06ea000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007dcfe06e5000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007dcfdff19000)
-	linux-vdso.so.1 (0x00007ffdaa894000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000718c7b200000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000718c7b473000)
+	linux-vdso.so.1 (0x00007ffec5e75000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000710178800000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007101826b6000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007101826a0000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000071018269b000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000710182696000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000710178b19000)
+	linux-vdso.so.1 (0x00007ffe57d96000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000732800400000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000732800f03000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000732800eed000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000732800ee8000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000732800ee3000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000732800719000)
+	linux-vdso.so.1 (0x00007ffe08d81000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007be171600000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007be17199b000)
 
 [audit] print axioms (kernel footprint)
 HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :

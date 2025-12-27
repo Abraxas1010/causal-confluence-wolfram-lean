@@ -23,11 +23,18 @@ BeginPackage["HeytingLeanWolframBridge`"];
 CE1System::usage = "CE1System is the CE1 counterexample system (confluent ∧ ¬causal-invariant) as a WL association.";
 CE2System::usage = "CE2System is the CE2 counterexample system (causal-invariant ∧ ¬confluent) as a WL association.";
 
+ToJSONString::usage =
+  "ToJSONString[x] encodes a JSON-compatible WL expression (numbers, strings, lists, associations, booleans, Null) as a JSON string. \
+This is intended as a lightweight fallback for WL runtimes that do not implement Export/ExportString to JSON (e.g. Mathics).";
+
 BuildMultiwayJSON::usage =
   "BuildMultiwayJSON[sys, maxDepth] computes the bounded multiway exploration and returns a WL association matching the Lean JSON schema.";
 
 CE1JSON::usage = "CE1JSON[maxDepth] returns the multiway JSON object for CE1.";
 CE2JSON::usage = "CE2JSON[maxDepth] returns the multiway JSON object for CE2.";
+
+CE1JSONString::usage = "CE1JSONString[maxDepth] returns CE1JSON[maxDepth] encoded as a JSON string.";
+CE2JSONString::usage = "CE2JSONString[maxDepth] returns CE2JSON[maxDepth] encoded as a JSON string.";
 
 ExportCE1JSON::usage = "ExportCE1JSON[path, maxDepth] writes CE1JSON[maxDepth] to `path` as JSON.";
 ExportCE2JSON::usage = "ExportCE2JSON[path, maxDepth] writes CE2JSON[maxDepth] to `path` as JSON.";
@@ -48,14 +55,45 @@ NormalizeHGraph[g_List] := SortBy[g, exprSortKey];
 HGraphKey[g_List] := ToString[NormalizeHGraph[g], InputForm];
 
 (* ------------------------- *)
+(* Minimal JSON encoder       *)
+(* ------------------------- *)
+
+JsonEscapeString[s_String] := StringReplace[s, {
+  "\\" -> "\\\\",
+  "\"" -> "\\\"",
+  "\b" -> "\\b",
+  "\f" -> "\\f",
+  "\n" -> "\\n",
+  "\r" -> "\\r",
+  "\t" -> "\\t"
+}];
+
+ToJSONString[x_String] := "\"" <> JsonEscapeString[x] <> "\"";
+ToJSONString[True] := "true";
+ToJSONString[False] := "false";
+ToJSONString[Null] := "null";
+ToJSONString[x_?NumericQ] := ToString[x, InputForm];
+ToJSONString[x_List] := "[" <> StringRiffle[ToJSONString /@ x, ","] <> "]";
+ToJSONString[x_Association] := Module[{ks, pairs},
+  ks = Keys[x];
+  pairs = (ToJSONString[#] <> ":" <> ToJSONString[x[#]] &) /@ ks;
+  "{" <> StringRiffle[pairs, ","] <> "}"
+];
+ToJSONString[x_] := ToJSONString[ToString[x, InputForm]];
+
+(* ------------------------- *)
 (* Multiset primitives        *)
 (* ------------------------- *)
 
-MultisetLeqQ[a_List, b_List] := Module[{ca, cb, ks},
-  ca = Counts[a];
-  cb = Counts[b];
-  ks = Keys[ca];
-  And @@ (Lookup[cb, #, 0] >= ca[#] & /@ ks)
+TallyLookupCount[tally_List, e_] := Module[{pos},
+  pos = FirstPosition[tally[[All, 1]], e, Missing["NotFound"]];
+  If[pos === Missing["NotFound"], 0, tally[[pos[[1]], 2]]]
+];
+
+MultisetLeqQ[a_List, b_List] := Module[{ta, tb},
+  ta = Tally[a];
+  tb = Tally[b];
+  And @@ ((TallyLookupCount[tb, #[[1]]] >= #[[2]]) & /@ ta)
 ];
 
 MultisetRemoveOnce[g_List, e_] := Module[{pos},
@@ -95,9 +133,9 @@ ApplyEvent[sys_Association, sigma_List, state_List] := Module[{lhsInst, rhsInst,
 
 BasisLen1Len2[verts_List] := Join[List /@ verts, Flatten[Table[{a, b}, {a, verts}, {b, verts}], 1]];
 
-HGraphCountsVector[g_List, basis_List] := Module[{cg},
-  cg = Counts[g];
-  Lookup[cg, basis, 0]
+HGraphCountsVector[g_List, basis_List] := Module[{t},
+  t = Tally[g];
+  TallyLookupCount[t, #] & /@ basis
 ];
 
 (* ------------------------- *)
@@ -108,42 +146,81 @@ AllSigmasFin2[verts_List] := Tuples[verts, 2]; (* includes non-injective assignm
 
 PairEdges[idxs_List] := Flatten[Table[{idxs[[i]], idxs[[j]]}, {i, 1, Length[idxs]}, {j, i + 1, Length[idxs]}], 1];
 
+DeleteDuplicatesByKey[ls_List, keyf_] := Module[{seen = {}, out = {}, k},
+  Do[
+    k = keyf[ls[[i]]];
+    If[!MemberQ[seen, k],
+      AppendTo[seen, k];
+      AppendTo[out, ls[[i]]];
+    ],
+    {i, Length[ls]}
+  ];
+  out
+];
+
+CountLookup[counts_List, id_Integer] := Module[{pos},
+  If[counts === {}, 0,
+    pos = FirstPosition[counts[[All, 1]], id, Missing["NotFound"]];
+    If[pos === Missing["NotFound"], 0, counts[[pos[[1]], 2]]]
+  ]
+];
+
+CountAdd[counts_List, id_Integer, delta_Integer] := Module[{pos},
+  If[counts === {},
+    {{id, delta}},
+    pos = FirstPosition[counts[[All, 1]], id, Missing["NotFound"]];
+    If[pos === Missing["NotFound"],
+      Append[counts, {id, delta}],
+      ReplacePart[counts, pos[[1]] -> {id, counts[[pos[[1]], 2]] + delta}]
+    ]
+  ]
+];
+
 BuildMultiwayJSON[sys_Association, maxDepth_Integer?NonNegative] := Module[
-  {verts, basis, nodes, nodeId, edges, branchial, levels, pathCounts,
-   currStates, currCounts, getOrAddNode},
+  {verts, basis, nodes, nodeKeys, edges, branchial, levels, pathCounts,
+   currStates, currCounts, getOrAddNode, nodeIdOfState},
 
   verts = sys["verts"];
   basis = BasisLen1Len2[verts];
 
   nodes = {NormalizeHGraph[sys["init"]]};
-  nodeId = Association[HGraphKey[sys["init"]] -> 0];
+  nodeKeys = {HGraphKey[sys["init"]]};
   edges = {};
   branchial = {};
   levels = {{0}};
 
   currStates = {NormalizeHGraph[sys["init"]]};
-  currCounts = Association[0 -> 1];
+  currCounts = {{0, 1}};
   pathCounts = {{<|"id" -> 0, "count" -> 1|>}};
 
-  getOrAddNode = Function[{g},
-    Module[{key, id},
+  nodeIdOfState = Function[{g},
+    Module[{key, pos},
       key = HGraphKey[g];
-      If[KeyExistsQ[nodeId, key],
-        nodeId[key],
-        id = Length[nodes];
+      pos = FirstPosition[nodeKeys, key, Missing["NotFound"]];
+      If[pos === Missing["NotFound"], Missing["NotFound"], pos[[1]] - 1]
+    ]
+  ];
+
+  getOrAddNode = Function[{g},
+    Module[{key, pos, id},
+      key = HGraphKey[g];
+      pos = FirstPosition[nodeKeys, key, Missing["NotFound"]];
+      If[pos === Missing["NotFound"],
+        AppendTo[nodeKeys, key];
         AppendTo[nodes, NormalizeHGraph[g]];
-        AssociateTo[nodeId, key -> id];
-        id
+        id = Length[nodes] - 1;
+        id,
+        pos[[1]] - 1
       ]
     ]
   ];
 
   Do[
-    Module[{nextRaw = {}, nextCounts = Association[], sigmas = AllSigmasFin2[verts]},
+    Module[{nextRaw = {}, nextCounts = {}, sigmas = AllSigmasFin2[verts]},
       Do[
         Module[{s = currStates[[k]], srcId, srcCount, childIds = {}},
-          srcId = nodeId[HGraphKey[s]];
-          srcCount = Lookup[currCounts, srcId, 0];
+          srcId = nodeIdOfState[s];
+          srcCount = CountLookup[currCounts, srcId];
           Do[
             Module[{sigma = sigmas[[m]]},
               If[ApplicableQ[sys, sigma, s],
@@ -157,7 +234,7 @@ BuildMultiwayJSON[sys_Association, maxDepth_Integer?NonNegative] := Module[
                   |>];
                   AppendTo[childIds, dstId];
                   AppendTo[nextRaw, t];
-                  AssociateTo[nextCounts, dstId -> (Lookup[nextCounts, dstId, 0] + srcCount)];
+                  nextCounts = CountAdd[nextCounts, dstId, srcCount];
                 ],
                 Null
               ]
@@ -175,11 +252,11 @@ BuildMultiwayJSON[sys_Association, maxDepth_Integer?NonNegative] := Module[
       ];
 
       Module[{nextStates, nextLevelIds, nextLevelCounts},
-        nextStates = DeleteDuplicatesBy[nextRaw, HGraphKey];
-        nextLevelIds = nodeId[HGraphKey[#]] & /@ nextStates;
+        nextStates = DeleteDuplicatesByKey[nextRaw, HGraphKey];
+        nextLevelIds = nodeIdOfState /@ nextStates;
         levels = Append[levels, nextLevelIds];
 
-        nextLevelCounts = (<|"id" -> #, "count" -> Lookup[nextCounts, #, 0]|> &) /@ nextLevelIds;
+        nextLevelCounts = (<|"id" -> #, "count" -> CountLookup[nextCounts, #]|> &) /@ nextLevelIds;
         pathCounts = Append[pathCounts, nextLevelCounts];
 
         currStates = nextStates;
@@ -222,11 +299,27 @@ CE2System = <|
   "init" -> {{0, 1}, {1, 0}, {0}}
 |>;
 
-CE1JSON[maxDepth_Integer?NonNegative : 3] := BuildMultiwayJSON[CE1System, maxDepth];
-CE2JSON[maxDepth_Integer?NonNegative : 2] := BuildMultiwayJSON[CE2System, maxDepth];
+HeytingLeanWolframBridge`CE1JSON[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`BuildMultiwayJSON[HeytingLeanWolframBridge`CE1System, maxDepth];
+HeytingLeanWolframBridge`CE1JSON[] := HeytingLeanWolframBridge`CE1JSON[3];
 
-ExportCE1JSON[path_String, maxDepth_Integer?NonNegative : 3] := Export[path, CE1JSON[maxDepth], "JSON"];
-ExportCE2JSON[path_String, maxDepth_Integer?NonNegative : 2] := Export[path, CE2JSON[maxDepth], "JSON"];
+HeytingLeanWolframBridge`CE2JSON[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`BuildMultiwayJSON[HeytingLeanWolframBridge`CE2System, maxDepth];
+HeytingLeanWolframBridge`CE2JSON[] := HeytingLeanWolframBridge`CE2JSON[2];
+
+HeytingLeanWolframBridge`CE1JSONString[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`ToJSONString[HeytingLeanWolframBridge`CE1JSON[maxDepth]];
+HeytingLeanWolframBridge`CE1JSONString[] := HeytingLeanWolframBridge`CE1JSONString[3];
+
+HeytingLeanWolframBridge`CE2JSONString[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`ToJSONString[HeytingLeanWolframBridge`CE2JSON[maxDepth]];
+HeytingLeanWolframBridge`CE2JSONString[] := HeytingLeanWolframBridge`CE2JSONString[2];
+
+ExportCE1JSON[path_String, maxDepth_Integer] /; maxDepth >= 0 := Export[path, CE1JSON[maxDepth], "JSON"];
+ExportCE1JSON[path_String] := ExportCE1JSON[path, 3];
+
+ExportCE2JSON[path_String, maxDepth_Integer] /; maxDepth >= 0 := Export[path, CE2JSON[maxDepth], "JSON"];
+ExportCE2JSON[path_String] := ExportCE2JSON[path, 2];
 
 CompareWithLeanJSON[obj_Association, leanPath_String] := Module[{leanObj, eq},
   leanObj = Import[leanPath, "JSON"];
@@ -240,4 +333,3 @@ CompareWithLeanJSON[obj_Association, leanPath_String] := Module[{leanObj, eq},
 
 End[];
 EndPackage[];
-
