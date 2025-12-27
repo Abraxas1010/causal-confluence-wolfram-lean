@@ -1,0 +1,12 @@
+{"plugins": [],
+ "options": {},
+ "name": "HeytingLean.LambdaIR.Semantics",
+ "isModule": false,
+ "importArts":
+ {"HeytingLean.LambdaIR.Syntax":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/LambdaIR/Syntax.olean"],
+  "HeytingLean.Core.Types":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/Types.olean"],
+  "HeytingLean.Core.SemanticsBase":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/SemanticsBase.olean"]},
+ "dynlibs": []}

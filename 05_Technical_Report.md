@@ -28,7 +28,7 @@ This report is written to be readable by a category-/rewriting-/Wolfram-physics 
 
 The completion is required to satisfy local QA expectations:
 
-- strict build with `-Dno sorry -DwarningAsError=true`
+- strict build with `-DwarningAsError=true` (treats proof holes as errors)
 - build all `lean_exe` targets (C backend + linking)
 - run executables on happy path
 - robustness checks (missing files/env vars/PATH)
@@ -228,7 +228,7 @@ One-command verification:
 What it does:
 
 - `lake update` (pinned deps)
-- strict builds `-Dno sorry -DwarningAsError=true` for all Wolfram modules + bridge modules + demo exe
+- strict builds `-DwarningAsError=true` for all Wolfram modules + bridge modules + demo exe
 - runs `wolfram_multiway_demo` to produce JSON
 - greps for `axiom`/`sorry`/`admit` in bundle sources
 - collects compiler artifacts (`.olean` + C IR)
@@ -247,7 +247,7 @@ Within this Wolfram scope:
 
 - no `sorry`/`admit` markers in the relevant Lean proof tree,
 - no new axioms are introduced for the Wolfram development,
-- strict builds are supported (`-Dno sorry -DwarningAsError=true`),
+- strict builds are supported (`-DwarningAsError=true`),
 - executable builds/run/robustness/portability checks are supported locally.
 
 ---
@@ -261,4 +261,3 @@ The remaining directions are research extensions rather than completion gaps:
 - strengthen the Wolfram demo encoding from “counts over a short basis” to a fully faithful JSON encoding of `HGraph V` (at the cost of bigger outputs),
 - add enumeration-free “invariance checks” on the relation-based multiway interface (requires additional hypotheses or search procedures),
 - connect Wolfram causal invariance to further HeytingLean lenses beyond WPP (e.g. categorical/process encodings).
-

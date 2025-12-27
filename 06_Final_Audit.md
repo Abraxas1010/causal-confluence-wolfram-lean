@@ -22,7 +22,7 @@ This audit is a submission-readiness check: the *Lean proof tree used for the Wo
 All commands succeeded **with strict flags**:
 
 1. Strict library build (no sorries, warnings-as-errors):
-   - `cd lean && lake build -- -DwarningAsError=true -Dno sorry`
+   - `cd lean && lake build -- -DwarningAsError=true`
 2. Strict executable compilation (C backend / linking exercised):
    - `./scripts/build_all_exes.sh --strict`
 3. Mandatory runtime execution (happy paths + expected-failure checks):
@@ -51,8 +51,9 @@ The bundle verifier passed end-to-end:
 It performs:
 
 - `lake update` in the bundle
-- strict builds under `-DwarningAsError=true -Dno sorry`
+- strict builds under `-DwarningAsError=true`
 - runs `wolfram_multiway_demo` for both CE1 and CE2
+- runs `wolfram_bundle_demo` and compiles the emitted C artifact
 - greps bundle Lean sources for `axiom|sorry|admit`
 - collects `.olean` and compiler IR artifacts
 - produces `reports/SHA256SUMS.txt`
@@ -89,4 +90,3 @@ The token scan outputs are tracked in:
 - `WIP/proof_audit_index.jsonl`
 
 and show **0 findings in `lean/`**.
-

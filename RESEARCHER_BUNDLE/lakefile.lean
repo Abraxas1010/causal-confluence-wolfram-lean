@@ -34,3 +34,5 @@ lean_lib «HeytingLean» where
 lean_exe wolfram_multiway_demo where
   root := `HeytingLean.CLI.WolframMultiwayMain
 
+lean_exe wolfram_bundle_demo where
+  root := `HeytingLean.CLI.WolframBundleDemoMain

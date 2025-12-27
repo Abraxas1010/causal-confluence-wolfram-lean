@@ -12,12 +12,20 @@
 ./scripts/verify_wolfram.sh
 ```
 
+If you are offline but already have dependencies present under `.lake/packages/`, you can skip `lake update`:
+
+```bash
+WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
+```
+
 ## C) What it checks
 
-- strict builds (`-Dno sorry -DwarningAsError=true`)
+- strict builds (warnings as errors; proof-hole markers are forbidden)
 - builds and runs `wolfram_multiway_demo`
-- grep audit for `axiom`/`sorry`/`admit`
-- collects compiler artifacts (`.olean`, C IR) for the Wolfram modules
+- builds and runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C)
+- compiles and runs the emitted C program (`cc`, then run output check)
+- grep audit for `axiom`/`sorry`/`admit` in the bundle Lean sources
+- collects compiler artifacts (`.olean`, C IR) for the Wolfram + compiler modules
 - reproducible hashes (excluding `.lake/`, `build/`, `vendor/`)
 
 ## D) Where to look
@@ -29,3 +37,6 @@
 - `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`
 - `artifacts/wolfram_viewer.html` (offline viewer)
 - `artifacts/visuals/` (GraphViz DOT + SVG exports)
+- `artifacts/compiler/ir/wpp_add1.lambdair.txt`
+- `artifacts/compiler/ir/wpp_add1.minic.txt`
+- `artifacts/compiler/c/wpp_add1.c`

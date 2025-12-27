@@ -55,7 +55,7 @@ in the Lean proof tree.
 ✅ Guard/build/QA checks (local; strict per `AGENTS.md`):
 
 - `./scripts/guard_no_sorry.sh`
-- `cd lean && lake build -- -DwarningAsError=true -Dno sorry`
+- `cd lean && lake build -- -DwarningAsError=true`
 - `./scripts/build_all_exes.sh --strict`
 - `./scripts/run_all_exes.sh`
 - `./scripts/qa_robustness_all.sh`

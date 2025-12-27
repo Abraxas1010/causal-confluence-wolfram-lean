@@ -34,12 +34,23 @@ multiway/branchial structure).
 - `HeytingLean/CLI/WolframMultiwayMain.lean`
   - `wolfram_multiway_demo` executable emitting JSON for bounded CE1/CE2 exploration
 
+- `HeytingLean/Core/*`, `HeytingLean/LambdaIR/*`, `HeytingLean/MiniC/*`, `HeytingLean/C/*`
+  - minimal, self-contained compiler artifact pipeline (LambdaIR → MiniC → emitted C) for a small certified fragment
+
+- `HeytingLean/CLI/WolframBundleDemoMain.lean`
+  - `wolfram_bundle_demo` executable that emits:
+    - `artifacts/compiler/ir/wpp_add1.lambdair.txt`
+    - `artifacts/compiler/ir/wpp_add1.minic.txt`
+    - `artifacts/compiler/c/wpp_add1.c`
+
 ### Verification script
 
 - `scripts/verify_wolfram.sh`
   - pins deps via `lake update`
-  - strict builds (`-Dno sorry -DwarningAsError=true`)
+  - strict builds (`-DwarningAsError=true`, plus a marker scan to forbid proof holes)
   - runs `wolfram_multiway_demo`
+  - runs `wolfram_bundle_demo`
+  - compiles and runs the emitted C file via `cc`
   - greps for forbidden markers (`axiom`/`sorry`/`admit`)
   - collects compiler IR + `.olean` outputs
   - produces `sha256sum` over the bundle
@@ -50,6 +61,8 @@ multiway/branchial structure).
 - `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json` (produced by the verifier)
 - `artifacts/wolfram_viewer.html` (offline viewer; pan/zoom; node inspection)
 - `artifacts/visuals/` (DOT + SVG graphs; multiway/branchial/combined)
+- `artifacts/compiler/ir/` (LambdaIR + MiniC text artifacts)
+- `artifacts/compiler/c/` (emitted C)
 
 ---
 
@@ -110,4 +123,3 @@ Look at:
 DOT/SVG generation:
 
 - `python3 scripts/wolfram_json_to_dot.py <json> artifacts/visuals/<prefix> --render-svg`
-

@@ -1,0 +1,20 @@
+{"plugins": [],
+ "options": {},
+ "name": "HeytingLean.LambdaIR.NatCompileFrag",
+ "isModule": false,
+ "importArts":
+ {"HeytingLean.MiniC.Syntax":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/MiniC/Syntax.olean"],
+  "HeytingLean.MiniC.Semantics":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/MiniC/Semantics.olean"],
+  "HeytingLean.LambdaIR.Syntax":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/LambdaIR/Syntax.olean"],
+  "HeytingLean.LambdaIR.Semantics":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/LambdaIR/Semantics.olean"],
+  "HeytingLean.LambdaIR.NatFunFragment":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/LambdaIR/NatFunFragment.olean"],
+  "HeytingLean.Core.Types":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/Types.olean"],
+  "HeytingLean.Core.SemanticsBase":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/SemanticsBase.olean"]},
+ "dynlibs": []}

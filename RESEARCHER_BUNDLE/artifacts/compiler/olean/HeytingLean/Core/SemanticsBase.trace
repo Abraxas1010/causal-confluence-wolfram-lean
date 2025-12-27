@@ -1,0 +1,29 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["10805995018412024610"],
+  "i": "4650769838596920244",
+  "c": "2474148337468927152"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Cli/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/plausible/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/aesop/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Qq/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/batteries/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/Core/SemanticsBase.lean -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/SemanticsBase.olean -i /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/SemanticsBase.ilean -c /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/Core/SemanticsBase.c --setup /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/Core/SemanticsBase.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["HeytingLean.Core.SemanticsBase:deps",
+   [["deps",
+     [["WolframBundle/HeytingLean:extraDep",
+       [["@WolframBundle:extraDep", "1723"]]],
+      ["imports",
+       [["HeytingLean.Core.Types transitive imports (legacy)", "1723"],
+        ["HeytingLean.Core.Types:importAllArts", "6119029678905160448"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
+   "1165570713881806064"],
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/Core/SemanticsBase.lean",
+   "18086306997216954947"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "3887667971915425050"}

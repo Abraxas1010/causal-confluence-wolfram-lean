@@ -1,0 +1,8 @@
+{"plugins": [],
+ "options": {},
+ "name": "HeytingLean.C.Emit",
+ "isModule": false,
+ "importArts":
+ {"HeytingLean.C.Syntax":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/C/Syntax.olean"]},
+ "dynlibs": []}

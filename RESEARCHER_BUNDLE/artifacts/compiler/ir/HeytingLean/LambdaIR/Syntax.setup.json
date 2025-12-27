@@ -1,0 +1,8 @@
+{"plugins": [],
+ "options": {},
+ "name": "HeytingLean.LambdaIR.Syntax",
+ "isModule": false,
+ "importArts":
+ {"HeytingLean.Core.Types":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/Core/Types.olean"]},
+ "dynlibs": []}

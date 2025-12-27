@@ -18,8 +18,9 @@ GIT_CONFIG_NOSYSTEM=1
 # no URL rewrites
 
 [lake] update
-info: toolchain not updated; already up-to-date
-info: mathlib: running post-update hooks
+skipping: WOLFRAM_SKIP_UPDATE=1
+
+[strict_flags] -- -DwarningAsError=true -Dweak.no_sorry=true
 
 [lake] build Wolfram modules (strict)
 Build completed successfully (422 jobs).
@@ -29,11 +30,62 @@ Build completed successfully (583 jobs).
 Build completed successfully (711 jobs).
 Build completed successfully (582 jobs).
 Build completed successfully (1416 jobs).
+✔ [29/30] Built HeytingLean.CLI.WolframBundleDemoMain:c.o (361ms)
+✔ [30/30] Built wolfram_bundle_demo:exe (986ms)
+Build completed successfully (30 jobs).
 
 [run] wolfram_multiway_demo (CE1 default)
 [run] wolfram_multiway_demo (CE2)
 
+[run] wolfram_bundle_demo (LambdaIR → MiniC → C artifacts)
+[wolfram_bundle_demo] generating LambdaIR + C artifacts
+[demo] evalClosed wpp_add1(41) = 42
+[demo] runNatFunFrag wpp_add1(41) = some 42
+[wolfram_bundle_demo] done
+
+[cc] compile emitted C
+
+[run] emitted C binary
+wpp_add1 output=42
+
 [visuals] DOT/SVG exports (optional)
+
+[robustness] minimal environment
+[wolfram_bundle_demo] generating LambdaIR + C artifacts
+[demo] evalClosed wpp_add1(41) = 42
+[demo] runNatFunFrag wpp_add1(41) = some 42
+[wolfram_bundle_demo] done
+
+[robustness] unwritable artifacts/compiler (expect nonzero, no crash)
+[wolfram_bundle_demo] write failed: artifacts/compiler/ir/wpp_add1.lambdair.txt: permission denied (error code: 13)
+  file: artifacts/compiler/ir/wpp_add1.lambdair.txt
+[wolfram_bundle_demo] write failed: artifacts/compiler/ir/wpp_add1.minic.txt: permission denied (error code: 13)
+  file: artifacts/compiler/ir/wpp_add1.minic.txt
+[wolfram_bundle_demo] write failed: artifacts/compiler/c/wpp_add1.c: permission denied (error code: 13)
+  file: artifacts/compiler/c/wpp_add1.c
+[wolfram_bundle_demo] one or more artifact writes failed
+[wolfram_bundle_demo] generating LambdaIR + C artifacts
+[demo] evalClosed wpp_add1(41) = 42
+[demo] runNatFunFrag wpp_add1(41) = some 42
+
+[portability] dynamic deps (best effort)
+	linux-vdso.so.1 (0x00007ffcb9e84000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007a0e1e600000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007a0e28538000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007a0e28522000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007a0e2851d000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007a0e28518000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007a0e1e919000)
+	linux-vdso.so.1 (0x00007fff008bb000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000754577c00000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000754578742000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x000075457872c000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000754578727000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000754578722000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000754577f19000)
+	linux-vdso.so.1 (0x00007ffc805dc000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e9122800000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007e9122b56000)
 
 [audit] print axioms (kernel footprint)
 HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :

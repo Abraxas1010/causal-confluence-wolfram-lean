@@ -1,0 +1,8 @@
+{"plugins": [],
+ "options": {},
+ "name": "HeytingLean.MiniC.Semantics",
+ "isModule": false,
+ "importArts":
+ {"HeytingLean.MiniC.Syntax":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/MiniC/Syntax.olean"]},
+ "dynlibs": []}

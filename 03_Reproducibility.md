@@ -12,10 +12,18 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram.sh
 ```
 
+If you are offline but already have dependencies present under `RESEARCHER_BUNDLE/.lake/packages/`, you can skip `lake update`:
+
+```bash
+cd RESEARCHER_BUNDLE
+WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
+```
+
 This performs:
 - `lake update` (fetch pinned dependencies)
-- Strict build with `-Dno_sorry -DwarningAsError=true`
+- Strict build with `-DwarningAsError=true` (treats proof holes as errors)
 - Runs `wolfram_multiway_demo` for both CE1 and CE2
+- Runs `wolfram_bundle_demo` to emit LambdaIR → MiniC → C and compiles the emitted C program
 - Greps for `axiom`/`sorry`/`admit` in sources
 - Generates SHA256 checksums
 - Collects compiler artifacts (`.olean`, IR)
@@ -41,14 +49,14 @@ From repo root:
 
 ```bash
 cd lean
-lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -Dno_sorry -DwarningAsError=true
+lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -DwarningAsError=true
 ```
 
 ## Build the full library strictly (incremental)
 
 ```bash
 cd lean
-lake build -- -Dno_sorry -DwarningAsError=true
+lake build -- -DwarningAsError=true
 ```
 
 ## Build all executables (C backend + linking)
@@ -119,7 +127,8 @@ This generates `wolfram_proofs.json` and `wolfram_proofs_data.js` for the 2D/3D 
 
 From the repo root:
 
-1. `cd lean && lake build -- -Dno_sorry -DwarningAsError=true`
+1. `cd lean && lake build -- -DwarningAsError=true`
+   - (This flag makes `sorry` a hard error, since `sorry` emits a warning.)
 2. `./scripts/build_all_exes.sh --strict`
 3. `./scripts/run_all_exes.sh`
 4. `./scripts/qa_robustness_all.sh`

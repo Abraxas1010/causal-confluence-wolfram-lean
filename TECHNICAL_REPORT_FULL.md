@@ -542,7 +542,7 @@ From the `RESEARCHER_BUNDLE/` directory:
 
 This performs:
 1. `lake update` (fetch pinned dependencies)
-2. Strict build with `-Dno_sorry -DwarningAsError=true`
+2. Strict build with `-DwarningAsError=true`
 3. Runs `wolfram_multiway_demo` for both CE1 and CE2
 4. Greps for `axiom`/`sorry`/`admit` in sources
 5. Generates SHA256 checksums
@@ -552,7 +552,7 @@ This performs:
 All proofs pass strict verification:
 ```bash
 cd RESEARCHER_BUNDLE
-lake build -- -Dno_sorry -DwarningAsError=true
+lake build -- -DwarningAsError=true
 ```
 
 ### 9.3 Marker Scans
@@ -748,7 +748,7 @@ theorem wpp_stepStar_iff_stepStar :
 ./scripts/verify_wolfram.sh
 
 # Manual strict build
-lake build -- -Dno_sorry -DwarningAsError=true
+lake build -- -DwarningAsError=true
 
 # Check for forbidden markers
 rg "\b(sorry|admit)\b" --type lean HeytingLean/

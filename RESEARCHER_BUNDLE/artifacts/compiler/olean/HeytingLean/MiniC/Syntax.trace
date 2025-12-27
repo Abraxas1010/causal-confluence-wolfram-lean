@@ -1,0 +1,27 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["9019296161474726862"],
+  "i": "12281497990135527411",
+  "c": "13985779854407035568"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Cli/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/plausible/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/aesop/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Qq/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/batteries/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/MiniC/Syntax.lean -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/MiniC/Syntax.olean -i /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/MiniC/Syntax.ilean -c /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/MiniC/Syntax.c --setup /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/MiniC/Syntax.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["HeytingLean.MiniC.Syntax:deps",
+   [["deps",
+     [["WolframBundle/HeytingLean:extraDep",
+       [["@WolframBundle:extraDep", "1723"]]],
+      ["imports", "1723"]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
+   "1165570713881806064"],
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/MiniC/Syntax.lean",
+   "6412535375418687799"],
+  ["options", "1723"],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "2509537059293543438"}
