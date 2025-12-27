@@ -177,6 +177,7 @@ enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
 2. **Build and deployment** → **Source:** “Deploy from a branch”
 3. Select **Branch:** `main` and **Folder:** `/ (root)` and save
 4. After Pages publishes, open:
+   - `https://<user>.github.io/<repo>/` (landing page)
    - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html`
    - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html`
    - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
