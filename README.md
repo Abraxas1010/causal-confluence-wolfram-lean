@@ -2,7 +2,10 @@
 
 <p align="center">
   <strong>Machine-checked proof that confluence and causal invariance are independent properties</strong><br/>
-  <em>Lean 4 formalization of Piskunov's 2020 counterexamples for Wolfram Physics / SetReplace systems</em>
+  <em>
+    Lean 4 formalization of Piskunov's 2020 counterexamples for Wolfram Physics / SetReplace systems
+    + a Wolfram Physics Project WM148 causal-invariance case study (fresh-vertex semantics)
+  </em>
 </p>
 
 <p align="center">
@@ -15,6 +18,15 @@
 ---
 
 Part of the broader HeytingLean formal verification project: https://apoth3osis.io
+
+## What’s New (WM148)
+
+This repo now also includes a Wolfram Physics Project example **WM148**:
+
+- rule: `{{x,y}} → {{x,y},{y,z}}` (one fresh vertex `z`)
+- semantics: explicit fresh allocation + equivalence up to vertex renaming (`HGraph.Iso`)
+- mechanized theorem: `WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`
+- executable demo: `lake exe wolfram_wm148_demo` (emits bounded multiway JSON)
 
 ## The Independence Theorem
 
