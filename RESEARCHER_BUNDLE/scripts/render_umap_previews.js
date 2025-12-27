@@ -10,6 +10,7 @@
  * Outputs:
  *   - artifacts/visuals/wolfram_2d_preview.svg
  *   - artifacts/visuals/wolfram_3d_preview.svg
+ *   - artifacts/visuals/wolfram_3d_preview_animated.svg
  *
  * This is intentionally dependency-free (Node stdlib only), so that the bundle remains easy
  * to reproduce in hostile environments.
@@ -159,6 +160,136 @@ function rotateY([x, y, z], a) {
   return [x * ca + z * sa, y, -x * sa + z * ca];
 }
 
+function render3dAnimated({ data, outPath }) {
+  const items = data.items ?? [];
+
+  const width = 1500;
+  const height = 900;
+  const background = "#0b0f14";
+
+  const margin = 50;
+  const plotW = width - margin * 2;
+  const plotH = height - margin * 2;
+
+  const pitch = 0.48;
+  const cameraDist = 3.0;
+
+  const frames = 72; // smooth but still lightweight
+  const durSec = 14; // slow rotation
+
+  // Normalize pos3 to centered cube [-1,1]^3 using the full data range.
+  const p3s = items.map((it) => it.pos3).filter(Boolean);
+  if (!p3s.length) {
+    fail(`cannot render animated 3D preview: no pos3 coordinates present`);
+  }
+
+  let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9, minz = 1e9, maxz = -1e9;
+  for (const p of p3s) {
+    minx = Math.min(minx, p.x); maxx = Math.max(maxx, p.x);
+    miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y);
+    minz = Math.min(minz, p.z); maxz = Math.max(maxz, p.z);
+  }
+  const cx = (minx + maxx) / 2;
+  const cy = (miny + maxy) / 2;
+  const cz = (minz + maxz) / 2;
+  const scale = 2 / Math.max(1e-6, (maxx - minx), (maxy - miny), (maxz - minz));
+
+  const xyz = items.map((it) => {
+    const p = it.pos3;
+    if (!p) return null;
+    return { x: (p.x - cx) * scale, y: (p.y - cy) * scale, z: (p.z - cz) * scale };
+  });
+
+  function projectAtYaw(yaw) {
+    return xyz.map((p) => {
+      if (!p) return null;
+      let v = [p.x, p.y, p.z];
+      v = rotateY(v, yaw);
+      v = rotateX(v, pitch);
+      const [rx, ry, rz] = v;
+      const s = cameraDist / (cameraDist - rz);
+      return { x: rx * s, y: ry * s, z: rz };
+    });
+  }
+
+  // Precompute projections for all frames (plus a closing frame at 2π).
+  const projFrames = [];
+  for (let t = 0; t <= frames; t++) {
+    const yaw = (2 * Math.PI * t) / frames;
+    projFrames.push(projectAtYaw(yaw));
+  }
+
+  // Global bounds across all frames to avoid jittering scale.
+  let gminX = 1e9, gmaxX = -1e9, gminY = 1e9, gmaxY = -1e9, gminZ = 1e9, gmaxZ = -1e9;
+  for (const frame of projFrames) {
+    for (const p of frame) {
+      if (!p) continue;
+      gminX = Math.min(gminX, p.x); gmaxX = Math.max(gmaxX, p.x);
+      gminY = Math.min(gminY, p.y); gmaxY = Math.max(gmaxY, p.y);
+      gminZ = Math.min(gminZ, p.z); gmaxZ = Math.max(gmaxZ, p.z);
+    }
+  }
+
+  const invX = 1 / (gmaxX - gminX || 1);
+  const invY = 1 / (gmaxY - gminY || 1);
+  const invZ = 1 / (gmaxZ - gminZ || 1);
+
+  function toCanvas(p) {
+    const nx = (p.x - gminX) * invX;
+    const ny = (p.y - gminY) * invY;
+    const nz = (p.z - gminZ) * invZ;
+    const x = margin + nx * plotW;
+    const y = margin + (1 - ny) * plotH;
+    return { x, y, z: nz };
+  }
+
+  // For each node, build cx/cy/r keyframes.
+  const cxValues = Array.from({ length: items.length }, () => []);
+  const cyValues = Array.from({ length: items.length }, () => []);
+  const rValues = Array.from({ length: items.length }, () => []);
+
+  for (const frame of projFrames) {
+    for (let i = 0; i < items.length; i++) {
+      const p = frame[i];
+      if (!p) {
+        cxValues[i].push("");
+        cyValues[i].push("");
+        rValues[i].push("");
+        continue;
+      }
+      const c = toCanvas(p);
+      const r = 2.4 + 4.2 * (c.z ?? 0);
+      cxValues[i].push(c.x.toFixed(2));
+      cyValues[i].push(c.y.toFixed(2));
+      rValues[i].push(r.toFixed(2));
+    }
+  }
+
+  let body = "";
+  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">UMAP 3D — animated preview (rotation)</text>\n`;
+  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Nonlinear visualization aid (not a formal invariant) • For interactive view open wolfram_3d.html</text>\n`;
+  body += `<rect x="${margin}" y="${margin}" width="${plotW}" height="${plotH}" fill="#0f1721" stroke="#1c2a3a" stroke-width="1"/>\n`;
+
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    const fam = it.family ?? "Other";
+    const col = colorForFamily(fam).fill;
+
+    // If a point is missing coordinates, skip it entirely.
+    if (!cxValues[i][0] || !cyValues[i][0]) continue;
+
+    body += `<circle cx="${cxValues[i][0]}" cy="${cyValues[i][0]}" r="${rValues[i][0]}" fill="${col}" fill-opacity="0.92" stroke="#0b0f14" stroke-width="1">\n`;
+    body += `  <title>${esc(it.name ?? it.id ?? "item")}</title>\n`;
+    body += `  <animate attributeName="cx" dur="${durSec}s" repeatCount="indefinite" values="${cxValues[i].join(";")}"/>\n`;
+    body += `  <animate attributeName="cy" dur="${durSec}s" repeatCount="indefinite" values="${cyValues[i].join(";")}"/>\n`;
+    body += `  <animate attributeName="r" dur="${durSec}s" repeatCount="indefinite" values="${rValues[i].join(";")}"/>\n`;
+    body += `</circle>\n`;
+  }
+
+  const svg = svgDoc({ width, height, background, body });
+  fs.writeFileSync(outPath, svg, "utf8");
+}
+
 function render3d({ data, outPath }) {
   const items = data.items ?? [];
   const edges = data.edges ?? [];
@@ -280,6 +411,10 @@ function main() {
     process.argv[4] ??
     path.join(root, "artifacts", "visuals", "wolfram_3d_preview.svg");
 
+  const out3dAnimated =
+    process.argv[5] ??
+    path.join(root, "artifacts", "visuals", "wolfram_3d_preview_animated.svg");
+
   if (!fs.existsSync(jsonPath)) {
     fail(`missing input: ${jsonPath}`);
   }
@@ -292,9 +427,9 @@ function main() {
 
   render2d({ data, outPath: out2d });
   render3d({ data, outPath: out3d });
+  render3dAnimated({ data, outPath: out3dAnimated });
 
-  console.log(`[render_umap_previews] wrote:\n- ${out2d}\n- ${out3d}`);
+  console.log(`[render_umap_previews] wrote:\n- ${out2d}\n- ${out3d}\n- ${out3dAnimated}`);
 }
 
 main();
-

@@ -160,7 +160,7 @@ Explore the proof structure in 2D and 3D:
 <strong>3D Proof Map</strong><br/>
 <em>Rotate, zoom, explore clusters</em><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
-  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview.svg" alt="UMAP 3D preview" width="100%"/>
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview_animated.svg" alt="UMAP 3D animated preview" width="100%"/>
 </a><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
 </td>
@@ -177,6 +177,7 @@ Explore the proof structure in 2D and 3D:
 - Only *local neighborhoods* are intended to be meaningful; global distances/cluster geometry are not proof-theoretic invariants.
 - The layout depends on hyperparameters and a random seed; reruns can rotate/warp the embedding while preserving similar local structure.
 - Treat these maps as navigational aids; the formal guarantee is always the Lean kernel check, not the embedding.
+- GitHub README pages block embedded iframes/WebGL; the README shows a lightweight animated SVG preview, while the full interactive 3D viewer is on GitHub Pages.
 
 Also available: [Interactive Multiway Viewer](https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
 
