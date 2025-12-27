@@ -166,7 +166,7 @@ Explore the proof structure in 2D and 3D:
 - Click nodes to see theorem details, file location, and code snippets
 - kNN edges show proof similarity relationships
 
-Also available: [Interactive Multiway Viewer](RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
+Also available: [Interactive Multiway Viewer](https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
 
 ### GitHub Pages (rendered HTML)
 
