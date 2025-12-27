@@ -13,7 +13,7 @@ AXIOMS_OUT="reports/AXIOMS_PRINT.txt"
 SHA_OUT="reports/SHA256SUMS.txt"
 GITCFG="reports/GITCONFIG_EFFECTIVE.txt"
 
-STRICT_FLAGS=(-- -DwarningAsError=true -Dweak.no_sorry=true)
+STRICT_FLAGS=(-- -DwarningAsError=true -Dno sorry)
 
 echo "[verify_wolfram] root=$ROOT_DIR" | tee "$TRANSCRIPT"
 

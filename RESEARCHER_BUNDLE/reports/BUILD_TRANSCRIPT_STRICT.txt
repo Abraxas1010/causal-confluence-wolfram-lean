@@ -18,9 +18,10 @@ GIT_CONFIG_NOSYSTEM=1
 # no URL rewrites
 
 [lake] update
-skipping: WOLFRAM_SKIP_UPDATE=1
+info: toolchain not updated; already up-to-date
+info: mathlib: running post-update hooks
 
-[strict_flags] -- -DwarningAsError=true -Dweak.no_sorry=true
+[strict_flags] -- -DwarningAsError=true -Dno sorry
 
 [lake] build Wolfram modules (strict)
 Build completed successfully (422 jobs).
@@ -30,8 +31,6 @@ Build completed successfully (583 jobs).
 Build completed successfully (711 jobs).
 Build completed successfully (582 jobs).
 Build completed successfully (1416 jobs).
-✔ [29/30] Built HeytingLean.CLI.WolframBundleDemoMain:c.o (361ms)
-✔ [30/30] Built wolfram_bundle_demo:exe (986ms)
 Build completed successfully (30 jobs).
 
 [run] wolfram_multiway_demo (CE1 default)
@@ -69,23 +68,23 @@ wpp_add1 output=42
 [demo] runNatFunFrag wpp_add1(41) = some 42
 
 [portability] dynamic deps (best effort)
-	linux-vdso.so.1 (0x00007ffcb9e84000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007a0e1e600000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007a0e28538000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007a0e28522000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007a0e2851d000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007a0e28518000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007a0e1e919000)
-	linux-vdso.so.1 (0x00007fff008bb000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000754577c00000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000754578742000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x000075457872c000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000754578727000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000754578722000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000754577f19000)
-	linux-vdso.so.1 (0x00007ffc805dc000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e9122800000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007e9122b56000)
+	linux-vdso.so.1 (0x00007fff931b2000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007c671b200000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007c67250b4000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007c672509e000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007c6725099000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007c6725094000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007c671b519000)
+	linux-vdso.so.1 (0x00007ffc74296000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007b1c8f200000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007b1c8fd3d000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007b1c8fd27000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007b1c8fd22000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007b1c8fd1d000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007b1c8f519000)
+	linux-vdso.so.1 (0x00007ffdec7fe000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000079a035a00000)
+	/lib64/ld-linux-x86-64.so.2 (0x000079a035d2e000)
 
 [audit] print axioms (kernel footprint)
 HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :
