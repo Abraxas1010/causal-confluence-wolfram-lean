@@ -82,12 +82,26 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram.sh
 ```
 
+This runs strict builds, runs the Wolfram multiway demo, and also emits + checks a small certified
+**LambdaIR → MiniC → C** compilation artifact (see `RESEARCHER_BUNDLE/artifacts/compiler/`).
+
 ### Run the Demo
 
 ```bash
 cd lean
 lake exe wolfram_multiway_demo              # CE1 (default)
 lake exe wolfram_multiway_demo -- --sys ce2  # CE2
+```
+
+### Emit Verified Compiler Artifacts (LambdaIR → C)
+
+From the standalone bundle:
+
+```bash
+cd RESEARCHER_BUNDLE
+lake exe wolfram_bundle_demo
+cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_add1
+./artifacts/compiler/bin/wpp_add1   # expected output: 42
 ```
 
 ---
@@ -137,12 +151,12 @@ Explore the proof structure in 2D and 3D:
 <td align="center" width="50%">
 <strong>2D Proof Map</strong><br/>
 <em>Pan, zoom, search declarations</em><br/>
-<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a>
+<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (local)
 </td>
 <td align="center" width="50%">
 <strong>3D Proof Map</strong><br/>
 <em>Rotate, zoom, explore clusters</em><br/>
-<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a>
+<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (local)
 </td>
 </tr>
 </table>
@@ -153,6 +167,19 @@ Explore the proof structure in 2D and 3D:
 - kNN edges show proof similarity relationships
 
 Also available: [Interactive Multiway Viewer](RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
+
+### GitHub Pages (rendered HTML)
+
+GitHub will show HTML files as source code when clicked inside the repo browser. To get clickable, rendered versions,
+enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
+
+1. GitHub repo → **Settings** → **Pages**
+2. **Build and deployment** → **Source:** “Deploy from a branch”
+3. Select **Branch:** `main` and **Folder:** `/ (root)` and save
+4. After Pages publishes, open:
+   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html`
+   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html`
+   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
 
 ---
 

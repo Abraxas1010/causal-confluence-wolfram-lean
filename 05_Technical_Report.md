@@ -23,6 +23,8 @@ This report is written to be readable by a category-/rewriting-/Wolfram-physics 
    - enumeration-free (`Prop`-level) interface, for infinite state spaces.
 5. Ship a **researcher bundle** (`WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE`) with pinned toolchain + scripts + artifacts.
 6. Provide **offline visuals** suitable for sharing and inspection without installing the full repo.
+7. Provide a minimal, independently verifiable **proof → program** artifact: emit and check a small certified **LambdaIR → C**
+   compilation output inside the researcher bundle (C backend + linking exercised, and the emitted C is compiled and run).
 
 ### QA/Process Constraints (from `AGENTS.md`)
 

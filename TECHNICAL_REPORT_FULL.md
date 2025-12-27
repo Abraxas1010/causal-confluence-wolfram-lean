@@ -544,8 +544,9 @@ This performs:
 1. `lake update` (fetch pinned dependencies)
 2. Strict build with `-DwarningAsError=true`
 3. Runs `wolfram_multiway_demo` for both CE1 and CE2
-4. Greps for `axiom`/`sorry`/`admit` in sources
-5. Generates SHA256 checksums
+4. Runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C) and compiles/runs the emitted C
+5. Greps for `axiom`/`sorry`/`admit` in sources
+6. Generates SHA256 checksums
 
 ### 9.2 Strict Build Requirements
 
@@ -604,7 +605,17 @@ Outputs JSON containing:
 - Branchial edges (sibling connections)
 - Path counts per state per depth
 
-### 10.2 Pre-Generated Artifacts
+### 10.2 Certified Compiler Artifacts (LambdaIR → C)
+
+The bundle also includes a minimal, independently verifiable “proof → program” artifact:
+
+- `wolfram_bundle_demo` emits:
+  - `artifacts/compiler/ir/wpp_add1.lambdair.txt`
+  - `artifacts/compiler/ir/wpp_add1.minic.txt`
+  - `artifacts/compiler/c/wpp_add1.c`
+- `verify_wolfram.sh` then compiles the emitted C via `cc` and runs it (expected output: `42`).
+
+### 10.3 Pre-Generated Artifacts
 
 Located in `artifacts/`:
 
