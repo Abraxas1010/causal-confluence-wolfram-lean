@@ -43,14 +43,15 @@
         <div class="card">
           <h2>3D Viewer</h2>
           <p class="muted">Drag to rotate, wheel to zoom, hover/click nodes.</p>
-          <p>
-            <a href="./wolfram_3d.html"
-              ><img
-                src="./wolfram_3d_preview.svg"
-                alt="UMAP 3D preview"
-                style="width: 100%; max-width: 520px; border: 1px solid #1c2a3a; border-radius: 10px"
-            /></a>
-          </p>
+          <div style="margin: 0.5rem 0 0.75rem">
+            <iframe
+              src="./wolfram_3d.html?embed=1"
+              title="UMAP 3D interactive preview"
+              style="width: 100%; height: 320px; border: 1px solid #1c2a3a; border-radius: 10px"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <p class="muted">If WebGL is unavailable: <a href="./wolfram_3d_preview.svg">static preview</a>.</p>
           <p><a href="./wolfram_3d.html">Open <code>wolfram_3d.html</code></a></p>
         </div>
       </div>
