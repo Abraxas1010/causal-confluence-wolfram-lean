@@ -1,0 +1,70 @@
+digraph WL_Crosscheck {
+  graph [
+    bgcolor="#0b0f14",
+    rankdir=LR,
+    fontname="Helvetica",
+    fontsize=12,
+    pad="0.2"
+  ];
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#0f1721",
+    color="#1c2a3a",
+    fontname="Helvetica",
+    fontsize=11,
+    fontcolor="#e6eef7",
+    margin="0.10,0.06"
+  ];
+  edge [
+    color="#8ab4f8",
+    fontname="Helvetica",
+    fontsize=10,
+    fontcolor="#b8c7d9",
+    arrowsize=0.7
+  ];
+
+  subgraph cluster_lean {
+    label="Lean side (authoritative semantics)";
+    color="#1c2a3a";
+    fontcolor="#b8c7d9";
+    style="rounded";
+    leanExe [label="`lake exe wolfram_multiway_demo`\n(CE1 / CE2 bounded multiway JSON)"];
+    leanJSON [label="artifacts/generated_ce1.json\nartifacts/generated_ce2.json", fillcolor="#0b1320"];
+    leanExe -> leanJSON [label="emit"];
+  }
+
+  subgraph cluster_wl {
+    label="Wolfram Language side (independent replication)";
+    color="#1c2a3a";
+    fontcolor="#b8c7d9";
+    style="rounded";
+
+    wlScript [label="tools/wolfram_ce1_ce2.wl\n(WL reference implementation)"];
+
+    subgraph cluster_runtime {
+      label="WL runtime (choose one)";
+      color="#1c2a3a";
+      fontcolor="#b8c7d9";
+      style="rounded,dashed";
+      wolframscript [label="Wolfram Engine\n`wolframscript` (preferred if installed)"];
+      mathics [label="Mathics3 (open-source)\n`mathics` (fallback)"];
+    }
+
+    wlJSON [label="artifacts/wl_generated_ce1.json\nartifacts/wl_generated_ce2.json", fillcolor="#0b1320"];
+
+    wolframscript -> wlScript [label="Get[...]"];
+    mathics -> wlScript [label="Get[...]"];
+    wlScript -> wlJSON [label="print/export JSON"];
+  }
+
+  verifier [label="scripts/verify_wolfram_wl.sh\n(WL↔Lean JSON equivalence check)"];
+  canon [label="python3 canonicalize + compare\n(sort object keys; preserve list order)", fillcolor="#0b1320"];
+  ok [label="OK: CE1/CE2 JSON matches exactly", shape=box, fillcolor="#14311e", color="#2a6d44"];
+
+  leanJSON -> verifier;
+  wlJSON -> verifier;
+  verifier -> canon;
+  canon -> ok;
+}
+

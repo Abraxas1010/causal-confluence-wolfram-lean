@@ -53,3 +53,7 @@ If you have `wolframscript` installed (Wolfram Engine) **or** `mathics` installe
 you can run an automated check:
 
 - `./scripts/verify_wolfram_wl.sh`
+
+Pipeline diagram (static):
+
+- `artifacts/visuals/wl_crosscheck_pipeline.svg`

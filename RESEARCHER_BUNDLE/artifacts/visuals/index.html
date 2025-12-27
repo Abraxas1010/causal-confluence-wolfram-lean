@@ -78,6 +78,28 @@
       </div>
 
       <div class="card" style="margin-top:12px">
+        <h2>Wolfram Language Cross-Check (Mathics / Wolfram Engine)</h2>
+        <p class="muted">
+          The bundle includes a Wolfram Language implementation of the CE1/CE2 bounded multiway JSON,
+          and an automated WL↔Lean equivalence check that runs on either <code>wolframscript</code> or the open-source
+          <code>mathics</code> runtime.
+        </p>
+        <p>
+          <a href="./wl_crosscheck_pipeline.svg"
+            ><img
+              src="./wl_crosscheck_pipeline.svg"
+              alt="WL cross-check pipeline"
+              style="width: 100%; max-width: 820px; border: 1px solid #1c2a3a; border-radius: 10px"
+          /></a>
+        </p>
+        <ul>
+          <li><a href="./wl_crosscheck_pipeline.svg">Pipeline diagram (SVG)</a> / <a href="./wl_crosscheck_pipeline.dot">GraphViz source (DOT)</a></li>
+          <li><code>tools/wolfram_ce1_ce2.wl</code> (WL reference implementation)</li>
+          <li><code>scripts/verify_wolfram_wl.sh</code> (automated equality check)</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
         <h2>Key Theorems (Proof DAGs)</h2>
         <ul>
           <li><code>confluence_causal_invariance_independent</code> — Main independence theorem</li>

@@ -38,6 +38,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`
 - `artifacts/wolfram_viewer.html` (offline viewer)
 - `artifacts/visuals/` (GraphViz DOT + SVG exports)
+- `artifacts/visuals/wl_crosscheck_pipeline.svg` (WL cross-check pipeline diagram)
 - `tools/wolfram_ce1_ce2.wl` (Wolfram Language replication of CE1/CE2 JSON)
 - `scripts/verify_wolfram_wl.sh` (optional automated WL cross-check; skips if no WL runtime is installed)
 - `artifacts/compiler/ir/wpp_add1.lambdair.txt`

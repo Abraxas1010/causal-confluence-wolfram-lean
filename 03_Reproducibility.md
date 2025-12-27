@@ -114,6 +114,10 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram_wl.sh
 ```
 
+Visual reference:
+
+- `RESEARCHER_BUNDLE/artifacts/visuals/wl_crosscheck_pipeline.svg`
+
 ## Robustness checks (missing files/env/PATH)
 
 ```bash

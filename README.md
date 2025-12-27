@@ -141,6 +141,10 @@ cd RESEARCHER_BUNDLE
 ./scripts/verify_wolfram_wl.sh
 ```
 
+See also the (static) pipeline diagram:
+
+- `RESEARCHER_BUNDLE/artifacts/visuals/wl_crosscheck_pipeline.svg`
+
 ---
 
 ## Key Theorems
