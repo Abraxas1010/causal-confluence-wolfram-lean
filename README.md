@@ -151,12 +151,12 @@ Explore the proof structure in 2D and 3D:
 <td align="center" width="50%">
 <strong>2D Proof Map</strong><br/>
 <em>Pan, zoom, search declarations</em><br/>
-<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (local)
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (GitHub Pages)
 </td>
 <td align="center" width="50%">
 <strong>3D Proof Map</strong><br/>
 <em>Rotate, zoom, explore clusters</em><br/>
-<a href="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (local)
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
 </td>
 </tr>
 </table>
@@ -177,10 +177,10 @@ enable GitHub Pages for the Wolfram PaperPack repository and use the Pages URL:
 2. **Build and deployment** → **Source:** “Deploy from a branch”
 3. Select **Branch:** `main` and **Folder:** `/ (root)` and save
 4. After Pages publishes, open:
-   - `https://<user>.github.io/<repo>/` (landing page)
-   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html`
-   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html`
-   - `https://<user>.github.io/<repo>/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
+   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/` (landing page)
+   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html`
+   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html`
+   - `https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
 
 ---
 
