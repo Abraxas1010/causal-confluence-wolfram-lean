@@ -151,11 +151,17 @@ Explore the proof structure in 2D and 3D:
 <td align="center" width="50%">
 <strong>2D Proof Map</strong><br/>
 <em>Pan, zoom, search declarations</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d_preview.svg" alt="UMAP 2D preview" width="100%"/>
+</a><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_2d.html">wolfram_2d.html</a> (GitHub Pages)
 </td>
 <td align="center" width="50%">
 <strong>3D Proof Map</strong><br/>
 <em>Rotate, zoom, explore clusters</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview.svg" alt="UMAP 3D preview" width="100%"/>
+</a><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
 </td>
 </tr>
@@ -165,6 +171,12 @@ Explore the proof structure in 2D and 3D:
 - Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
 - Click nodes to see theorem details, file location, and code snippets
 - kNN edges show proof similarity relationships
+
+**UMAP note (interpretation + limitations):**
+- UMAP is a non-linear projection of high-dimensional feature vectors into 2D/3D; here the features are derived from Lean source text statistics and structural signals.
+- Only *local neighborhoods* are intended to be meaningful; global distances/cluster geometry are not proof-theoretic invariants.
+- The layout depends on hyperparameters and a random seed; reruns can rotate/warp the embedding while preserving similar local structure.
+- Treat these maps as navigational aids; the formal guarantee is always the Lean kernel check, not the embedding.
 
 Also available: [Interactive Multiway Viewer](https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html) for exploring CE1/CE2 graph evolution.
 
