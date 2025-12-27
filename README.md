@@ -123,6 +123,7 @@ This runs strict builds, runs the Wolfram multiway demo, and also emits + checks
 cd lean
 lake exe wolfram_multiway_demo              # CE1 (default)
 lake exe wolfram_multiway_demo -- --sys ce2  # CE2
+lake exe wolfram_wm148_demo                 # WM148 (fresh-vertex semantics; bounded multiway JSON)
 ```
 
 ### Emit Verified Compiler Artifacts (LambdaIR → C)

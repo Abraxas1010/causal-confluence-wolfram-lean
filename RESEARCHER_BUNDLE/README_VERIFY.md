@@ -23,6 +23,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - strict builds (warnings as errors; proof-hole markers are forbidden)
 - builds and runs `wolfram_multiway_demo`
 - builds and runs `wolfram_bundle_demo` (emits LambdaIR → MiniC → C)
+- builds and runs `wolfram_wm148_demo` (WM148 bounded multiway; fresh-vertex semantics)
 - optional: if `wolframscript` **or** `mathics` is available, runs a Wolfram Language cross-check for CE1/CE2 JSON
 - compiles and runs the emitted C program (`cc`, then run output check)
 - grep audit for `axiom`/`sorry`/`admit` in the bundle Lean sources
@@ -35,7 +36,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - `reports/GREP_AXIOM_SORRY_ADMIT.txt`
 - `reports/SHA256SUMS.txt`
 - `reports/Wolfram_TECHNICAL_REPORT.md`
-- `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`
+- `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`, `artifacts/generated_wm148.json`
 - `artifacts/wolfram_viewer.html` (offline viewer)
 - `artifacts/visuals/` (GraphViz DOT + SVG exports)
 - `artifacts/visuals/wl_crosscheck_pipeline.svg` (WL cross-check pipeline diagram)

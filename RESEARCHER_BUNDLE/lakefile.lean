@@ -36,3 +36,6 @@ lean_exe wolfram_multiway_demo where
 
 lean_exe wolfram_bundle_demo where
   root := `HeytingLean.CLI.WolframBundleDemoMain
+
+lean_exe wolfram_wm148_demo where
+  root := `HeytingLean.CLI.WolframWM148Main

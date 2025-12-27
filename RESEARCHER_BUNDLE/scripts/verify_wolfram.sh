@@ -73,6 +73,9 @@ EOF
   lake build HeytingLean.WPP.MultiwayRel "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.FreshSupply "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.RewriteFresh "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.CausalInvarianceSingleLHS "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.WM148 "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.WM148CausalInvariant "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.SimpleHypergraph "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.MultiwayBridge "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.MultiwayRel "${STRICT_FLAGS[@]}"
@@ -81,12 +84,15 @@ EOF
   lake build HeytingLean.WPP.Wolfram.CausalGraphLabeled "${STRICT_FLAGS[@]}"
   lake build wolfram_multiway_demo "${STRICT_FLAGS[@]}"
   lake build wolfram_bundle_demo "${STRICT_FLAGS[@]}"
+  lake build wolfram_wm148_demo "${STRICT_FLAGS[@]}"
 
   echo
   echo "[run] wolfram_multiway_demo (CE1 default)"
   lake exe wolfram_multiway_demo > artifacts/generated_ce1.json
   echo "[run] wolfram_multiway_demo (CE2)"
   lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2 > artifacts/generated_ce2.json
+  echo "[run] wolfram_wm148_demo (WM148 bounded multiway)"
+  lake exe wolfram_wm148_demo > artifacts/generated_wm148.json
 
   echo
   echo "[run] wolfram_bundle_demo (LambdaIR → MiniC → C artifacts)"
@@ -126,6 +132,7 @@ EOF
   echo
   echo "[robustness] minimal environment"
   env -i PATH="" "$ROOT_DIR/.lake/build/bin/wolfram_bundle_demo" || exit 1
+  env -i PATH="" "$ROOT_DIR/.lake/build/bin/wolfram_wm148_demo" || exit 1
 
   echo
   echo "[robustness] unwritable artifacts/compiler (expect nonzero, no crash)"
@@ -145,6 +152,7 @@ EOF
   if command -v ldd >/dev/null 2>&1; then
     ldd "$ROOT_DIR/.lake/build/bin/wolfram_multiway_demo" | tee reports/LDD_wolfram_multiway_demo.txt
     ldd "$ROOT_DIR/.lake/build/bin/wolfram_bundle_demo" | tee reports/LDD_wolfram_bundle_demo.txt
+    ldd "$ROOT_DIR/.lake/build/bin/wolfram_wm148_demo" | tee reports/LDD_wolfram_wm148_demo.txt
     ldd "$ROOT_DIR/artifacts/compiler/bin/wpp_add1" | tee reports/LDD_wpp_add1.txt
   else
     echo "skipping: ldd not found"
