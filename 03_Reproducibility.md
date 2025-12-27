@@ -99,6 +99,13 @@ Compare to:
 - `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
 - `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
 
+If you have `wolframscript` installed, run the automated cross-check:
+
+```bash
+cd RESEARCHER_BUNDLE
+./scripts/verify_wolfram_wl.sh
+```
+
 ## Robustness checks (missing files/env/PATH)
 
 ```bash

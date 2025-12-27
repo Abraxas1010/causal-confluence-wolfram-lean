@@ -126,6 +126,13 @@ Compare against the Lean-produced files:
 - `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
 - `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
 
+If you have `wolframscript` installed, the bundle also provides an automated cross-check:
+
+```bash
+cd RESEARCHER_BUNDLE
+./scripts/verify_wolfram_wl.sh
+```
+
 ---
 
 ## Key Theorems

@@ -48,3 +48,7 @@ Compare the outputs to:
 
 - `artifacts/generated_ce1.json`
 - `artifacts/generated_ce2.json`
+
+If you have `wolframscript` installed, you can run an automated check:
+
+- `./scripts/verify_wolfram_wl.sh`

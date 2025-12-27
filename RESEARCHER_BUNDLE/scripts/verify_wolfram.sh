@@ -120,6 +120,10 @@ EOF
   fi
 
   echo
+  echo "[wolfram-language] CE1/CE2 cross-check (optional)"
+  ./scripts/verify_wolfram_wl.sh || exit 1
+
+  echo
   echo "[robustness] minimal environment"
   env -i PATH="" "$ROOT_DIR/.lake/build/bin/wolfram_bundle_demo" || exit 1
 
