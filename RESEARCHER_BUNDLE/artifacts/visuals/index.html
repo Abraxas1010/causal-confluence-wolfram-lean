@@ -89,6 +89,15 @@
         </ul>
       </div>
 
+      <div class="card" style="margin-top:12px">
+        <h2>UMAP Interpretation (Limitations)</h2>
+        <ul class="muted">
+          <li>UMAP is a non-linear projection of high-dimensional feature vectors (here: Lean source text features) into 2D/3D.</li>
+          <li>Only local neighborhoods are intended to be meaningful; global distances and cluster geometry are not proof-theoretic invariants.</li>
+          <li>Treat these maps as navigational aids; the formal guarantee is the Lean kernel check.</li>
+        </ul>
+      </div>
+
       <p class="muted" style="margin-top:14px">
         Data source: <code>wolfram_proofs.json</code> (UMAP over Lean source text features).
       </p>
