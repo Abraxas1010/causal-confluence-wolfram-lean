@@ -106,6 +106,26 @@ cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_ad
 ./artifacts/compiler/bin/wpp_add1   # expected output: 42
 ```
 
+### Run in Wolfram Language (optional)
+
+This repo ships a pure **Wolfram Language** script that reproduces the CE1/CE2 bounded multiway JSON
+output of `wolfram_multiway_demo`, for cross-checking against Wolfram/SetReplace tooling:
+
+- `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
+
+In Mathematica / Wolfram Engine:
+
+```wl
+Get["RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl"];
+Export["ce1_from_wl.json", CE1JSON[3], "JSON"];
+Export["ce2_from_wl.json", CE2JSON[2], "JSON"];
+```
+
+Compare against the Lean-produced files:
+
+- `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
+- `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
+
 ---
 
 ## Key Theorems

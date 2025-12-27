@@ -125,14 +125,14 @@ structure Rule (P : Type u) where
   lhs : HGraph P
   rhs : HGraph P
 ```
-A rule is parameterized by pattern vertices `P`. Application requires an injective substitution `σ : P → V`.
+A rule is parameterized by pattern vertices `P`. Application uses a substitution `σ : P → V` **not assumed injective**
+(SetReplace permits non-injective matches in general).
 
 **Definition (Event):**
 ```lean
 structure Event (sys : System V P) where
   idx : Fin sys.rules.length  -- which rule
   σ : P → V                    -- substitution
-  inj : Function.Injective σ   -- must be injective
 ```
 
 **Definition (Application):**
@@ -301,12 +301,16 @@ We use `List V` rather than `Finset V` because:
 - Self-loops are possible: `[1,1]` is valid
 - This matches SetReplace's representation
 
-**Choice: Injective Substitutions**
+**Choice: Substitutions (not assumed injective)**
 
-Pattern vertices must map injectively to concrete vertices:
-- `σ : P → V` with `Function.Injective σ`
-- This prevents "variable capture" pathologies
-- Matches Wolfram model conventions
+Wolfram/SetReplace rewriting permits **non-injective** matches `σ : P → V` in general, so the mechanization
+does not assume injectivity at the semantic level.
+
+When working in an injective-only regime, we recover it as a theorem under a clear invariant:
+
+- `HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs`:
+  under a “simple hypergraph” hypothesis (no repeated vertices in an edge), the standard finite rule-shapes used
+  in the CE development force `σ` to be injective.
 
 ### 5.3 Dependency Structure
 
@@ -699,7 +703,8 @@ This work:
 2. **Continuous limits**: Connect to differential geometry / spacetime metrics
 3. **Quantum mechanics**: Formalize branchial space and Hilbert space correspondences
 4. **Computational complexity**: Analyze decidability of causal invariance checking
-5. **Integration with SetReplace**: Verify correspondence with the Wolfram Language implementation
+5. **Wolfram Language cross-checks**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces CE1/CE2 bounded multiway JSON;
+   extend this to an automatic exporter for arbitrary systems and (optionally) SetReplace/WolframModel execution.
 
 ---
 

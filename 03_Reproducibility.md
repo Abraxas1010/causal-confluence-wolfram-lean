@@ -83,6 +83,22 @@ Or from repo root:
 scripts/run_all_exes.sh
 ```
 
+## Optional: Wolfram Language replication (no Lean required)
+
+If you have Mathematica / Wolfram Engine available, the researcher bundle includes a pure Wolfram Language script
+that reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`:
+
+```wl
+Get["RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl"];
+Export["ce1_from_wl.json", CE1JSON[3], "JSON"];
+Export["ce2_from_wl.json", CE2JSON[2], "JSON"];
+```
+
+Compare to:
+
+- `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
+- `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
+
 ## Robustness checks (missing files/env/PATH)
 
 ```bash

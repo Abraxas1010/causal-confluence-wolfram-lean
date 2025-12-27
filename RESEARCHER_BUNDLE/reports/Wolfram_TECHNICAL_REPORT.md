@@ -15,6 +15,8 @@ multiway/branchial structure).
 
 - `HeytingLean/WPP/Wolfram/*`
   - SetReplace-faithful hypergraph rewriting (`Rewrite.lean`)
+  - explicit fresh-vertex supply (`FreshSupply.lean`) + fresh rewrite semantics (`RewriteFresh.lean`)
+  - injective-WLOG lemma under a simple-hypergraph invariant (`SimpleHypergraph.lean`)
   - causal graphs (`CausalGraph.lean`, `CausalGraphLabeled.lean`)
   - rewriting theory scaffold (`ConfluenceTheory.lean`)
   - confluence vs causal invariance (CE1/CE2 + independence) (`ConfluenceCausalInvariance.lean`)
@@ -63,6 +65,7 @@ multiway/branchial structure).
 - `artifacts/visuals/` (DOT + SVG graphs; multiway/branchial/combined)
 - `artifacts/compiler/ir/` (LambdaIR + MiniC text artifacts)
 - `artifacts/compiler/c/` (emitted C)
+- `tools/wolfram_ce1_ce2.wl` (pure Wolfram Language replication of CE1/CE2 bounded multiway JSON)
 
 ---
 
@@ -72,7 +75,7 @@ multiway/branchial structure).
 
 - State: a multiset of vertex-lists (hyperedges).
 - Rule schema: LHS/RHS hypergraphs over pattern vertices.
-- Event: a rule index + injective substitution of pattern vertices into concrete ones.
+- Event: a rule index + substitution `σ : P → V` (**not assumed injective**; SetReplace permits non-injective matches).
 - One step: replace instantiated LHS by instantiated RHS (multiset `-` / `+`).
 
 ### 2.2 Terminating confluence vs causal invariance

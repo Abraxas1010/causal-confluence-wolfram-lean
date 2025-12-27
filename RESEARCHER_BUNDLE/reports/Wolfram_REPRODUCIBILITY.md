@@ -34,3 +34,17 @@ From this folder (requires `python3`; SVG rendering additionally uses GraphViz `
 1. `python3 scripts/wolfram_json_to_dot.py artifacts/generated_ce1.json artifacts/visuals/generated_ce1 --render-svg`
 2. `python3 scripts/wolfram_json_to_dot.py artifacts/generated_ce2.json artifacts/visuals/generated_ce2 --render-svg`
 3. Open `artifacts/wolfram_viewer.html` and load the JSON file(s).
+
+## Optional: Wolfram Language replication (no Lean required)
+
+If you have Mathematica / Wolfram Engine available, this bundle includes a pure Wolfram Language script that
+reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`:
+
+1. `Get["tools/wolfram_ce1_ce2.wl"];`
+2. `Export["ce1_from_wl.json", CE1JSON[3], "JSON"];`
+3. `Export["ce2_from_wl.json", CE2JSON[2], "JSON"];`
+
+Compare the outputs to:
+
+- `artifacts/generated_ce1.json`
+- `artifacts/generated_ce2.json`

@@ -58,7 +58,7 @@ No CI/CD configuration was added or changed.
 
 - An event chooses:
   - a rule index `idx : Fin sys.rules.length`, and
-  - an injective substitution `σ : P → V` with proof `inj : Function.Injective σ`.
+  - a substitution `σ : P → V` (**not assumed injective**; SetReplace permits non-injective matches in general).
 
 Applicability and execution:
 
@@ -69,6 +69,9 @@ Key Lean modules:
 
 - `HeytingLean.WPP.Wolfram.Hypergraph`
 - `HeytingLean.WPP.Wolfram.Rewrite`
+- `HeytingLean.WPP.Wolfram.FreshSupply` (explicit fresh-vertex supply, for rules that allocate new vertices)
+- `HeytingLean.WPP.Wolfram.RewriteFresh` (fresh-vertex rewrite semantics + α-equivalence up to renaming)
+- `HeytingLean.WPP.Wolfram.SimpleHypergraph` (injective-WLOG lemma under a “simple edges” invariant)
 
 ### 2.2 Causal graphs (SetReplace-style) + multiplicity-aware refinement
 
@@ -201,6 +204,10 @@ Two offline options are provided:
      - `*_multiway.dot/.svg`
      - `*_branchial.dot/.svg`
      - `*_combined.dot/.svg`
+
+3. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema):
+   - `WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
+   - `WIP/Wolfram_PaperPack/tools/wolfram_ce1_ce2.wl` (convenience loader)
 
 Pre-generated visuals are committed in:
 

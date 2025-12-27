@@ -37,6 +37,7 @@ WOLFRAM_SKIP_UPDATE=1 ./scripts/verify_wolfram.sh
 - `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`
 - `artifacts/wolfram_viewer.html` (offline viewer)
 - `artifacts/visuals/` (GraphViz DOT + SVG exports)
+- `tools/wolfram_ce1_ce2.wl` (Wolfram Language replication of CE1/CE2 JSON)
 - `artifacts/compiler/ir/wpp_add1.lambdair.txt`
 - `artifacts/compiler/ir/wpp_add1.minic.txt`
 - `artifacts/compiler/c/wpp_add1.c`

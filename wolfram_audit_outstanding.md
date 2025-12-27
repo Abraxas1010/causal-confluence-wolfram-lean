@@ -20,9 +20,15 @@ in the Lean proof tree.
   - SetReplace-faithful states: `Expr V := List V`, `HGraph V := Multiset (Expr V)`
   - vertex-renaming + `HGraph.Iso`
 - `lean/HeytingLean/WPP/Wolfram/Rewrite.lean`
-  - rule instantiation by injective substitution
+  - rule instantiation by substitution `σ : P → V` (**not assumed injective**; SetReplace permits non-injective matches)
   - **multi-rule** systems (SetReplace-style): `System.rules : List (Rule P)`
   - singleway evolutions + normal forms
+- `lean/HeytingLean/WPP/Wolfram/FreshSupply.lean`
+  - explicit fresh-vertex supply interface (`FreshSupply V`) for rules that allocate new vertices
+- `lean/HeytingLean/WPP/Wolfram/RewriteFresh.lean`
+  - rewrite semantics with fresh vertices + α-equivalence up to renaming
+- `lean/HeytingLean/WPP/Wolfram/SimpleHypergraph.lean`
+  - injective-WLOG lemma under a “simple edges” invariant
 - `lean/HeytingLean/WPP/Wolfram/CausalGraph.lean`
   - SetReplace causal graph (unlabeled edges): “created then destroyed”
 - `lean/HeytingLean/WPP/Wolfram/CausalGraphLabeled.lean`
@@ -83,6 +89,8 @@ Optional follow-ons (now implemented):
    (no bounded enumerator required).
 2. **Richer visuals**: offline HTML viewer and GraphViz exports are shipped in `Wolfram_PaperPack`
    and mirrored into the self-contained `RESEARCHER_BUNDLE`.
+3. **Wolfram Language cross-check**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces the CE1/CE2 bounded multiway JSON
+   format in pure Wolfram Language (no Lean required), enabling a side-by-side comparison in Wolfram tooling.
 
 ### C. Documentation debt (not a Lean blocker)
 

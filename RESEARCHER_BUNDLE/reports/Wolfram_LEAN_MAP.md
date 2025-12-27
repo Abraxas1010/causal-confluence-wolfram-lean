@@ -19,9 +19,18 @@ This is the concept-to-Lean map for the Wolfram/SetReplace formalization.
   - `HGraph.rename`, `HGraph.Iso`
 
 - `HeytingLean.WPP.Wolfram.Rewrite`
-  - rule schemas + instantiation by injective substitution
+  - rule schemas + instantiation by substitution `σ : P → V` (not assumed injective)
   - singleway evolution relation
   - normal forms / reachability
+
+- `HeytingLean.WPP.Wolfram.FreshSupply`
+  - explicit fresh-vertex supply interface (`FreshSupply V`)
+
+- `HeytingLean.WPP.Wolfram.RewriteFresh`
+  - rewrite semantics that allocate fresh vertices + α-equivalence up to renaming
+
+- `HeytingLean.WPP.Wolfram.SimpleHypergraph`
+  - injective-WLOG lemma under a “simple edges” invariant
 
 - `HeytingLean.WPP.Wolfram.CausalGraph`
   - causal graphs from a singleway evolution (“created then destroyed”)
