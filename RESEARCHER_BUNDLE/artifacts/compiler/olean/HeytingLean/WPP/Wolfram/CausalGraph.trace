@@ -20,9 +20,9 @@
          "10297562532197105038"],
         ["Mathlib.Data.Fintype.Card:importAllArts", "318393497711834677"],
         ["HeytingLean.WPP.Wolfram.Rewrite transitive imports (legacy)",
-         "12309565595085448294"],
+         "17456955115895444196"],
         ["HeytingLean.WPP.Wolfram.Rewrite:importAllArts",
-         "12148988806428743299"]]]]],
+         "16270716460178078027"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -34,4 +34,4 @@
    "16627113752684181324"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "15610684619773492034"}
+ "depHash": "11242386387161481427"}

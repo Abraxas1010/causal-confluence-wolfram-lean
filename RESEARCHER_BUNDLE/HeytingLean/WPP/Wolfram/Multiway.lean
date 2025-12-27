@@ -40,13 +40,6 @@ namespace EventData
 
 variable {sys}
 
-/-- The SetReplace-style injectivity constraint on substitutions. -/
-def Inj (ed : sys.EventData) : Prop := Function.Injective ed.2
-
-instance : DecidablePred (fun ed : sys.EventData => ed.Inj) := fun _ => by
-  dsimp [Inj]
-  infer_instance
-
 /-- Applicability of event data to a state: the instantiated LHS is a submultiset. -/
 def Applicable (ed : sys.EventData) (s : HGraph V) : Prop :=
   (sys.rules.get ed.1).instLhs ed.2 ≤ s
@@ -61,7 +54,7 @@ def apply (ed : sys.EventData) (s : HGraph V) : HGraph V :=
 
 end EventData
 
-/-- All injective substitutions `P → V` (finite enumerator). -/
+/-- All substitutions `P → V` (finite enumerator). -/
 def allSubsts : Finset (P → V) :=
   ((Finset.univ : Finset P).pi (fun _ : P => (Finset.univ : Finset V))).image (fun f a =>
     f a (by simp))
@@ -87,12 +80,12 @@ lemma mem_allInjSubsts_iff (σ : P → V) :
   have hmem : σ ∈ allSubsts (P := P) (V := V) := mem_allSubsts (P := P) (V := V) σ
   simp [System.allInjSubsts, hmem]
 
-/-- All event-data pairs (rule index × injective substitution). -/
+/-- All event-data pairs (rule index × substitution). -/
 def allEventData (sys : System V P) : Finset sys.EventData :=
-  (Finset.univ.product (allInjSubsts (P := P) (V := V)))
+  (Finset.univ.product (allSubsts (P := P) (V := V)))
 
 lemma mem_allEventData_iff {ed : sys.EventData} :
-    ed ∈ sys.allEventData ↔ ed.2 ∈ allInjSubsts (P := P) (V := V) := by
+    ed ∈ sys.allEventData ↔ ed.2 ∈ allSubsts (P := P) (V := V) := by
   simp [System.allEventData]
 
 /-- Outgoing edges from a state in the multiway graph (event-data labeled). -/

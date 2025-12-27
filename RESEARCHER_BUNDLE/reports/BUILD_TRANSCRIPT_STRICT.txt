@@ -25,12 +25,38 @@ info: mathlib: running post-update hooks
 
 [lake] build Wolfram modules (strict)
 Build completed successfully (422 jobs).
+✔ [615/616] Built Mathlib.Data.Vector.Mem (3.3s)
+✔ [616/616] Built HeytingLean.WPP.Wolfram.FreshSupply (1.9s)
+Build completed successfully (616 jobs).
+✔ [617/618] Built HeytingLean.WPP.Wolfram.Hypergraph (1.8s)
+✔ [618/618] Built HeytingLean.WPP.Wolfram.RewriteFresh (2.6s)
+Build completed successfully (618 jobs).
+✔ [619/620] Built HeytingLean.WPP.Wolfram.Rewrite (1.7s)
+✔ [620/620] Built HeytingLean.WPP.Wolfram.SimpleHypergraph (1.7s)
+Build completed successfully (620 jobs).
+✔ [675/677] Built HeytingLean.WPP.Wolfram.ConfluenceTheory (1.9s)
+✔ [676/677] Built HeytingLean.WPP.Wolfram.Multiway (2.5s)
+✔ [677/677] Built HeytingLean.WPP.Wolfram.MultiwayBridge (1.0s)
 Build completed successfully (677 jobs).
-Build completed successfully (570 jobs).
+✔ [596/596] Built HeytingLean.WPP.Wolfram.MultiwayRel (1.6s)
+Build completed successfully (596 jobs).
+✔ [582/583] Built HeytingLean.WPP.Wolfram.CausalGraph (1.6s)
+✔ [583/583] Built HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance (3.5s)
 Build completed successfully (583 jobs).
+✔ [711/711] Built HeytingLean.WPP.Wolfram.Branchial (2.2s)
 Build completed successfully (711 jobs).
+✔ [582/582] Built HeytingLean.WPP.Wolfram.CausalGraphLabeled (1.8s)
 Build completed successfully (582 jobs).
-Build completed successfully (1416 jobs).
+✔ [1416/1424] Built HeytingLean.WPP.Wolfram.Hypergraph:c.o (469ms)
+✔ [1417/1424] Built Mathlib.Data.Vector.Mem:c.o (431ms)
+✔ [1418/1424] Built HeytingLean.WPP.Wolfram.FreshSupply:c.o (196ms)
+✔ [1419/1424] Built HeytingLean.WPP.Wolfram.Multiway:c.o (678ms)
+✔ [1420/1424] Built HeytingLean.WPP.Wolfram.SimpleHypergraph:c.o (141ms)
+✔ [1421/1424] Built HeytingLean.WPP.Wolfram.RewriteFresh:c.o (406ms)
+✔ [1422/1424] Built HeytingLean.CLI.WolframMultiwayMain (5.3s)
+✔ [1423/1424] Built HeytingLean.CLI.WolframMultiwayMain:c.o (2.3s)
+✔ [1424/1424] Built wolfram_multiway_demo:exe (2.2s)
+Build completed successfully (1424 jobs).
 Build completed successfully (30 jobs).
 
 [run] wolfram_multiway_demo (CE1 default)
@@ -68,23 +94,23 @@ wpp_add1 output=42
 [demo] runNatFunFrag wpp_add1(41) = some 42
 
 [portability] dynamic deps (best effort)
-	linux-vdso.so.1 (0x00007fff931b2000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007c671b200000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007c67250b4000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007c672509e000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007c6725099000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007c6725094000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007c671b519000)
-	linux-vdso.so.1 (0x00007ffc74296000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007b1c8f200000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007b1c8fd3d000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007b1c8fd27000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007b1c8fd22000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007b1c8fd1d000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007b1c8f519000)
-	linux-vdso.so.1 (0x00007ffdec7fe000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000079a035a00000)
-	/lib64/ld-linux-x86-64.so.2 (0x000079a035d2e000)
+	linux-vdso.so.1 (0x00007ffeabd01000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000079917da00000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000799187a53000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000799187a3d000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000799187a38000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000799187a33000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000079918794c000)
+	linux-vdso.so.1 (0x00007ffedcd72000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d9a1b000000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007d9a1bc66000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007d9a1bc50000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007d9a1bc4b000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007d9a1bc46000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007d9a1bb5f000)
+	linux-vdso.so.1 (0x00007ffcd154b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d175d600000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007d175d85a000)
 
 [audit] print axioms (kernel footprint)
 HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :
@@ -103,6 +129,18 @@ HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent
 'HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HeytingLean.WPP.Wolfram.System.stepStates_iff_step' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs.{u} {V : Type u} [DecidableEq V]
+  {n : ℕ} (sys : HeytingLean.WPP.Wolfram.System V (Fin n)) (e : sys.Event) (s : HeytingLean.WPP.Wolfram.HGraph V)
+  (hs : s.SimpleEdges) (happ : e.Applicable s) (hfin : List.finRange n ∈ (sys.rules.get e.idx).lhs) :
+  Function.Injective e.σ
+'HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs' depends on axioms: [propext,
+ Quot.sound]
+HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso.{u, v} {V : Type u} {P : Type v}
+  {sys : HeytingLean.WPP.Wolfram.SystemFresh V P} [DecidableEq V] (e : sys.Event)
+  [HeytingLean.WPP.Wolfram.FreshSupply V] {s : HeytingLean.WPP.Wolfram.HGraph V} (happ : e.Applicable s)
+  (hwell : e.rule.WellFormed) {τ₁ τ₂ : Fin e.rule.nFresh → V} (hτ₁ : e.FreshAssign τ₁ s) (hτ₂ : e.FreshAssign τ₂ s) :
+  (e.applyWith τ₁ s).Iso (e.applyWith τ₂ s)
+'HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
 [artifacts] collect compiler outputs (olean + C IR)
 [hashes] sha256 over bundle (excluding .lake/, build/, vendor/)
 [verify_wolfram] OK

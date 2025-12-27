@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["8747167201175800223"],
-  "i": "2900653410953657246",
-  "c": "17081757576097980364"},
+ {"o": ["7753433734340802465"],
+  "i": "4749065095743439237",
+  "c": "9169528904851856134"},
  "log":
  [{"message":
    ".> LEAN_PATH=/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Cli/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/plausible/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/aesop/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Qq/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/batteries/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Multiway.lean -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Multiway.olean -i /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Multiway.ilean -c /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Multiway.c --setup /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Multiway.setup.json --json",
@@ -26,9 +26,9 @@
          "7789642651705175650"],
         ["HeytingLean.WPP.Multiway:importAllArts", "11182553308123621828"],
         ["HeytingLean.WPP.Wolfram.Rewrite transitive imports (legacy)",
-         "12309565595085448294"],
+         "17456955115895444196"],
         ["HeytingLean.WPP.Wolfram.Rewrite:importAllArts",
-         "12148988806428743299"]]]]],
+         "16270716460178078027"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -37,7 +37,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Multiway.lean",
-   "15147125962249019337"],
+   "9490020558429721947"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "13665171769433484942"}
+ "depHash": "12684295761721788836"}

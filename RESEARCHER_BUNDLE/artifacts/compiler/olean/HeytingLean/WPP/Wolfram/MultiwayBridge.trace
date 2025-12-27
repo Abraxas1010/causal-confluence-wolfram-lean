@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14307335706720813656"],
-  "i": "14683949522082264954",
+ {"o": ["17696396171342671620"],
+  "i": "6258319246624676805",
   "c": "14316659477241276919"},
  "log":
  [{"message":
@@ -14,13 +14,13 @@
        [["@WolframBundle:extraDep", "1723"]]],
       ["imports",
        [["HeytingLean.WPP.Wolfram.ConfluenceTheory transitive imports (legacy)",
-         "14182278637170791491"],
+         "15766751142110659533"],
         ["HeytingLean.WPP.Wolfram.ConfluenceTheory:importAllArts",
-         "16400268934403618588"],
+         "17936044706614100803"],
         ["HeytingLean.WPP.Wolfram.Multiway transitive imports (legacy)",
-         "7565575777933054691"],
+         "6288560456561813037"],
         ["HeytingLean.WPP.Wolfram.Multiway:importAllArts",
-         "1223348347437398571"]]]]],
+         "9993316477290345845"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -29,7 +29,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/MultiwayBridge.lean",
-   "7480067497450990092"],
+   "8704973730272276303"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "9991603212631906055"}
+ "depHash": "16696538967509906879"}

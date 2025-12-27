@@ -64,7 +64,9 @@ This formalization proves they are **independent**:
 | Component | Description |
 |-----------|-------------|
 | **Hypergraph Model** | SetReplace-faithful: `Expr V := List V`, `HGraph V := Multiset (Expr V)` |
-| **Rewrite Semantics** | Rules, events, injective substitutions, applicability |
+| **Rewrite Semantics** | Rules, events, SetReplace-style substitutions (not assumed injective), applicability |
+| **Fresh-Vertex Semantics** | Explicit fresh-name supply + α-equivalence up to vertex renaming |
+| **Injective-WLOG Lemmas** | Under a “simple hypergraph” invariant, applicable matches are forced injective (standard `Fin n`/`finRange` LHS shape) |
 | **Causal Graphs** | "Created then destroyed" edges, graph isomorphism |
 | **Properties** | `ConfluentNF` (unique normal forms), `CausalInvariant` (isomorphic causal graphs) |
 | **Counterexamples** | CE1: confluent ∧ ¬causal-invariant, CE2: causal-invariant ∧ ¬confluent |
@@ -124,6 +126,12 @@ theorem CE2.not_confluentNF : ¬ConfluentNF CE2.system
 
 -- Bridge: finite enumerator agrees with Step relation
 theorem stepStates_iff_step : t ∈ stepStates s ↔ Step s t
+
+-- Fresh-vertex semantics: different fresh allocations are isomorphic (α-equivalence)
+theorem SystemFresh.Event.applyWith_iso : HGraph.Iso (e.applyWith τ₁ s) (e.applyWith τ₂ s)
+
+-- Injective-WLOG (under simple-hypergraph invariant)
+theorem System.Event.injective_of_applicable_of_finRange_mem_lhs : Function.Injective e.σ
 ```
 
 ---
@@ -167,7 +175,7 @@ Explore the proof structure in 2D and 3D:
 </tr>
 </table>
 
-**154 declarations** visualized with UMAP embeddings:
+Declarations visualized with UMAP embeddings:
 - Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
 - Click nodes to see theorem details, file location, and code snippets
 - kNN edges show proof similarity relationships

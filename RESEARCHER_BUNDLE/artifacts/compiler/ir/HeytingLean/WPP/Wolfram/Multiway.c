@@ -44,11 +44,9 @@ uint8_t l_instDecidableEqProd___redArg(lean_object*, lean_object*, lean_object*,
 uint8_t l_List_hasDecEq___redArg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_statesAtDepth(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_HeytingLean_WPP_Wolfram_Rule_instLhs___redArg(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_Multiset_sub___redArg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_statesAtDepth___redArg___lam__0(lean_object*, lean_object*, lean_object*);
 lean_object* l_Finset_pi___redArg(lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_statesAtDepth___redArg___lam__1___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_allSubsts___redArg___lam__1(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_allSubsts___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -72,7 +70,6 @@ lean_object* l_HeytingLean_WPP_Wolfram_Rule_instRhs___redArg(lean_object*, lean_
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_allSubsts(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_List_get___redArg(lean_object*, lean_object*);
 uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
-LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_Multiset_product___redArg(lean_object*, lean_object*);
 LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_stepEdges___redArg___lam__0(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_stepEdges___redArg___lam__4___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -80,7 +77,6 @@ LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_stepStates___redArg___
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_allInjSubsts___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_instDecidableApplicable___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_statesAtDepth___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t l_List_decidablePerm___redArg(lean_object*, lean_object*, lean_object*);
 lean_object* l_List_mapTR(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -97,44 +93,6 @@ LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_apply___redA
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_Ordering_ctorIdx(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_allEventData___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t l_Fintype_decidablePiFintype___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-lean_object* x_4; uint8_t x_5; 
-x_4 = lean_ctor_get(x_3, 1);
-lean_inc(x_4);
-lean_dec_ref(x_3);
-x_5 = l_Fintype_decidableInjectiveFintype___redArg(x_2, x_1, x_4);
-return x_5;
-}
-}
-LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5, lean_object* x_6) {
-_start:
-{
-uint8_t x_7; 
-x_7 = l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg(x_4, x_5, x_6);
-return x_7;
-}
-}
-LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-uint8_t x_4; lean_object* x_5; 
-x_4 = l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___redArg(x_1, x_2, x_3);
-x_5 = lean_box(x_4);
-return x_5;
-}
-}
-LEAN_EXPORT lean_object* l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5, lean_object* x_6) {
-_start:
-{
-uint8_t x_7; lean_object* x_8; 
-x_7 = l_HeytingLean_WPP_Wolfram_System_EventData_instDecidablePredInj(x_1, x_2, x_3, x_4, x_5, x_6);
-lean_dec_ref(x_3);
-x_8 = lean_box(x_7);
-return x_8;
-}
-}
 LEAN_EXPORT uint8_t l_HeytingLean_WPP_Wolfram_System_EventData_instDecidableApplicable___redArg___lam__0(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
@@ -386,7 +344,7 @@ lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_obj
 x_6 = lean_ctor_get(x_5, 0);
 x_7 = l_List_lengthTR___redArg(x_6);
 x_8 = l_List_finRange(x_7);
-x_9 = l_HeytingLean_WPP_Wolfram_System_allInjSubsts___redArg(x_1, x_2, x_3, x_4);
+x_9 = l_HeytingLean_WPP_Wolfram_System_allSubsts___redArg(x_1, x_2, x_3, x_4);
 x_10 = l_Multiset_product___redArg(x_8, x_9);
 return x_10;
 }

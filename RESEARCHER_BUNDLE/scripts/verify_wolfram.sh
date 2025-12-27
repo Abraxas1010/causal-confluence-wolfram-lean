@@ -71,6 +71,9 @@ EOF
   echo
   echo "[lake] build Wolfram modules (strict)"
   lake build HeytingLean.WPP.MultiwayRel "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.FreshSupply "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.RewriteFresh "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.SimpleHypergraph "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.MultiwayBridge "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.MultiwayRel "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance "${STRICT_FLAGS[@]}"

@@ -14,3 +14,15 @@ HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent
 'HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HeytingLean.WPP.Wolfram.System.stepStates_iff_step' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs.{u} {V : Type u} [DecidableEq V]
+  {n : ℕ} (sys : HeytingLean.WPP.Wolfram.System V (Fin n)) (e : sys.Event) (s : HeytingLean.WPP.Wolfram.HGraph V)
+  (hs : s.SimpleEdges) (happ : e.Applicable s) (hfin : List.finRange n ∈ (sys.rules.get e.idx).lhs) :
+  Function.Injective e.σ
+'HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs' depends on axioms: [propext,
+ Quot.sound]
+HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso.{u, v} {V : Type u} {P : Type v}
+  {sys : HeytingLean.WPP.Wolfram.SystemFresh V P} [DecidableEq V] (e : sys.Event)
+  [HeytingLean.WPP.Wolfram.FreshSupply V] {s : HeytingLean.WPP.Wolfram.HGraph V} (happ : e.Applicable s)
+  (hwell : e.rule.WellFormed) {τ₁ τ₂ : Fin e.rule.nFresh → V} (hτ₁ : e.FreshAssign τ₁ s) (hτ₂ : e.FreshAssign τ₂ s) :
+  (e.applyWith τ₁ s).Iso (e.applyWith τ₂ s)
+'HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso' depends on axioms: [propext, Classical.choice, Quot.sound]

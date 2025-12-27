@@ -12,10 +12,10 @@ namespace Wolfram
 We implement the minimal ingredient needed for Piskunov-style counterexamples:
 - A rule schema is a pair of hypergraphs over a *pattern* vertex type.
 - A system has a **list** of rules (SetReplace-style).
-- An event chooses a rule index and an injective substitution for that rule.
+- An event chooses a rule index and a substitution for that rule (not assumed injective).
 - Applicability is submultiset membership of the instantiated LHS in the current state.
 - Application replaces LHS by RHS via multiset subtraction/addition.
--/
+ -/
 
 universe u v
 
@@ -47,11 +47,10 @@ namespace System
 
 variable {V : Type u} {P : Type v} (sys : System V P)
 
-/-- A rule-application event is an injective substitution of pattern vertices into concrete ones. -/
+/-- A rule-application event is a substitution of pattern vertices into concrete ones. -/
 structure Event (sys : System V P) where
   idx : Fin sys.rules.length
   σ : P → V
-  inj : Function.Injective σ
 
 namespace Event
 

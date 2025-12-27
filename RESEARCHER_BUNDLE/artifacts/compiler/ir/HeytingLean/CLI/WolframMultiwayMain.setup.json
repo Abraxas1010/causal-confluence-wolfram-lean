@@ -565,6 +565,8 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/ContextInfo.olean"],
   "Mathlib.Init":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Init.olean"],
+  "Mathlib.Data.Vector.Mem":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Vector/Mem.olean"],
   "Mathlib.Data.Vector.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Vector/Defs.olean"],
   "Mathlib.Data.Vector.Basic":
@@ -965,12 +967,18 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/RequiredModules.olean"],
   "ImportGraph.Imports":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Imports.olean"],
+  "HeytingLean.WPP.Wolfram.SimpleHypergraph":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/SimpleHypergraph.olean"],
+  "HeytingLean.WPP.Wolfram.RewriteFresh":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/RewriteFresh.olean"],
   "HeytingLean.WPP.Wolfram.Rewrite":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Rewrite.olean"],
   "HeytingLean.WPP.Wolfram.Multiway":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Multiway.olean"],
   "HeytingLean.WPP.Wolfram.Hypergraph":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Hypergraph.olean"],
+  "HeytingLean.WPP.Wolfram.FreshSupply":
+  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/FreshSupply.olean"],
   "HeytingLean.WPP.Wolfram.ConfluenceTheory":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/ConfluenceTheory.olean"],
   "HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance":

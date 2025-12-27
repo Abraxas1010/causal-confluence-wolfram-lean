@@ -38,11 +38,7 @@ theorem stepStates_iff_step {s t : HGraph V} :
   · intro ht
     rcases (sys.mem_stepStates_iff (P := P) (V := V) (s := s) (t := t)).1 ht with
       ⟨ed, hedAll, hedApp, hEq⟩
-    have hinj : Function.Injective ed.2 := by
-      have hmem : ed.2 ∈ allInjSubsts (P := P) (V := V) :=
-        (sys.mem_allEventData_iff (P := P) (V := V) (ed := ed)).1 hedAll
-      exact (mem_allInjSubsts_iff (P := P) (V := V) ed.2).1 hmem
-    let e : sys.Event := { idx := ed.1, σ := ed.2, inj := hinj }
+    let e : sys.Event := { idx := ed.1, σ := ed.2 }
     refine ⟨e, ?_, ?_⟩
     · simpa [EventData.Applicable, Event.Applicable, Event.input, e] using hedApp
     · simpa [EventData.apply, Event.apply, Event.input, Event.output, e] using hEq
@@ -50,8 +46,8 @@ theorem stepStates_iff_step {s t : HGraph V} :
     classical
     set ed : sys.EventData := (e.idx, e.σ) with hed
     have hedAll : ed ∈ sys.allEventData := by
-      have : ed.2 ∈ allInjSubsts (P := P) (V := V) :=
-        (mem_allInjSubsts_iff (P := P) (V := V) ed.2).2 e.inj
+      have : ed.2 ∈ allSubsts (P := P) (V := V) :=
+        mem_allSubsts (P := P) (V := V) ed.2
       exact (sys.mem_allEventData_iff (P := P) (V := V) (ed := ed)).2 this
     have hedApp : EventData.Applicable (sys := sys) ed s := by
       simpa [hed, EventData.Applicable, Event.Applicable, Event.input] using happ
@@ -95,4 +91,3 @@ end System
 end Wolfram
 end WPP
 end HeytingLean
-

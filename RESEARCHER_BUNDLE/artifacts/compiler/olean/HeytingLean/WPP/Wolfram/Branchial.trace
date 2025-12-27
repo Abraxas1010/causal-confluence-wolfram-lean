@@ -1,6 +1,6 @@
 {"synthetic": false,
  "outputs":
- {"o": ["8413887484586227865"],
+ {"o": ["3881066745664751520"],
   "i": "11451720684967126483",
   "c": "13019510695308417856"},
  "log":
@@ -17,9 +17,9 @@
          "2108137073239483762"],
         ["Mathlib.Data.Finset.Sym:importAllArts", "5968369728438249071"],
         ["HeytingLean.WPP.Wolfram.Multiway transitive imports (legacy)",
-         "7565575777933054691"],
+         "6288560456561813037"],
         ["HeytingLean.WPP.Wolfram.Multiway:importAllArts",
-         "1223348347437398571"]]]]],
+         "9993316477290345845"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -31,4 +31,4 @@
    "8345429914607851818"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "6745975298103718669"}
+ "depHash": "8399562677345073786"}

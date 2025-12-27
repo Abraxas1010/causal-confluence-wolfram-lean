@@ -1,5 +1,6 @@
 import HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance
 import HeytingLean.WPP.Wolfram.MultiwayBridge
+import HeytingLean.WPP.Wolfram.SimpleHypergraph
 
 /-!
 Audit file: print the kernel axioms footprint of the core Wolfram results.
@@ -19,3 +20,9 @@ This file is intentionally not imported by the library; it is executed by
 
 #print axioms HeytingLean.WPP.Wolfram.System.stepStates_iff_step
 #print axioms HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar
+
+#check HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs
+#print axioms HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs
+
+#check HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso
+#print axioms HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso

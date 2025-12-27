@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["17383156587110990705"],
-  "i": "7506860403492557081",
-  "c": "16102277753153149192"},
+ {"o": ["457431572355193109"],
+  "i": "1540517669594593170",
+  "c": "5636081511696858417"},
  "log":
  [{"message":
    ".> LEAN_PATH=/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Cli/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/plausible/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/aesop/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Qq/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/batteries/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Hypergraph.lean -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Hypergraph.olean -i /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/Hypergraph.ilean -c /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Hypergraph.c --setup /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Hypergraph.setup.json --json",
@@ -13,9 +13,18 @@
      [["WolframBundle/HeytingLean:extraDep",
        [["@WolframBundle:extraDep", "1723"]]],
       ["imports",
-       [["Mathlib.Data.List.Basic transitive imports (legacy)",
+       [["Mathlib.Data.Finset.Basic transitive imports (legacy)",
+         "2666635428974090783"],
+        ["Mathlib.Data.Finset.Basic:importAllArts", "4354275028902705035"],
+        ["Mathlib.Data.Finset.Dedup transitive imports (legacy)",
+         "4065060162418321167"],
+        ["Mathlib.Data.Finset.Dedup:importAllArts", "10245943797979931882"],
+        ["Mathlib.Data.List.Basic transitive imports (legacy)",
          "10563866978884806471"],
         ["Mathlib.Data.List.Basic:importAllArts", "18137343930343612703"],
+        ["Mathlib.Data.Multiset.Basic transitive imports (legacy)",
+         "7901556579735953086"],
+        ["Mathlib.Data.Multiset.Basic:importAllArts", "9345796977046453103"],
         ["Mathlib.Data.Multiset.MapFold transitive imports (legacy)",
          "5950570341893887622"],
         ["Mathlib.Data.Multiset.MapFold:importAllArts",
@@ -28,7 +37,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Hypergraph.lean",
-   "5849008049762121291"],
+   "3189862109018340921"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "7455878903468275809"}
+ "depHash": "14571342722533004714"}

@@ -1,11 +1,17 @@
 import Lean
 import HeytingLean.WPP.Wolfram.Branchial
 import HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance
+import HeytingLean.WPP.Wolfram.SimpleHypergraph
 
 open Lean
 
 open HeytingLean.WPP
 open HeytingLean.WPP.Wolfram
+
+/-! Internal anchors to ensure the fresh-vertex and injective-WLOG Wolfram development is
+elaborated whenever this executable is built. -/
+private abbrev _WolframFreshAnchor (V : Type) (P : Type) := SystemFresh V P
+private abbrev _WolframSimpleEdgesAnchor (V : Type) := HGraph.SimpleEdges (V := V) (0 : HGraph V)
 
 structure Args where
   sys : String := "ce1"

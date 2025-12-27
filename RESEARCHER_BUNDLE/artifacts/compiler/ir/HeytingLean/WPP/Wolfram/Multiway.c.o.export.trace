@@ -1,5 +1,5 @@
 {"synthetic": false,
- "outputs": "17007726444755202505",
+ "outputs": "1621296112808717720",
  "log":
  [{"message":
    ".> /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/clang -c -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Multiway.c.o.export /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Multiway.c -I /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/include -fstack-clash-protection -fwrapv -fPIC -fvisibility=hidden -Wno-unused-command-line-argument --sysroot /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0 -nostdinc -isystem /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/include/clang -O3 -DNDEBUG -DLEAN_EXPORTING",
@@ -7,11 +7,11 @@
  "inputs":
  [["HeytingLean.WPP.Wolfram.Multiway:c",
    [["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Multiway.c",
-     "17081757576097980364"],
+     "9169528904851856134"],
     ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
      "1165570713881806064"]]],
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["traceArgs: #[-O3, -DNDEBUG, -DLEAN_EXPORTING]", "13974588697068907418"],
   ["x86_64-unknown-linux-gnu", "6026072021563112488"]],
- "depHash": "3733418455427523894"}
+ "depHash": "1151022605955096294"}

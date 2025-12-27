@@ -1,6 +1,6 @@
 {"synthetic": false,
  "outputs":
- {"o": ["16082373283897448077"],
+ {"o": ["7393889093366354930"],
   "i": "5728083359529947716",
   "c": "12588782322713363883"},
  "log":
@@ -17,9 +17,9 @@
          "1213951623407332138"],
         ["HeytingLean.WPP.MultiwayRel:importAllArts", "10365078638842359033"],
         ["HeytingLean.WPP.Wolfram.ConfluenceTheory transitive imports (legacy)",
-         "14182278637170791491"],
+         "15766751142110659533"],
         ["HeytingLean.WPP.Wolfram.ConfluenceTheory:importAllArts",
-         "16400268934403618588"]]]]],
+         "17936044706614100803"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -31,4 +31,4 @@
    "18424671246779026962"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "6522734059961716507"}
+ "depHash": "8548239826795627938"}

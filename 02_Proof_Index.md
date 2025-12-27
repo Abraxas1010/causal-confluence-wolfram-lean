@@ -9,10 +9,10 @@ This is the minimal set of "results you can cite" from this mechanization.
    - File: `lean/HeytingLean/WPP/Wolfram/Hypergraph.lean`
    - Informal: expressions are ordered vertex lists (`List V`); hypergraphs are multisets of expressions.
 
-2. **Injective substitution instantiation**
-   - Lean: `HeytingLean.WPP.Wolfram.HGraph.inst`
+2. **Substitution instantiation (SetReplace-style; not assumed injective)**
+   - Lean: `HeytingLean.WPP.Wolfram.HGraph.rename`
    - File: `lean/HeytingLean/WPP/Wolfram/Hypergraph.lean`
-   - Informal: pattern vertices are replaced by injective substitution; this preserves hypergraph structure.
+   - Informal: pattern vertices are replaced by an arbitrary match-substitution `σ : P → V` (Wolfram/SetReplace allows non-injective matches).
 
 3. **Hypergraph isomorphism (vertex relabeling)**
    - Lean: `HeytingLean.WPP.Wolfram.HGraph.Iso`
@@ -21,10 +21,10 @@ This is the minimal set of "results you can cite" from this mechanization.
 
 ## Tier 2: Rewrite Rules and Evolution
 
-4. **Rule schema and event application**
+4. **Rule schema and event application (non-injective matches allowed)**
    - Lean: `HeytingLean.WPP.Wolfram.Rule`, `HeytingLean.WPP.Wolfram.Event`, `HeytingLean.WPP.Wolfram.Event.apply`
    - File: `lean/HeytingLean/WPP/Wolfram/Rewrite.lean`
-   - Informal: a rule has LHS/RHS patterns; an event instantiates a rule with injective substitution; apply removes instantiated LHS and adds instantiated RHS.
+   - Informal: a rule has LHS/RHS patterns; an event instantiates a rule with a substitution; apply removes instantiated LHS and adds instantiated RHS.
 
 5. **Applicability predicate**
    - Lean: `HeytingLean.WPP.Wolfram.Event.Applicable`
@@ -164,3 +164,25 @@ This is the minimal set of "results you can cite" from this mechanization.
     - Lean: `HeytingLean.CLI.WolframMultiwayMain.main`
     - File: `lean/HeytingLean/CLI/WolframMultiwayMain.lean`
     - Informal: bounded multiway + branchial exploration for CE1/CE2; outputs JSON for visualization.
+
+## Extensions: Wolfram-ontology correspondence (polymorphic)
+
+30. **Fresh-vertex supply (polymorphic)**
+    - Lean: `HeytingLean.WPP.Wolfram.FreshSupply`
+    - File: `lean/HeytingLean/WPP/Wolfram/FreshSupply.lean`
+    - Informal: a typeclass `FreshSupply V` that allocates vertices not in a finite forbidden set, with proofs.
+
+31. **Fresh-vertex rewrite semantics**
+    - Lean: `HeytingLean.WPP.Wolfram.RuleFresh`, `HeytingLean.WPP.Wolfram.SystemFresh`, `HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith`
+    - File: `lean/HeytingLean/WPP/Wolfram/RewriteFresh.lean`
+    - Informal: RHS may introduce fresh vertices; semantics explicitly allocates them using `FreshSupply`.
+
+32. **α-equivalence of fresh choices**
+    - Lean: `HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso`
+    - File: `lean/HeytingLean/WPP/Wolfram/RewriteFresh.lean`
+    - Informal: any two valid fresh allocations yield isomorphic results (equivalence up to vertex renaming fixing old vertices).
+
+33. **Injective-WLOG under a “simple hypergraph” invariant**
+    - Lean: `HeytingLean.WPP.Wolfram.HGraph.SimpleEdges`, `HeytingLean.WPP.Wolfram.System.Event.injective_of_applicable_of_finRange_mem_lhs`
+    - File: `lean/HeytingLean/WPP/Wolfram/SimpleHypergraph.lean`
+    - Informal: if edges are nodup, then standard rule-shapes force injective matches; this recovers the “injective matches” special case as a theorem.

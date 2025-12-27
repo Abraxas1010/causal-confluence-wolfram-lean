@@ -1,5 +1,5 @@
 {"synthetic": false,
- "outputs": "5413556205959781842",
+ "outputs": "15245387540352735286",
  "log":
  [{"message":
    ".> /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/clang -c -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Hypergraph.c.o.export /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Hypergraph.c -I /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/include -fstack-clash-protection -fwrapv -fPIC -fvisibility=hidden -Wno-unused-command-line-argument --sysroot /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0 -nostdinc -isystem /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/include/clang -O3 -DNDEBUG -DLEAN_EXPORTING",
@@ -7,11 +7,11 @@
  "inputs":
  [["HeytingLean.WPP.Wolfram.Hypergraph:c",
    [["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/Hypergraph.c",
-     "16102277753153149192"],
+     "5636081511696858417"],
     ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
      "1165570713881806064"]]],
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["traceArgs: #[-O3, -DNDEBUG, -DLEAN_EXPORTING]", "13974588697068907418"],
   ["x86_64-unknown-linux-gnu", "6026072021563112488"]],
- "depHash": "50825257295259194"}
+ "depHash": "6670064185308775386"}

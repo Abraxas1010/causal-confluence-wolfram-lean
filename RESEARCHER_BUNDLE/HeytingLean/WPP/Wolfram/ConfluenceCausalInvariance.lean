@@ -110,18 +110,15 @@ local instance : DecidableEq V := inferInstance
 
 def e12 : sys.Event :=
   { idx := ⟨0, by decide⟩
-    σ := sigma2 (V := V) 0 1
-    inj := inj_sigma2 (V := V) (a := (0 : V)) (b := (1 : V)) (by decide) }
+    σ := sigma2 (V := V) 0 1 }
 
 def e13 : sys.Event :=
   { idx := ⟨0, by decide⟩
-    σ := sigma2 (V := V) 0 2
-    inj := inj_sigma2 (V := V) (a := (0 : V)) (b := (2 : V)) (by decide) }
+    σ := sigma2 (V := V) 0 2 }
 
 def e23 : sys.Event :=
   { idx := ⟨0, by decide⟩
-    σ := sigma2 (V := V) 1 2
-    inj := inj_sigma2 (V := V) (a := (1 : V)) (b := (2 : V)) (by decide) }
+    σ := sigma2 (V := V) 1 2 }
 
 def s0 : HGraph V := sys.init
 def s1 : HGraph V := ([[1], [0, 1], [1, 2], [0, 2]] : List (Expr V))
@@ -477,26 +474,37 @@ local instance : DecidableEq V := inferInstance
 
 def e_id : sys.Event :=
   { idx := ⟨0, by decide⟩
-    σ := sigma2 (V := V) 0 1
-    inj := inj_sigma2 (V := V) (a := (0 : V)) (b := (1 : V)) (by decide) }
+    σ := sigma2 (V := V) 0 1 }
 
 def e_swap : sys.Event :=
   { idx := ⟨0, by decide⟩
-    σ := sigma2 (V := V) 1 0
-    inj := inj_sigma2 (V := V) (a := (1 : V)) (b := (0 : V)) (by decide) }
+    σ := sigma2 (V := V) 1 0 }
 
 def s0 : HGraph V := sys.init
 def nf1 : HGraph V := ([[0], [0]] : List (Expr V))
 def nf2 : HGraph V := ([[0], [1]] : List (Expr V))
 
-private lemma sigma_eq_e_id_or_swap (e : sys.Event) : e.σ = e_id.σ ∨ e.σ = e_swap.σ := by
+private lemma sigma_eq_e_id_or_swap (e : sys.Event) (happ : e.Applicable (sys := sys) s0) :
+    e.σ = e_id.σ ∨ e.σ = e_swap.σ := by
+  -- Use applicability: the instantiated LHS contains the edge `[σ 0, σ 1]`, and `s0`
+  -- has only two length-2 edges (`[0,1]` and `[1,0]`), so `σ` must be either identity or swap.
+  have hmem01 : ([e.σ 0, e.σ 1] : Expr V) ∈ s0 := by
+    have hidx : e.idx = ⟨0, by decide⟩ := by
+      -- `sys.rules.length = 1`, so any event must have `idx = 0`.
+      simpa [sys] using (Fin.eq_zero e.idx)
+    have hmemIn : ([e.σ 0, e.σ 1] : Expr V) ∈ e.input (sys := sys) := by
+      simp [System.Event.input, sys, rule, hidx, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename]
+    exact Multiset.mem_of_le happ hmemIn
   cases hσ0 : e.σ 0 using Fin.cases with
   | zero =>
       have hσ1 : e.σ 1 = (1 : V) := by
         cases hσ1 : e.σ 1 using Fin.cases with
         | zero =>
-            have : (0 : P) = 1 := e.inj (by simp [hσ0, hσ1])
-            exact False.elim ((by decide : (0 : P) ≠ 1) this)
+            have h00 : ([0, (0 : V)] : Expr V) ∈ s0 := by
+              simpa [hσ0, hσ1] using hmem01
+            have : False := by
+              simp [s0, sys, init] at h00
+            exact this.elim
         | succ j =>
             have hj : j = 0 := Fin.eq_zero j
             subst hj
@@ -518,8 +526,11 @@ private lemma sigma_eq_e_id_or_swap (e : sys.Event) : e.σ = e_id.σ ∨ e.σ = 
         | succ k =>
             have hk : k = 0 := Fin.eq_zero k
             subst hk
-            have : (0 : P) = 1 := e.inj (by simp [hσ0, hσ1])
-            exact False.elim ((by decide : (0 : P) ≠ 1) this)
+            have h11 : ([1, (1 : V)] : Expr V) ∈ s0 := by
+              simpa [hσ0, hσ1] using hmem01
+            have : False := by
+              simp [s0, sys, init] at h11
+            exact this.elim
       right
       funext i
       cases i using Fin.cases with
@@ -609,7 +620,7 @@ private lemma length_eq_one_of_nf {es : List sys.Event} {t : HGraph V} :
   | cons e happ hrest =>
       -- Any single step from `s0` yields `nf1` or `nf2`, both normal forms.
       have hn_mid : sys.NormalForm (e.apply (sys := sys) s0) := by
-        have hσ : e.σ = e_id.σ ∨ e.σ = e_swap.σ := sigma_eq_e_id_or_swap (e := e)
+        have hσ : e.σ = e_id.σ ∨ e.σ = e_swap.σ := sigma_eq_e_id_or_swap (e := e) happ
         cases hσ with
         | inl hσ =>
             have happly : e.apply (sys := sys) s0 = nf1 := by
@@ -656,7 +667,7 @@ theorem terminatingFrom_init : System.TerminatingFrom (sys := sys) s0 := by
       simp
   | cons e happ hrest =>
       -- Any applicable event from `s0` must be either `e_id` or `e_swap`.
-      have hσ : e.σ = e_id.σ ∨ e.σ = e_swap.σ := sigma_eq_e_id_or_swap (e := e)
+      have hσ : e.σ = e_id.σ ∨ e.σ = e_swap.σ := sigma_eq_e_id_or_swap (e := e) happ
       -- After one step we are in a normal form (`nf1` or `nf2`), so the tail must be empty.
       have hn_mid : sys.NormalForm (e.apply (sys := sys) s0) := by
         cases hσ with

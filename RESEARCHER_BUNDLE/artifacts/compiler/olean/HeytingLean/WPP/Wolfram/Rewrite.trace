@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["1389531495285850785"],
-  "i": "3132065945291543655",
+ {"o": ["4444441734366583212"],
+  "i": "9400350555458836852",
   "c": "4305723433783953558"},
  "log":
  [{"message":
@@ -20,9 +20,9 @@
          "7901556579735953086"],
         ["Mathlib.Data.Multiset.Basic:importAllArts", "9345796977046453103"],
         ["HeytingLean.WPP.Wolfram.Hypergraph transitive imports (legacy)",
-         "11225992158322660464"],
+         "14297703233297937491"],
         ["HeytingLean.WPP.Wolfram.Hypergraph:importAllArts",
-         "4468133906898419916"]]]]],
+         "10037603719184502866"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -31,7 +31,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Rewrite.lean",
-   "13147467285842438616"],
+   "5711289906698873526"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "9327296541187000131"}
+ "depHash": "979100775300090748"}
