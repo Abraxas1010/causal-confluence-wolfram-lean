@@ -134,6 +134,20 @@ multiway/hypergraph visualizations and interactive viewer.
 </a>
 </td>
 </tr>
+<tr>
+<td align="center" width="50%">
+<strong>Proof Map (3D static fallback)</strong><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview.svg" alt="UMAP 3D static preview" width="100%"/>
+</a>
+</td>
+<td align="center" width="50%">
+<strong>Hypergraph/Multiway Artifact (CE2 preview)</strong><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/ce2_depth2_combined.svg">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/ce2_depth2_combined.svg" alt="CE2 combined graph" width="100%"/>
+</a>
+</td>
+</tr>
 </table>
 
 Direct deep-links to the interactive multiway viewer:
@@ -158,6 +172,7 @@ Direct deep-links to the interactive multiway viewer:
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
   <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview_animated.svg" alt="UMAP 3D animated preview" width="100%"/>
 </a><br/>
+<img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview.svg" alt="UMAP 3D static preview" width="100%"/><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">wolfram_3d.html</a> (GitHub Pages)
 </td>
 </tr>
@@ -181,6 +196,7 @@ WM148-only proof/declaration map:
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d.html">
   <img src="RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d_preview_animated.svg" alt="WM148 UMAP 3D animated preview" width="100%"/>
 </a><br/>
+<img src="RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d_preview.svg" alt="WM148 UMAP 3D static preview" width="100%"/><br/>
 <a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d.html">wm148_3d.html</a> (GitHub Pages)
 </td>
 </tr>
