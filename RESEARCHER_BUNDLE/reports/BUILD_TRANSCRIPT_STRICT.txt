@@ -18,8 +18,7 @@ GIT_CONFIG_NOSYSTEM=1
 # no URL rewrites
 
 [lake] update
-info: toolchain not updated; already up-to-date
-info: mathlib: running post-update hooks
+skipping: WOLFRAM_SKIP_UPDATE=1
 
 [strict_flags] -- -DwarningAsError=true -Dno sorry
 
@@ -34,17 +33,7 @@ Build completed successfully (620 jobs).
 Build completed successfully (677 jobs).
 Build completed successfully (596 jobs).
 Build completed successfully (583 jobs).
-✔ [641/649] Built Mathlib.Lean.Expr.ExtraRecognizers (3.6s)
-✔ [642/649] Built Mathlib.Util.Qq (3.8s)
-✔ [643/649] Built Mathlib.Data.Set.Notation (3.1s)
-✔ [644/649] Built Mathlib.Data.Multiset.Sort (4.3s)
-✔ [645/649] Built Mathlib.Data.Finset.Max (11s)
-✔ [646/649] Built Mathlib.Logic.Embedding.Set (4.5s)
-✔ [647/649] Built Mathlib.Order.RelIso.Set (1.7s)
-✔ [648/649] Built Mathlib.Data.Finset.Sort (3.6s)
-✔ [649/649] Built HeytingLean.WPP.Wolfram.CausalGraphGC (1.6s)
 Build completed successfully (649 jobs).
-✔ [652/652] Built HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC (2.5s)
 Build completed successfully (652 jobs).
 Build completed successfully (711 jobs).
 Build completed successfully (582 jobs).
@@ -50845,30 +50834,30 @@ ok: artifacts/generated_wm148_wlcheck.json == artifacts/wl_generated_wm148.json
 [demo] runNatFunFrag wpp_add1(41) = some 42
 
 [portability] dynamic deps (best effort)
-	linux-vdso.so.1 (0x00007ffc605f2000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000739219400000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007392232c4000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007392232ae000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007392232a9000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007392232a4000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000739219719000)
-	linux-vdso.so.1 (0x00007ffcb2ff1000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0677e00000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f0678975000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f067895f000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f067895a000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f0678955000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f0678119000)
-	linux-vdso.so.1 (0x00007ffe9f790000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007cf8c3800000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007cf8cd712000)
-	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007cf8cd6fc000)
-	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007cf8cd6f7000)
-	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007cf8cd6f2000)
-	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007cf8cd60b000)
-	linux-vdso.so.1 (0x00007fff6d6f5000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000077ff9e800000)
-	/lib64/ld-linux-x86-64.so.2 (0x000077ff9eb23000)
+	linux-vdso.so.1 (0x00007ffeeefd3000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000764c24200000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000764c2e209000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000764c2e1f3000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000764c2e1ee000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000764c2e1e9000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000764c2e102000)
+	linux-vdso.so.1 (0x00007ffeca7ef000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007751dc800000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007751dd307000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007751dd2f1000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007751dd2ec000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007751dd2e7000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007751dcb19000)
+	linux-vdso.so.1 (0x00007fff5c1a2000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000712467c00000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000712471a75000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000712471a5f000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000712471a5a000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000712471a55000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000712467f19000)
+	linux-vdso.so.1 (0x00007fff27ab1000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078c26be00000)
+	/lib64/ld-linux-x86-64.so.2 (0x000078c26c092000)
 
 [audit] print axioms (kernel footprint)
 HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent :

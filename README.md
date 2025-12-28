@@ -281,10 +281,14 @@ theorem confluence_causal_invariance_independent :
 -- CE1: confluent but not causally invariant
 theorem CE1.confluentNF : ConfluentNF CE1.system
 theorem CE1.not_causalInvariant : ¬CausalInvariant CE1.system
+theorem CE1.causalGraphGC_iso_short_long :
+  CausalGraph.Iso (CE1.sys.causalGraphGCOf [CE1.e13] CE1.s2)
+    (CE1.sys.causalGraphGCOf [CE1.e12, CE1.e23] CE1.s2)
 
 -- CE2: causally invariant but not confluent
 theorem CE2.causalInvariant : CausalInvariant CE2.system
 theorem CE2.not_confluentNF : ¬ConfluentNF CE2.system
+theorem CE2.causalInvariantGC : GCausalInvariant CE2.sys
 
 -- WM148: causally invariant (fresh-vertex semantics; branch-pair resolution up to renaming)
 theorem WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)
