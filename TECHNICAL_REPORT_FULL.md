@@ -182,22 +182,31 @@ def CausalInvariant (sys : System V P) : Prop :=
 ```
 All maximal evolutions have isomorphic causal graphs.
 
-**Important semantics note (non-termination / vacuity):** the two definitions above quantify only over *reachable normal forms*.
-If a system has no reachable normal forms (e.g. a non-terminating system), then `ConfluentNF` and `Properties.CausalInvariant`
+**Important semantics note (non-termination / vacuity):** the definitions above quantify only over *reachable normal forms*.
+If a system has no reachable normal forms (e.g. a non-terminating system), then `ConfluentNF`, `Properties.CausalInvariant`,
+and `Properties.GCausalInvariant`
 may hold *vacuously*. Our counterexamples CE1/CE2 are terminating and explicitly exhibit reachable normal forms, so the
 independence result is not a vacuity artifact.
 
-**Two notions of “causal invariance” used in this package:**
+**Three notions of “causal invariance” used in this package:**
 
 1. **Normal-form causal-graph invariance (Piskunov / terminating):**
    - Lean name: `HeytingLean.WPP.Wolfram.Properties.CausalInvariant`
    - Meaning: any two evolutions from `sys.init` to normal forms have isomorphic causal graphs.
-2. **Branch-pair resolution up to renaming (Wolfram Physics / fresh vertices):**
+2. **Observable-event (“GC”) causal-graph invariance (bridge abstraction; terminating):**
+   - Lean name: `HeytingLean.WPP.Wolfram.Properties.GCausalInvariant`
+   - Meaning: compare causal graphs after discarding events whose created expressions do **not** survive to the endpoint
+     (`System.causalGraphGCOf`); this is a coarse-graining, not SetReplace’s definition.
+3. **Branch-pair resolution up to renaming (Wolfram Physics / fresh vertices):**
    - Lean name: `HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`
    - Meaning: every one-step fork (with explicit fresh choices) resolves by reconverging to isomorphic states
      (`HGraph.Iso`), i.e. joinability up to vertex renaming.
 
-CE1/CE2 live under the first notion (normal forms + causal graphs). The WM148 case study is proved under the second notion,
+CE1/CE2 live under the first notion (normal forms + causal graphs). We additionally provide the GC abstraction to explain
+exactly why CE1 fails the SetReplace notion but still “looks causally invariant” under a detour-insensitive abstraction
+(see `HeytingLean.WPP.Wolfram.Counterexamples.CE1.causalGraphGC_iso_short_long`).
+
+The WM148 case study is proved under the third notion,
 because it is stated as a *local fork-resolution property* in the fresh-vertex semantics and does not require a global
 termination hypothesis.
 
@@ -740,9 +749,11 @@ This work:
 5. **Wolfram Language cross-checks**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces CE1/CE2 bounded multiway JSON, and a
    small WM148 bounded multiway JSON (with deterministic fresh vertices) used to cross-check the fresh-vertex semantics; extend this
    to an automatic exporter for arbitrary systems and (optionally) SetReplace/WolframModel execution.
-6. **Unify the two invariance notions (termination bridge)**: relate `SystemFresh.CausalInvariant` (branch-pair resolution up to
-   `HGraph.Iso`) to `Properties.CausalInvariant` (causal-graph invariance of normal-form evolutions) under an explicit
-   termination hypothesis and a compatibility lemma between “joinability up to iso” and causal-graph construction.
+6. **Unify invariance notions (termination bridge)**: relate `SystemFresh.CausalInvariant` (branch-pair resolution up to
+   `HGraph.Iso`) to the normal-form causal-graph notions (`Properties.CausalInvariant` and/or the coarse-grained
+   `Properties.GCausalInvariant`) under explicit termination hypotheses and compatibility lemmas connecting “joinability up to iso”
+   to causal-graph construction. The GC abstraction already resolves CE1’s detour-length mismatch at the level of causal graphs, but
+   a general theorem connecting the fresh branch-resolution semantics to SetReplace-style causal graphs remains open.
 7. **Reduce classical footprint (best effort)**: isolate uses of `Classical.choice` (notably, generic fresh supplies for
    infinite vertex types) and provide constructive instances/lemmas for concrete vertex types (e.g. `Nat`) where possible.
    Note: even the non-fresh SetReplace core uses `System.Event.apply`, which is defined via Mathlib’s `Multiset.sub` and currently
@@ -758,8 +769,10 @@ This work:
 | `Rewrite.lean` | 114 | Rewrite semantics |
 | `CausalGraph.lean` | 66 | Causal graph construction |
 | `CausalGraphLabeled.lean` | ~80 | Multiplicity-aware variant |
+| `CausalGraphGC.lean` | 77 | Observable-event (“GC”) causal graph abstraction + `GCausalInvariant` |
 | `ConfluenceTheory.lean` | 127 | Relation-theoretic layer |
 | `ConfluenceCausalInvariance.lean` | 797 | Main theorem and counterexamples |
+| `ConfluenceCausalInvarianceGC.lean` | 326 | CE1 detour resolved under GC graphs + CE2 GC-causal-invariance |
 | `Multiway.lean` (Wolfram) | 201 | Finite multiway enumerator |
 | `Branchial.lean` | 140 | Branchial graph infrastructure |
 | `MultiwayBridge.lean` | 99 | Bridge to WppRule |
@@ -786,6 +799,13 @@ theorem CE2.causalInvariant : CausalInvariant CE2.sys
 
 -- CE2 is not confluent
 theorem CE2.not_confluentNF : ¬ ConfluentNF CE2.sys
+
+-- CE1 detour disappears under observable-event ("GC") causal graphs
+theorem CE1.causalGraphGC_iso_short_long :
+    CausalGraph.Iso (CE1.sys.causalGraphGCOf [CE1.e13] CE1.s2) (CE1.sys.causalGraphGCOf [CE1.e12, CE1.e23] CE1.s2)
+
+-- CE2 is GC-causally-invariant (terminating; normal forms)
+theorem CE2.causalInvariantGC : GCausalInvariant CE2.sys
 
 -- Bridge: finite enumerator ↔ step relation
 theorem stepStates_iff_step : t ∈ sys.stepStates s ↔ Step sys s t

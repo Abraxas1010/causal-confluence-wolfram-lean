@@ -56,6 +56,17 @@ Paths below are relative to this PaperPack repository: `RESEARCHER_BUNDLE/Heytin
    - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphLabeled.lean`
    - Informal: edges are labeled by the multiset intersection `output ∩ input`; forgetful map recovers unlabeled graph.
 
+9a. **Observable-event (“GC”) causal graph (coarse-graining)**
+   - Lean: `HeytingLean.WPP.Wolfram.System.causalGraphGCOf`
+   - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphGC.lean`
+   - Informal: discard events whose created expressions do **not** survive to the endpoint, then build the causal graph
+     on the remaining events (a detour-insensitive abstraction; not SetReplace’s definition).
+
+9b. **GC causal invariance (terminating, normal forms)**
+   - Lean: `HeytingLean.WPP.Wolfram.Properties.GCausalInvariant`
+   - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphGC.lean`
+   - Informal: any two evolutions to normal forms have isomorphic GC causal graphs.
+
 ## Tier 4: Confluence Theory (Relation-Theoretic Layer)
 
 10. **One-step relation (Step)**
@@ -104,6 +115,16 @@ Paths below are relative to this PaperPack repository: `RESEARCHER_BUNDLE/Heytin
     - Lean: `HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent`
     - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceCausalInvariance.lean`
     - Informal: confluence and causal invariance are independent properties; neither implies the other.
+
+18a. **CE1 detour disappears under GC causal graphs**
+    - Lean: `HeytingLean.WPP.Wolfram.Counterexamples.CE1.causalGraphGC_iso_short_long`
+    - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceCausalInvarianceGC.lean`
+    - Informal: CE1’s short/long normal-form evolutions become causally-graph-isomorphic after GC coarse-graining.
+
+18b. **CE2 is GC-causally-invariant**
+    - Lean: `HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariantGC`
+    - File: `RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceCausalInvarianceGC.lean`
+    - Informal: CE2 remains causally invariant under the GC causal-graph notion.
 
 ## Tier 6: Multiway and Branchial Infrastructure
 

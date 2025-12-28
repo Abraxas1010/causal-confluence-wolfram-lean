@@ -26,6 +26,7 @@ fully generalized (multi-rule + multiway + branchial + bridges).
 - `HeytingLean.WPP.Wolfram.System.labeledCausalGraphOf`
 - `HeytingLean.WPP.Wolfram.System.labeledCausalGraphOf_forget_edge_iff`
 - `HeytingLean.WPP.Wolfram.System.labeledCausalGraphOf_forget_iso_causalGraphOf`
+- `HeytingLean.WPP.Wolfram.System.causalGraphGCOf`
 - `HeytingLean.WPP.Wolfram.System.stepStates_iff_step`
 - `HeytingLean.WPP.Wolfram.System.wpp_stepStar_iff_stepStar`
 - `HeytingLean.WPP.Wolfram.System.toWppRel`
@@ -35,9 +36,12 @@ fully generalized (multi-rule + multiway + branchial + bridges).
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE2.terminatingFrom_init`
 - `HeytingLean.WPP.Wolfram.Properties.ConfluentNF`
 - `HeytingLean.WPP.Wolfram.Properties.CausalInvariant`
+- `HeytingLean.WPP.Wolfram.Properties.GCausalInvariant`
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE1.confluentNF`
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE1.not_causalInvariant`
+- `HeytingLean.WPP.Wolfram.Counterexamples.CE1.causalGraphGC_iso_short_long`
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariant`
+- `HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariantGC`
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF`
 - `HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent`
 

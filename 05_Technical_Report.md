@@ -75,15 +75,20 @@ Key Lean modules:
 
 ### 2.2 Causal graphs (SetReplace-style) + multiplicity-aware refinement
 
-Two notions are formalized:
+Three causal-graph constructions are formalized:
 
 1. **Unlabeled causal graph**: an edge `e₁ → e₂` exists if some expression is created by `e₁` and destroyed by `e₂`.
 2. **Labeled/multiplicity-aware causal graph**: edges are labeled by the multiset intersection `output ∩ input`, then a forgetful map recovers the unlabeled graph.
+3. **Observable-event (“GC”) causal graph (coarse-graining)**: discard events whose created expressions do **not** survive to the
+   endpoint, then build the induced causal graph on the remaining events. This is a bridge abstraction (not SetReplace’s definition),
+   used to explain CE1’s “detour step” mismatch.
 
 Key Lean modules:
 
 - `HeytingLean.WPP.Wolfram.CausalGraph`
 - `HeytingLean.WPP.Wolfram.CausalGraphLabeled`
+- `HeytingLean.WPP.Wolfram.CausalGraphGC`
+- `HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC`
 
 ### 2.3 Confluence theory layer (relation-theoretic scaffold)
 

@@ -13,16 +13,18 @@ This audit is a submission-readiness check: the *Lean proof tree used for the Wo
 
 ### Status
 
-- [STATUS: PASSED] for standalone `main` @ `b3545c7` (repo: https://github.com/Abraxas1010/causal-confluence-wolfram-lean)
+- [STATUS: PASSED] for standalone `main` (repo: https://github.com/Abraxas1010/causal-confluence-wolfram-lean)
 - Ran `RESEARCHER_BUNDLE/scripts/verify_wolfram.sh` with strict flags (`-DwarningAsError=true -Dno sorry`), builds + runs all `lean_exe`, compiles + runs emitted C, WL cross-check via Mathics, robustness + portability; exit code `0`.
 
-These documentation-only edits do not affect the audited Lean proof tree, so the QA status remains valid for the mechanized claims.
+This audit includes the added observable-event (“GC”) causal graph abstraction (`CausalGraphGC`) and its CE1/CE2 lemmas (`ConfluenceCausalInvarianceGC`).
 
 ### Scope Audited
 
 1. **Main repo Lean slice** (authoritative development):
    - `lean/HeytingLean/WPP/**`
    - `lean/HeytingLean/WPP/Wolfram/**`
+   - `lean/HeytingLean/WPP/Wolfram/CausalGraphGC.lean`
+   - `lean/HeytingLean/WPP/Wolfram/ConfluenceCausalInvarianceGC.lean`
    - `lean/HeytingLean/CLI/WolframMultiwayMain.lean`
    - `lean/HeytingLean/CLI/WolframWM148Main.lean`
 2. **Researcher bundle (self-contained)**:
@@ -101,10 +103,11 @@ No project-specific axioms were introduced.
 
 ## Main Formalism Concerns (Not Failures)
 
-- There are two “causal invariance” notions in play:
+- There are three “causal invariance” notions in play:
   - causal-graph invariance for normal-form evolutions (`HeytingLean.WPP.Wolfram.Properties.CausalInvariant`), and
+  - observable-event (“GC”) causal-graph invariance for normal-form evolutions (`HeytingLean.WPP.Wolfram.Properties.GCausalInvariant`), and
   - branch-pair resolution up to iso for fresh-vertex semantics (`HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`).
-  The README is careful; `TECHNICAL_REPORT_FULL.md` now also contains an explicit “two notions” paragraph to preempt reviewer confusion.
+  The README is careful; `TECHNICAL_REPORT_FULL.md` now contains an explicit “three notions” paragraph to preempt reviewer confusion.
 - `ConfluentNF` / `Properties.CausalInvariant` are phrased via “reachable normal forms” and can be vacuous for non-terminating systems.
   CE1/CE2 are terminating and explicitly exhibit reachable normal forms (see e.g. `Counterexamples.CE1.terminatingFrom_init` and
   `Counterexamples.CE2.terminatingFrom_init`), but we now state this explicitly where the properties are introduced in `TECHNICAL_REPORT_FULL.md`.
@@ -115,8 +118,8 @@ No project-specific axioms were introduced.
   Note: `System.Event.apply` is defined using `Multiset.sub` (SetReplace-faithful multiset subtraction), and Mathlib’s `Multiset.sub`
   currently depends on `Classical.choice` via the `List.diff` permutation coherence used to lift subtraction to quotient-multisets.
 - Add a bridge result (or clearly-marked future work) relating branch-pair resolution (`SystemFresh.CausalInvariant`) to normal-form
-  causal-graph invariance (`Properties.CausalInvariant`) under an explicit termination hypothesis, so WM148 and CE1/CE2 sit under one
-  unified formal narrative.
+  causal-graph invariance (`Properties.CausalInvariant`) and/or the coarse-grained observable-event notion (`Properties.GCausalInvariant`)
+  under explicit termination hypotheses, so WM148 and CE1/CE2 sit under one unified formal narrative.
 
 ### Notes on Token-Scan “False Positives”
 

@@ -43,6 +43,10 @@ For the standalone PaperPack, the pinned Lean sources live under `RESEARCHER_BUN
 - `HeytingLean.WPP.Wolfram.CausalGraphLabeled`
   - multiplicity-aware causal graph (`output ∩ input` labels) + forgetful map back to `CausalGraph`
 
+- `HeytingLean.WPP.Wolfram.CausalGraphGC`
+  - observable-event (“GC”) causal graph abstraction (`System.causalGraphGCOf`)
+  - property: `Properties.GCausalInvariant`
+
 - `HeytingLean.WPP.Wolfram.Multiway`
   - finite enumerators (finite `P`/`V`) for event-data and multiway branching
   - ordering/scheduler API
@@ -66,6 +70,10 @@ For the standalone PaperPack, the pinned Lean sources live under `RESEARCHER_BUN
 - `HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance`
   - `Properties.ConfluentNF`, `Properties.CausalInvariant`
   - Piskunov counterexamples CE1/CE2 + independence theorem
+
+- `HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC`
+  - CE1: the short/long evolutions have isomorphic GC causal graphs (`CE1.causalGraphGC_iso_short_long`)
+  - CE2: GC-causal-invariance theorem (`CE2.causalInvariantGC`)
 
 - `HeytingLean.WPP.Wolfram.CausalInvarianceSingleLHS`
   - causal invariance as branch-pair resolution (up to `HGraph.Iso`) for **fresh-vertex** rewriting

@@ -18,14 +18,14 @@ If you are offline but already have dependencies present under `.lake/packages/`
 From this folder:
 
 1. `lake update`
-2. `lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -DwarningAsError=true`
-3. `lake build wolfram_multiway_demo -- -DwarningAsError=true`
+2. `lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC -- -DwarningAsError=true -Dno sorry`
+3. `lake build wolfram_multiway_demo -- -DwarningAsError=true -Dno sorry`
 4. `lake exe wolfram_multiway_demo > artifacts/generated_ce1.json`
 5. `lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2 > artifacts/generated_ce2.json`
-6. `lake build wolfram_wm148_demo -- -DwarningAsError=true`
+6. `lake build wolfram_wm148_demo -- -DwarningAsError=true -Dno sorry`
 7. `lake exe wolfram_wm148_demo > artifacts/generated_wm148.json`
 8. `lake exe wolfram_wm148_demo -- --maxDepth 3 > artifacts/generated_wm148_wlcheck.json`
-9. `lake build wolfram_bundle_demo -- -DwarningAsError=true`
+9. `lake build wolfram_bundle_demo -- -DwarningAsError=true -Dno sorry`
 10. `lake exe wolfram_bundle_demo`
 11. `cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_add1`
 12. `./artifacts/compiler/bin/wpp_add1` (expected output: `42`)

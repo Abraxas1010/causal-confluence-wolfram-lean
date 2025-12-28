@@ -18,6 +18,7 @@ multiway/branchial structure).
   - explicit fresh-vertex supply (`FreshSupply.lean`) + fresh rewrite semantics (`RewriteFresh.lean`)
   - injective-WLOG lemma under a simple-hypergraph invariant (`SimpleHypergraph.lean`)
   - causal graphs (`CausalGraph.lean`, `CausalGraphLabeled.lean`)
+  - observable-event (“GC”) causal graphs (`CausalGraphGC.lean`, `ConfluenceCausalInvarianceGC.lean`)
   - rewriting theory scaffold (`ConfluenceTheory.lean`)
   - confluence vs causal invariance (CE1/CE2 + independence) (`ConfluenceCausalInvariance.lean`)
   - finite multiway enumerator + branchial slices (`Multiway.lean`, `Branchial.lean`)
@@ -49,7 +50,7 @@ multiway/branchial structure).
 
 - `scripts/verify_wolfram.sh`
   - pins deps via `lake update`
-  - strict builds (`-DwarningAsError=true`, plus a marker scan to forbid proof holes)
+  - strict builds (`-DwarningAsError=true -Dno sorry`, plus a marker scan to forbid proof holes)
   - runs `wolfram_multiway_demo`
   - runs `wolfram_bundle_demo`
   - compiles and runs the emitted C file via `cc`

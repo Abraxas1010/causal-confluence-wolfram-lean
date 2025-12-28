@@ -26,10 +26,22 @@ This repo mechanizes two complementary facts about Wolfram/SetReplace-style rewr
 1. **Independence (CE1/CE2)**: confluence and causal invariance are independent properties.
 2. **WM148 (Wolfram Physics Project)**: under an explicit fresh-vertex semantics and equivalence up to vertex renaming,
    WM148 is causally invariant (in the sense of `SystemFresh.CausalInvariant`).
+3. **Observable-event (“GC”) causal graphs (bridge abstraction)**: a coarse-grained causal graph notion that discards
+   events whose created expressions do not survive to the endpoint; this makes CE1’s “detour step” disappear
+   (see `HeytingLean.WPP.Wolfram.Counterexamples.CE1.causalGraphGC_iso_short_long`).
 
 The point is that the counterexamples rule out “confluence ⇒ causal invariance” under naive matching, while WM148
 demonstrates a principled semantics (fresh allocation + α-equivalence) where a concrete WPP model satisfies causal
 invariance.
+
+**Three notions of “causal invariance” used in this repository (be precise when citing):**
+
+- **SetReplace-style (terminating) causal-graph invariance:** `HeytingLean.WPP.Wolfram.Properties.CausalInvariant`
+  compares `System.causalGraphOf` across normal-form evolutions.
+- **Observable-event (“GC”) causal-graph invariance:** `HeytingLean.WPP.Wolfram.Properties.GCausalInvariant` compares
+  `System.causalGraphGCOf` across normal-form evolutions (coarse-graining; not SetReplace’s definition).
+- **Wolfram Physics branch-pair resolution (fresh vertices):** `HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`
+  is joinability-up-to-iso for one-step forks in the fresh-vertex semantics.
 
 ### A) Independence Theorem (CE1/CE2)
 
@@ -44,6 +56,10 @@ In the [Wolfram Physics Project](https://www.wolframphysics.org/), **causal inva
 This formalization proves they are **independent**:
 - Systems can be confluent without being causally invariant
 - Systems can be causally invariant without being confluent
+
+**Note (why CE1 is subtle):** CE1’s two maximal evolutions reach the same normal form but have different lengths.
+This breaks SetReplace-style causal-graph invariance, but under the observable-event (“GC”) causal graph abstraction
+the two evolutions have isomorphic causal graphs (`HeytingLean.WPP.Wolfram.Counterexamples.CE1.causalGraphGC_iso_short_long`).
 
 ---
 
@@ -167,6 +183,7 @@ Interactive multiway viewer (CE1/CE2/WM148-depth3 built-in; or load `generated_c
 | **Fresh-Vertex Semantics** | Explicit fresh-name supply + α-equivalence up to vertex renaming |
 | **Injective-WLOG Lemmas** | Under a “simple hypergraph” invariant, applicable matches are forced injective (standard `Fin n`/`finRange` LHS shape) |
 | **Causal Graphs** | "Created then destroyed" edges, graph isomorphism |
+| **GC Causal Graphs** | Observable-event (“garbage-collected”) causal graph abstraction + `GCausalInvariant` |
 | **Properties** | `ConfluentNF` (unique normal forms), `CausalInvariant` (isomorphic causal graphs) |
 | **Counterexamples** | CE1: confluent ∧ ¬causal-invariant, CE2: causal-invariant ∧ ¬confluent |
 | **Main Theorem** | `confluence_causal_invariance_independent` |

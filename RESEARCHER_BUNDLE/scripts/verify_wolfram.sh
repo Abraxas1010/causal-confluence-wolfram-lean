@@ -80,6 +80,8 @@ EOF
   lake build HeytingLean.WPP.Wolfram.MultiwayBridge "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.MultiwayRel "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.CausalGraphGC "${STRICT_FLAGS[@]}"
+  lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.Branchial "${STRICT_FLAGS[@]}"
   lake build HeytingLean.WPP.Wolfram.CausalGraphLabeled "${STRICT_FLAGS[@]}"
   lake build wolfram_multiway_demo "${STRICT_FLAGS[@]}"

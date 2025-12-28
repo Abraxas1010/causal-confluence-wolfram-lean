@@ -50,7 +50,7 @@ From the PaperPack root:
 
 ```bash
 cd RESEARCHER_BUNDLE
-lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance -- -DwarningAsError=true -Dno sorry
+lake build HeytingLean.WPP.Wolfram.ConfluenceCausalInvarianceGC -- -DwarningAsError=true -Dno sorry
 ```
 
 ## Build the full library strictly (incremental)
