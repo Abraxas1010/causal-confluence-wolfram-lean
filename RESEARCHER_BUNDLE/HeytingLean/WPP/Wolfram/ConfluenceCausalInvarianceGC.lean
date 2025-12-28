@@ -22,106 +22,39 @@ open Counterexamples.CE1
 
 local instance : DecidableEq V := inferInstance
 
-private lemma e13_observable : System.Event.Observable (sys := sys) e13 s2 := by
-  refine ⟨([2] : Expr V), ?_, ?_⟩
-  · constructor
-    · simp [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, e13, sys, rule]
-    · simp [System.Event.input, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename, e13, sys, rule]
-  · simp [s2]
+private lemma e13_observableB : System.Event.observableB (sys := sys) e13 s2 = true := by
+  decide
 
-private lemma e23_observable : System.Event.Observable (sys := sys) e23 s2 := by
-  refine ⟨([2] : Expr V), ?_, ?_⟩
-  · constructor
-    · simp [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, e23, sys, rule]
-    · simp [System.Event.input, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename, e23, sys, rule]
-  · simp [s2]
+private lemma e23_observableB : System.Event.observableB (sys := sys) e23 s2 = true := by
+  decide
 
-private lemma not_e12_observable : ¬ System.Event.Observable (sys := sys) e12 s2 := by
-  intro h
-  rcases h with ⟨x, hxCreated, hxMem⟩
-  rcases hxCreated with ⟨hxOut, hxNotIn⟩
-  have hx : x = ([1] : Expr V) := by
-    have : x = ([0, 1] : Expr V) ∨ x = ([1] : Expr V) := by
-      simpa [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, e12, sys, rule] using hxOut
-    cases this with
-    | inl h01 =>
-        have : ([0, 1] : Expr V) ∈ e12.input (sys := sys) := by
-          simp [System.Event.input, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename, e12, sys, rule]
-        exact False.elim (hxNotIn (by simpa [h01] using this))
-    | inr h1 =>
-        exact h1
-  have : ([1] : Expr V) ∉ s2 := by
-    simp [s2]
-  exact this (by simpa [hx] using hxMem)
+private lemma e12_observableB : System.Event.observableB (sys := sys) e12 s2 = false := by
+  decide
+
+private lemma idxs_short : sys.observableIdxs [e13] s2 = [⟨0, by decide⟩] := by
+  decide
+
+private lemma idxs_long : sys.observableIdxs [e12, e23] s2 = [⟨1, by decide⟩] := by
+  decide
 
 private lemma gc_n_short : (sys.causalGraphGCOf [e13] s2).n = 1 := by
-  classical
-  simp [System.causalGraphGCOf, System.observableIdxs, e13_observable]
+  simp (config := { zeta := true }) [System.causalGraphGCOf, idxs_short]
 
 private lemma gc_n_long : (sys.causalGraphGCOf [e12, e23] s2).n = 1 := by
-  classical
-  have hset : System.observableIdxs (sys := sys) [e12, e23] s2 = { (1 : Fin 2) } := by
-    ext i
-    cases i using Fin.cases with
-    | zero =>
-        simp [System.observableIdxs, not_e12_observable]
-    | succ j =>
-        cases j using Fin.cases with
-        | zero =>
-            simp [System.observableIdxs, e23_observable]
-        | succ j0 =>
-            exact (Fin.elim0 j0)
-  simp [System.causalGraphGCOf, hset]
+  simp (config := { zeta := true }) [System.causalGraphGCOf, idxs_long]
 
 private lemma gc_edge_false_short (i j : Fin (sys.causalGraphGCOf [e13] s2).n) :
     (sys.causalGraphGCOf [e13] s2).edge i j ↔ False := by
-  classical
-  have hn : (sys.causalGraphGCOf [e13] s2).n = 1 := gc_n_short
-  have hi_lt : i.1 < 1 := by
-    have : i.1 < (sys.causalGraphGCOf [e13] s2).n := i.isLt
-    simpa [hn] using this
-  have hj_lt : j.1 < 1 := by
-    have : j.1 < (sys.causalGraphGCOf [e13] s2).n := j.isLt
-    simpa [hn] using this
-  have hi0 : i.1 = 0 := Nat.lt_one_iff.mp hi_lt
-  have hj0 : j.1 = 0 := Nat.lt_one_iff.mp hj_lt
-  constructor
-  · intro h
-    have hij : i = j := by
-      apply Fin.ext
-      simp [hi0, hj0]
-    subst hij
-    simp [System.causalGraphGCOf] at h
-  · intro hf
-    exact False.elim hf
+  simp (config := { zeta := true }) [System.causalGraphGCOf, idxs_short]
 
 private lemma gc_edge_false_long (i j : Fin (sys.causalGraphGCOf [e12, e23] s2).n) :
     (sys.causalGraphGCOf [e12, e23] s2).edge i j ↔ False := by
-  classical
-  have hn : (sys.causalGraphGCOf [e12, e23] s2).n = 1 := gc_n_long
-  have hi_lt : i.1 < 1 := by
-    have : i.1 < (sys.causalGraphGCOf [e12, e23] s2).n := i.isLt
-    simpa [hn] using this
-  have hj_lt : j.1 < 1 := by
-    have : j.1 < (sys.causalGraphGCOf [e12, e23] s2).n := j.isLt
-    simpa [hn] using this
-  have hi0 : i.1 = 0 := Nat.lt_one_iff.mp hi_lt
-  have hj0 : j.1 = 0 := Nat.lt_one_iff.mp hj_lt
-  constructor
-  · intro h
-    have hij : i = j := by
-      apply Fin.ext
-      simp [hi0, hj0]
-    subst hij
-    simp [System.causalGraphGCOf] at h
-  · intro hf
-    exact False.elim hf
+  simp (config := { zeta := true }) [System.causalGraphGCOf, idxs_long]
 
 /-- In CE1, the *short* evolution `[e13]` and the *long* evolution `[e12, e23]` have isomorphic
 observable-event causal graphs. -/
 theorem causalGraphGC_iso_short_long :
     CausalGraph.Iso (sys.causalGraphGCOf [e13] s2) (sys.causalGraphGCOf [e12, e23] s2) := by
-  classical
   have hn : (sys.causalGraphGCOf [e13] s2).n = (sys.causalGraphGCOf [e12, e23] s2).n := by
     simp [gc_n_short, gc_n_long]
   refine ⟨Equiv.cast (congrArg Fin hn), ?_⟩
@@ -239,43 +172,33 @@ private lemma length_eq_one_of_nf {es : List sys.Event} {t : HGraph V} :
       | cons e' happ' _ =>
           exact False.elim (hn_mid e' happ')
 
-private lemma e_observable_of_evolves_singleton {e : sys.Event} {t : HGraph V}
-    (hev : sys.Evolves s0 [e] t) : System.Event.Observable (sys := sys) e t := by
+private lemma e_observableB_of_evolves_singleton {e : sys.Event} {t : HGraph V}
+    (hev : sys.Evolves s0 [e] t) : System.Event.observableB (sys := sys) e t = true := by
   cases hev with
-  | cons e' happ hrest =>
+  | cons e' _happ hrest =>
       cases hrest with
       | nil =>
-          refine ⟨([e.σ 0] : Expr V), ?_, ?_⟩
-          · constructor
-            · simp [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, sys, rule]
-            · intro hx
-              simp [System.Event.input, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename, sys, rule] at hx
-          · have : ([e.σ 0] : Expr V) ∈ e.output (sys := sys) := by
-              simp [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, sys, rule]
-            simpa [System.Event.apply, System.Event.output] using (Multiset.mem_add.mpr (Or.inr this))
-
-private lemma gc_edge_false_of_n_eq_one (es : List sys.Event) (t : HGraph V)
-    (hn : (sys.causalGraphGCOf es t).n = 1)
-    (i j : Fin (sys.causalGraphGCOf es t).n) :
-    (sys.causalGraphGCOf es t).edge i j ↔ False := by
-  classical
-  have hi_lt : i.1 < 1 := by
-    have : i.1 < (sys.causalGraphGCOf es t).n := i.isLt
-    simpa [hn] using this
-  have hj_lt : j.1 < 1 := by
-    have : j.1 < (sys.causalGraphGCOf es t).n := j.isLt
-    simpa [hn] using this
-  have hi0 : i.1 = 0 := Nat.lt_one_iff.mp hi_lt
-  have hj0 : j.1 = 0 := Nat.lt_one_iff.mp hj_lt
-  constructor
-  · intro h
-    have hij : i = j := by
-      apply Fin.ext
-      simp [hi0, hj0]
-    subst hij
-    simp [System.causalGraphGCOf] at h
-  · intro hf
-    exact False.elim hf
+          -- In this branch, `t = e.apply s0`.
+          set t' := e.apply (sys := sys) s0
+          -- The RHS always creates the singleton edge `[σ 0]`, which is not in the LHS.
+          have hout : ([e.σ 0] : Expr V) ∈ e.output (sys := sys) := by
+            simp [System.Event.output, Rule.instRhs, Rule.inst, HGraph.rename, Expr.rename, sys, rule]
+          have hnot : ([e.σ 0] : Expr V) ∉ e.input (sys := sys) := by
+            intro hx
+            simp [System.Event.input, Rule.instLhs, Rule.inst, HGraph.rename, Expr.rename, sys, rule] at hx
+          have ht : ([e.σ 0] : Expr V) ∈ t' := by
+            have : ([e.σ 0] : Expr V) ∈ e.output (sys := sys) := hout
+            -- `t = e.apply s0 = (s0 - input) + output`, so any output edge is in `t`.
+            simpa [t', System.Event.apply, System.Event.output] using (Multiset.mem_add.mpr (Or.inr this))
+          -- `observableB` is an `||`-fold over outputs; since a created output is in `t`, it is `true`.
+          dsimp [System.Event.observableB]
+          have hmemTrue :
+              true ∈
+                ((e.output (sys := sys)).map (fun x => decide (x ∉ e.input (sys := sys) ∧ x ∈ t'))) := by
+            refine Multiset.mem_map.2 ?_
+            refine ⟨([e.σ 0] : Expr V), hout, ?_⟩
+            exact decide_eq_true ⟨hnot, ht⟩
+          exact System.Multiset.fold_or_eq_true_of_mem_true hmemTrue
 
 /-- CE2 remains causally invariant under the observable-event (GC) causal graph. -/
 theorem causalInvariantGC : Properties.GCausalInvariant (sys := sys) := by
@@ -292,27 +215,34 @@ theorem causalInvariantGC : Properties.GCausalInvariant (sys := sys) := by
           | cons e2 tail2 =>
               cases tail2 with
               | nil =>
-                  have hob1 : System.Event.Observable (sys := sys) e1 t₁ :=
-                    e_observable_of_evolves_singleton (e := e1) (t := t₁) (by simpa using hev₁)
-                  have hob2 : System.Event.Observable (sys := sys) e2 t₂ :=
-                    e_observable_of_evolves_singleton (e := e2) (t := t₂) (by simpa using hev₂)
+                  have hob1 : System.Event.observableB (sys := sys) e1 t₁ = true :=
+                    e_observableB_of_evolves_singleton (e := e1) (t := t₁) (by simpa using hev₁)
+                  have hob2 : System.Event.observableB (sys := sys) e2 t₂ = true :=
+                    e_observableB_of_evolves_singleton (e := e2) (t := t₂) (by simpa using hev₂)
+                  have idxs1 : sys.observableIdxs [e1] t₁ = [⟨0, by simp⟩] := by
+                    simp [System.observableIdxs, hob1]
+                    decide
+                  have idxs2 : sys.observableIdxs [e2] t₂ = [⟨0, by simp⟩] := by
+                    simp [System.observableIdxs, hob2]
+                    decide
                   have hn1 : (sys.causalGraphGCOf [e1] t₁).n = 1 := by
-                    classical
-                    simp [System.causalGraphGCOf, System.observableIdxs, hob1]
+                    have hlen : (sys.observableIdxs [e1] t₁).length = 1 := by
+                      simp [idxs1]
+                    simpa (config := { zeta := true }) [System.causalGraphGCOf] using hlen
                   have hn2 : (sys.causalGraphGCOf [e2] t₂).n = 1 := by
-                    classical
-                    simp [System.causalGraphGCOf, System.observableIdxs, hob2]
+                    have hlen : (sys.observableIdxs [e2] t₂).length = 1 := by
+                      simp [idxs2]
+                    simpa (config := { zeta := true }) [System.causalGraphGCOf] using hlen
                   have hn : (sys.causalGraphGCOf [e1] t₁).n = (sys.causalGraphGCOf [e2] t₂).n := by
                     simp [hn1, hn2]
                   refine ⟨Equiv.cast (congrArg Fin hn), ?_⟩
                   intro i j
-                  have hfalse1 : (sys.causalGraphGCOf [e1] t₁).edge i j ↔ False :=
-                    gc_edge_false_of_n_eq_one (es := [e1]) (t := t₁) hn1 i j
+                  have hfalse1 : (sys.causalGraphGCOf [e1] t₁).edge i j ↔ False := by
+                    simp (config := { zeta := true }) [System.causalGraphGCOf, idxs1]
                   have hfalse2 :
                       (sys.causalGraphGCOf [e2] t₂).edge (Equiv.cast (congrArg Fin hn) i)
-                        (Equiv.cast (congrArg Fin hn) j) ↔ False :=
-                    gc_edge_false_of_n_eq_one (es := [e2]) (t := t₂) hn2
-                      (i := (Equiv.cast (congrArg Fin hn) i)) (j := (Equiv.cast (congrArg Fin hn) j))
+                        (Equiv.cast (congrArg Fin hn) j) ↔ False := by
+                    simp (config := { zeta := true }) [System.causalGraphGCOf, idxs2]
                   constructor <;> intro h
                   · exact False.elim (hfalse1.mp h)
                   · exact False.elim (hfalse2.mp h)

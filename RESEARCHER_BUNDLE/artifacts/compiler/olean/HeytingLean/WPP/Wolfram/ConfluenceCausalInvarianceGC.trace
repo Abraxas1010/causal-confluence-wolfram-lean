@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["7579650004691335789"],
-  "i": "5587594923476202085",
+ {"o": ["15278767291518831047"],
+  "i": "17190184511352296853",
   "c": "3907349495752858157"},
  "log":
  [{"message":
@@ -18,9 +18,9 @@
         ["HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance:importAllArts",
          "8157548021186667325"],
         ["HeytingLean.WPP.Wolfram.CausalGraphGC transitive imports (legacy)",
-         "8779084190801213453"],
+         "14725682741544415894"],
         ["HeytingLean.WPP.Wolfram.CausalGraphGC:importAllArts",
-         "2240591185787226625"]]]]],
+         "15757794129719977812"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -29,7 +29,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/ConfluenceCausalInvarianceGC.lean",
-   "15623870102844234654"],
+   "13236668202738749545"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "13375968339251049483"}
+ "depHash": "4360204252485979466"}

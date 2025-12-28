@@ -85,19 +85,43 @@ multiway/branchial structure).
 - `ConfluentNF`: any two reachable normal forms are isomorphic hypergraphs.
 - `CausalInvariant`: any two singleway evolutions to normal forms yield isomorphic causal graphs.
 
+Important: this bundle contains **two** non-equivalent “causal invariance” notions used in the literature:
+
+- **Causal-graph invariance** (Piskunov / SetReplace-style, terminating): `HeytingLean.WPP.Wolfram.Properties.CausalInvariant`
+  on `System` (no explicit fresh allocation in the semantics).
+- **Branch-pair resolution** (Wolfram Physics, local confluence): `HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`
+  on `SystemFresh` (explicit fresh allocation; joinability is up to `HGraph.Iso`).
+
+They are intentionally kept separate in the formalization. A general theorem relating them would require additional
+structure/hypotheses about how causality is extracted from interleavings (future work).
+
+Concrete proof included:
+
+- WM148: `HeytingLean.WPP.Wolfram.WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`.
+
 Counterexamples:
 
 - CE1: confluentNF but not causalInvariant.
 - CE2: causalInvariant but not confluentNF.
 - Therefore: independence of the properties.
 
-### 2.3 Multiway/branchial
+### 2.3 Observable-event (“GC”) causal graphs
+
+To compare evolutions that differ only by transient bookkeeping steps, we also define an **observable-event**
+coarse-graining:
+
+- `System.causalGraphGCOf`: keeps only events that create some expression that survives in the endpoint state.
+- `Properties.GCausalInvariant`: causal-graph invariance for `causalGraphGCOf`.
+
+Under this abstraction, CE1’s “short” and “long” terminating evolutions have isomorphic causal graphs.
+
+### 2.4 Multiway/branchial
 
 - For finite `P` and `V`, bounded multiway exploration is implemented using `Finset` enumerators.
 - Branchial edges are computed between sibling states (children of the same parent).
 - A bounded path-counting function is provided.
 
-### 2.4 Beyond finiteness: relation-based multiway interface
+### 2.5 Beyond finiteness: relation-based multiway interface
 
 - `WppRel` models multiway dynamics without enumerating successors.
 - Any Wolfram system induces a `WppRel` via the one-step rewrite relation `System.Step`.

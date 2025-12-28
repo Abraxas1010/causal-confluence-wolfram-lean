@@ -73,16 +73,12 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/TermReduce.olean"],
   "Mathlib.Util.Tactic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Tactic.olean"],
-  "Mathlib.Util.Qq":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Qq.olean"],
   "Mathlib.Util.PrintSorries":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/PrintSorries.olean"],
   "Mathlib.Util.PPOptions":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/PPOptions.olean"],
   "Mathlib.Util.Notation3":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Notation3.olean"],
-  "Mathlib.Util.MemoFix":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/MemoFix.olean"],
   "Mathlib.Util.Delaborators":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Delaborators.olean"],
   "Mathlib.Util.CountHeartbeats":
@@ -129,12 +125,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ToLevel.olean"],
   "Mathlib.Tactic.ToExpr":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ToExpr.olean"],
-  "Mathlib.Tactic.ToAdditive.GuessName":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ToAdditive/GuessName.olean"],
-  "Mathlib.Tactic.ToAdditive.Frontend":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ToAdditive/Frontend.olean"],
-  "Mathlib.Tactic.ToAdditive":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ToAdditive.olean"],
   "Mathlib.Tactic.TermCongr":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TermCongr.olean"],
   "Mathlib.Tactic.Tauto":
@@ -369,22 +359,12 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ApplyAt.olean"],
   "Mathlib.Tactic.AdaptationNote":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/AdaptationNote.olean"],
-  "Mathlib.Order.WithBot":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WithBot.olean"],
-  "Mathlib.Order.WellFounded":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WellFounded.olean"],
   "Mathlib.Order.ULift":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/ULift.olean"],
-  "Mathlib.Order.TypeTags":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/TypeTags.olean"],
   "Mathlib.Order.Synonym":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Synonym.olean"],
   "Mathlib.Order.SymmDiff":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SymmDiff.olean"],
-  "Mathlib.Order.SetNotation":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SetNotation.olean"],
-  "Mathlib.Order.RelIso.Set":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/RelIso/Set.olean"],
   "Mathlib.Order.RelIso.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/RelIso/Basic.olean"],
   "Mathlib.Order.RelClasses":
@@ -393,8 +373,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/PropInstances.olean"],
   "Mathlib.Order.Notation":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Notation.olean"],
-  "Mathlib.Order.Nat":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Nat.olean"],
   "Mathlib.Order.Monotone.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Monotone/Defs.olean"],
   "Mathlib.Order.Monotone.Basic":
@@ -407,24 +385,12 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Lattice.olean"],
   "Mathlib.Order.Interval.Set.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Defs.olean"],
-  "Mathlib.Order.Interval.Set.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Basic.olean"],
-  "Mathlib.Order.Hom.Set":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Set.olean"],
-  "Mathlib.Order.Hom.Lattice":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Lattice.olean"],
-  "Mathlib.Order.Hom.BoundedLattice":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/BoundedLattice.olean"],
-  "Mathlib.Order.Hom.Bounded":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Bounded.olean"],
   "Mathlib.Order.Hom.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Basic.olean"],
   "Mathlib.Order.Heyting.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Heyting/Basic.olean"],
   "Mathlib.Order.GaloisConnection.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Defs.olean"],
-  "Mathlib.Order.GaloisConnection.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Basic.olean"],
   "Mathlib.Order.Fin.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Fin/Basic.olean"],
   "Mathlib.Order.Disjoint":
@@ -437,24 +403,8 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Defs/PartialOrder.olean"],
   "Mathlib.Order.Defs.LinearOrder":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Defs/LinearOrder.olean"],
-  "Mathlib.Order.CompleteLattice.Lemmas":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/CompleteLattice/Lemmas.olean"],
-  "Mathlib.Order.CompleteLattice.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/CompleteLattice/Defs.olean"],
-  "Mathlib.Order.CompleteLattice.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/CompleteLattice/Basic.olean"],
-  "Mathlib.Order.CompleteBooleanAlgebra":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/CompleteBooleanAlgebra.olean"],
   "Mathlib.Order.Compare":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Compare.olean"],
-  "Mathlib.Order.Bounds.Image":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Bounds/Image.olean"],
-  "Mathlib.Order.Bounds.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Bounds/Defs.olean"],
-  "Mathlib.Order.Bounds.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Bounds/Basic.olean"],
-  "Mathlib.Order.BoundedOrder.Monotone":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/BoundedOrder/Monotone.olean"],
   "Mathlib.Order.BoundedOrder.Lattice":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/BoundedOrder/Lattice.olean"],
   "Mathlib.Order.BoundedOrder.Basic":
@@ -479,8 +429,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/OpClass.olean"],
   "Mathlib.Logic.Nontrivial.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Nontrivial/Defs.olean"],
-  "Mathlib.Logic.Nontrivial.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Nontrivial/Basic.olean"],
   "Mathlib.Logic.Nonempty":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Nonempty.olean"],
   "Mathlib.Logic.IsEmpty":
@@ -509,8 +457,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Defs.olean"],
   "Mathlib.Logic.Equiv.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Basic.olean"],
-  "Mathlib.Logic.Embedding.Set":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Embedding/Set.olean"],
   "Mathlib.Logic.Embedding.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Embedding/Basic.olean"],
   "Mathlib.Logic.Basic":
@@ -519,8 +465,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/PrettyPrinter/Delaborator.olean"],
   "Mathlib.Lean.Name":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Name.olean"],
-  "Mathlib.Lean.Meta.Simp":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Meta/Simp.olean"],
   "Mathlib.Lean.Meta.RefinedDiscrTree.Lookup":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Meta/RefinedDiscrTree/Lookup.olean"],
   "Mathlib.Lean.Meta.RefinedDiscrTree.Initialize":
@@ -541,10 +485,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Meta.olean"],
   "Mathlib.Lean.GoalsLocation":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/GoalsLocation.olean"],
-  "Mathlib.Lean.Expr.ReplaceRec":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Expr/ReplaceRec.olean"],
-  "Mathlib.Lean.Expr.ExtraRecognizers":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Expr/ExtraRecognizers.olean"],
   "Mathlib.Lean.Expr.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/Expr/Basic.olean"],
   "Mathlib.Lean.Elab.Term":
@@ -557,8 +497,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Lean/ContextInfo.olean"],
   "Mathlib.Init":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Init.olean"],
-  "Mathlib.Data.ULift":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ULift.olean"],
   "Mathlib.Data.Sum.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sum/Basic.olean"],
   "Mathlib.Data.Subtype":
@@ -579,10 +517,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Pairwise/Basic.olean"],
   "Mathlib.Data.Set.Operations":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Operations.olean"],
-  "Mathlib.Data.Set.Notation":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Notation.olean"],
-  "Mathlib.Data.Set.NAry":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/NAry.olean"],
   "Mathlib.Data.Set.List":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/List.olean"],
   "Mathlib.Data.Set.Insert":
@@ -599,8 +533,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Defs.olean"],
   "Mathlib.Data.Set.CoeSort":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/CoeSort.olean"],
-  "Mathlib.Data.Set.BooleanAlgebra":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/BooleanAlgebra.olean"],
   "Mathlib.Data.Set.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Basic.olean"],
   "Mathlib.Data.SProd":
@@ -613,40 +545,28 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Prod/Basic.olean"],
   "Mathlib.Data.Ordering.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Ordering/Basic.olean"],
-  "Mathlib.Data.Option.NAry":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Option/NAry.olean"],
   "Mathlib.Data.Option.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Option/Defs.olean"],
   "Mathlib.Data.Option.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Option/Basic.olean"],
-  "Mathlib.Data.Nat.Set":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Set.olean"],
   "Mathlib.Data.Nat.Notation":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Notation.olean"],
   "Mathlib.Data.Nat.Init":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Init.olean"],
   "Mathlib.Data.Nat.Find":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Find.olean"],
-  "Mathlib.Data.Nat.BinaryRec":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/BinaryRec.olean"],
   "Mathlib.Data.Nat.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Basic.olean"],
   "Mathlib.Data.Multiset.ZeroCons":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/ZeroCons.olean"],
   "Mathlib.Data.Multiset.UnionInter":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/UnionInter.olean"],
-  "Mathlib.Data.Multiset.Sum":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Sum.olean"],
-  "Mathlib.Data.Multiset.Sort":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Sort.olean"],
   "Mathlib.Data.Multiset.Replicate":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Replicate.olean"],
   "Mathlib.Data.Multiset.Range":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Range.olean"],
   "Mathlib.Data.Multiset.MapFold":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/MapFold.olean"],
-  "Mathlib.Data.Multiset.Lattice":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Lattice.olean"],
   "Mathlib.Data.Multiset.Fold":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Fold.olean"],
   "Mathlib.Data.Multiset.FinsetOps":
@@ -663,12 +583,8 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/Basic.olean"],
   "Mathlib.Data.Multiset.AddSub":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Multiset/AddSub.olean"],
-  "Mathlib.Data.List.TakeWhile":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/TakeWhile.olean"],
   "Mathlib.Data.List.TakeDrop":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/TakeDrop.olean"],
-  "Mathlib.Data.List.Sort":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Sort.olean"],
   "Mathlib.Data.List.Perm.Subperm":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Perm/Subperm.olean"],
   "Mathlib.Data.List.Perm.Lattice":
@@ -677,8 +593,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Perm/Basic.olean"],
   "Mathlib.Data.List.OfFn":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/OfFn.olean"],
-  "Mathlib.Data.List.NodupEquivFin":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/NodupEquivFin.olean"],
   "Mathlib.Data.List.Nodup":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Nodup.olean"],
   "Mathlib.Data.List.Monad":
@@ -695,8 +609,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Forall2.olean"],
   "Mathlib.Data.List.FinRange":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/FinRange.olean"],
-  "Mathlib.Data.List.Duplicate":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Duplicate.olean"],
   "Mathlib.Data.List.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Defs.olean"],
   "Mathlib.Data.List.Dedup":
@@ -709,8 +621,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Order/Basic.olean"],
   "Mathlib.Data.Int.Notation":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Notation.olean"],
-  "Mathlib.Data.Int.Init":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Init.olean"],
   "Mathlib.Data.Int.DivMod":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/DivMod.olean"],
   "Mathlib.Data.FunLike.Equiv":
@@ -723,8 +633,6 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Sets.olean"],
   "Mathlib.Data.Fintype.OfMap":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/OfMap.olean"],
-  "Mathlib.Data.Fintype.EquivFin":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/EquivFin.olean"],
   "Mathlib.Data.Fintype.Defs":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Defs.olean"],
   "Mathlib.Data.Fintype.Card":
@@ -733,28 +641,18 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Basic.olean"],
   "Mathlib.Data.Finset.SymmDiff":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/SymmDiff.olean"],
-  "Mathlib.Data.Finset.Sum":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Sum.olean"],
-  "Mathlib.Data.Finset.Sort":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Sort.olean"],
   "Mathlib.Data.Finset.SDiff":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/SDiff.olean"],
   "Mathlib.Data.Finset.Range":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Range.olean"],
-  "Mathlib.Data.Finset.Max":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Max.olean"],
   "Mathlib.Data.Finset.Lattice.Lemmas":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Lemmas.olean"],
-  "Mathlib.Data.Finset.Lattice.Fold":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Fold.olean"],
   "Mathlib.Data.Finset.Lattice.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Basic.olean"],
   "Mathlib.Data.Finset.Insert":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Insert.olean"],
   "Mathlib.Data.Finset.Image":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Image.olean"],
-  "Mathlib.Data.Finset.Fold":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Fold.olean"],
   "Mathlib.Data.Finset.Filter":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Filter.olean"],
   "Mathlib.Data.Finset.Erase":
@@ -789,14 +687,8 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Embedding.olean"],
   "Mathlib.Data.Fin.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean"],
-  "Mathlib.Data.Bool.Set":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Bool/Set.olean"],
   "Mathlib.Data.Bool.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Bool/Basic.olean"],
-  "Mathlib.Data.Array.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Array/Defs.olean"],
-  "Mathlib.Control.ULift":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/ULift.olean"],
   "Mathlib.Control.Functor":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/Functor.olean"],
   "Mathlib.Control.EquivFunctor":
@@ -805,32 +697,8 @@
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/Combinators.olean"],
   "Mathlib.Control.Basic":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Control/Basic.olean"],
-  "Mathlib.Algebra.Regular.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Regular/Defs.olean"],
-  "Mathlib.Algebra.Order.Sub.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Sub/Defs.olean"],
-  "Mathlib.Algebra.Order.Monoid.Unbundled.ExistsOfLE":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Monoid/Unbundled/ExistsOfLE.olean"],
-  "Mathlib.Algebra.Order.Monoid.Unbundled.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Monoid/Unbundled/Defs.olean"],
-  "Mathlib.Algebra.Order.Monoid.Unbundled.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Monoid/Unbundled/Basic.olean"],
-  "Mathlib.Algebra.Order.Group.Multiset":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Group/Multiset.olean"],
-  "Mathlib.Algebra.Notation.Pi.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Notation/Pi/Defs.olean"],
-  "Mathlib.Algebra.Notation.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Notation/Defs.olean"],
   "Mathlib.Algebra.NeZero":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/NeZero.olean"],
-  "Mathlib.Algebra.Group.Nat.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Nat/Defs.olean"],
-  "Mathlib.Algebra.Group.Hom.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Hom/Defs.olean"],
-  "Mathlib.Algebra.Group.Defs":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Defs.olean"],
-  "Mathlib.Algebra.Group.Basic":
-  ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Group/Basic.olean"],
   "LeanSearchClient.Syntax":
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean"],
   "LeanSearchClient.LoogleSyntax":

@@ -45,4 +45,7 @@ fully generalized (multi-rule + multiway + branchial + bridges).
 - `HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF`
 - `HeytingLean.WPP.Wolfram.Counterexamples.confluence_causal_invariance_independent`
 
+- `HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`
+- `HeytingLean.WPP.Wolfram.WM148.causalInvariant`
+
 - `HeytingLean.CLI.WolframMultiwayMain.main`

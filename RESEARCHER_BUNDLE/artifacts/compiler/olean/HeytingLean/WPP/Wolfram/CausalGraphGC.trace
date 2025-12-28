@@ -1,8 +1,8 @@
 {"synthetic": false,
  "outputs":
- {"o": ["1024921768053415497"],
-  "i": "48526673381598749",
-  "c": "12919950125475739694"},
+ {"o": ["17231916489056187615"],
+  "i": "5580994978113843937",
+  "c": "6005553153723895349"},
  "log":
  [{"message":
    ".> LEAN_PATH=/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Cli/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/mathlib/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/plausible/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/importGraph/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/aesop/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/Qq/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/packages/batteries/.lake/build/lib/lean:/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean /home/stepanie/.elan/toolchains/leanprover--lean4---v4.24.0/bin/lean /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphGC.lean -o /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/CausalGraphGC.olean -i /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/lib/lean/HeytingLean/WPP/Wolfram/CausalGraphGC.ilean -c /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/CausalGraphGC.c --setup /home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/.lake/build/ir/HeytingLean/WPP/Wolfram/CausalGraphGC.setup.json --json",
@@ -13,9 +13,9 @@
      [["WolframBundle/HeytingLean:extraDep",
        [["@WolframBundle:extraDep", "1723"]]],
       ["imports",
-       [["Mathlib.Data.Finset.Sort transitive imports (legacy)",
-         "9354112060532408093"],
-        ["Mathlib.Data.Finset.Sort:importAllArts", "6094264135468523948"],
+       [["Mathlib.Data.Multiset.Fold transitive imports (legacy)",
+         "15109193733904959212"],
+        ["Mathlib.Data.Multiset.Fold:importAllArts", "3358184425448267602"],
         ["HeytingLean.WPP.Wolfram.CausalGraph transitive imports (legacy)",
          "10034519108534440479"],
         ["HeytingLean.WPP.Wolfram.CausalGraph:importAllArts",
@@ -28,7 +28,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/CausalGraphGC.lean",
-   "16201559636874983201"],
+   "18076634418069155869"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "15096762093010881150"}
+ "depHash": "11278748256833505323"}
