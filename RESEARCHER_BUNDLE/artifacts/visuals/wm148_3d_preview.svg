@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-label="UMAP preview">
+<rect x="0" y="0" width="1500" height="900" fill="#0b0f14"/>
+<text x="50" y="32" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">UMAP 3D — WM148 proof/declaration map (static projection)</text>
+<text x="50" y="48" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Perspective projection of UMAP 3D coordinates • Nearer points are slightly larger</text>
+<rect x="50" y="50" width="1090" height="800" fill="#0f1721" stroke="#1c2a3a" stroke-width="1"/>
+<line x1="1118.86" y1="811.28" x2="1136.91" y2="850.00" stroke="#3b4b5d" stroke-opacity="0.200" stroke-width="1"/>
+<line x1="1118.86" y1="811.28" x2="619.05" y2="190.97" stroke="#3b4b5d" stroke-opacity="0.158" stroke-width="1"/>
+<line x1="1118.86" y1="811.28" x2="1132.36" y2="822.38" stroke="#3b4b5d" stroke-opacity="0.199" stroke-width="1"/>
+<line x1="1118.86" y1="811.28" x2="1048.53" y2="721.32" stroke="#3b4b5d" stroke-opacity="0.208" stroke-width="1"/>
+<line x1="1118.86" y1="811.28" x2="382.06" y2="286.67" stroke="#3b4b5d" stroke-opacity="0.254" stroke-width="1"/>
+<line x1="1136.91" y1="850.00" x2="619.05" y2="190.97" stroke="#3b4b5d" stroke-opacity="0.160" stroke-width="1"/>
+<line x1="1136.91" y1="850.00" x2="1132.36" y2="822.38" stroke="#3b4b5d" stroke-opacity="0.201" stroke-width="1"/>
+<line x1="1136.91" y1="850.00" x2="1048.53" y2="721.32" stroke="#3b4b5d" stroke-opacity="0.210" stroke-width="1"/>
+<line x1="1136.91" y1="850.00" x2="382.06" y2="286.67" stroke="#3b4b5d" stroke-opacity="0.257" stroke-width="1"/>
+<line x1="790.91" y1="95.75" x2="760.48" y2="69.42" stroke="#3b4b5d" stroke-opacity="0.176" stroke-width="1"/>
+<line x1="790.91" y1="95.75" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.154" stroke-width="1"/>
+<line x1="790.91" y1="95.75" x2="573.31" y2="331.60" stroke="#3b4b5d" stroke-opacity="0.244" stroke-width="1"/>
+<line x1="790.91" y1="95.75" x2="856.20" y2="452.60" stroke="#3b4b5d" stroke-opacity="0.219" stroke-width="1"/>
+<line x1="790.91" y1="95.75" x2="856.76" y2="352.55" stroke="#3b4b5d" stroke-opacity="0.234" stroke-width="1"/>
+<line x1="619.05" y1="190.97" x2="1132.36" y2="822.38" stroke="#3b4b5d" stroke-opacity="0.159" stroke-width="1"/>
+<line x1="619.05" y1="190.97" x2="1048.53" y2="721.32" stroke="#3b4b5d" stroke-opacity="0.168" stroke-width="1"/>
+<line x1="619.05" y1="190.97" x2="382.06" y2="286.67" stroke="#3b4b5d" stroke-opacity="0.215" stroke-width="1"/>
+<line x1="1099.81" y1="831.16" x2="856.20" y2="452.60" stroke="#3b4b5d" stroke-opacity="0.228" stroke-width="1"/>
+<line x1="1099.81" y1="831.16" x2="1022.59" y2="678.10" stroke="#3b4b5d" stroke-opacity="0.204" stroke-width="1"/>
+<line x1="1099.81" y1="831.16" x2="856.76" y2="352.55" stroke="#3b4b5d" stroke-opacity="0.243" stroke-width="1"/>
+<line x1="1099.81" y1="831.16" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.162" stroke-width="1"/>
+<line x1="1094.73" y1="714.38" x2="801.25" y2="450.35" stroke="#3b4b5d" stroke-opacity="0.214" stroke-width="1"/>
+<line x1="1094.73" y1="714.38" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.236" stroke-width="1"/>
+<line x1="1094.73" y1="714.38" x2="894.51" y2="270.34" stroke="#3b4b5d" stroke-opacity="0.230" stroke-width="1"/>
+<line x1="1094.73" y1="714.38" x2="303.81" y2="296.22" stroke="#3b4b5d" stroke-opacity="0.235" stroke-width="1"/>
+<line x1="1094.73" y1="714.38" x2="453.33" y2="330.81" stroke="#3b4b5d" stroke-opacity="0.242" stroke-width="1"/>
+<line x1="1048.53" y1="721.32" x2="1132.36" y2="822.38" stroke="#3b4b5d" stroke-opacity="0.209" stroke-width="1"/>
+<line x1="1048.53" y1="721.32" x2="382.06" y2="286.67" stroke="#3b4b5d" stroke-opacity="0.265" stroke-width="1"/>
+<line x1="1048.53" y1="721.32" x2="996.28" y2="676.86" stroke="#3b4b5d" stroke-opacity="0.212" stroke-width="1"/>
+<line x1="1048.53" y1="721.32" x2="902.65" y2="309.89" stroke="#3b4b5d" stroke-opacity="0.227" stroke-width="1"/>
+<line x1="494.54" y1="181.06" x2="363.48" y2="326.49" stroke="#3b4b5d" stroke-opacity="0.201" stroke-width="1"/>
+<line x1="494.54" y1="181.06" x2="886.58" y2="240.69" stroke="#3b4b5d" stroke-opacity="0.180" stroke-width="1"/>
+<line x1="494.54" y1="181.06" x2="542.60" y2="197.19" stroke="#3b4b5d" stroke-opacity="0.106" stroke-width="1"/>
+<line x1="494.54" y1="181.06" x2="91.93" y2="468.60" stroke="#3b4b5d" stroke-opacity="0.215" stroke-width="1"/>
+<line x1="494.54" y1="181.06" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.113" stroke-width="1"/>
+<line x1="803.81" y1="479.43" x2="885.60" y2="312.77" stroke="#3b4b5d" stroke-opacity="0.250" stroke-width="1"/>
+<line x1="803.81" y1="479.43" x2="581.85" y2="160.33" stroke="#3b4b5d" stroke-opacity="0.187" stroke-width="1"/>
+<line x1="803.81" y1="479.43" x2="822.65" y2="458.35" stroke="#3b4b5d" stroke-opacity="0.248" stroke-width="1"/>
+<line x1="803.81" y1="479.43" x2="902.65" y2="309.89" stroke="#3b4b5d" stroke-opacity="0.244" stroke-width="1"/>
+<line x1="803.81" y1="479.43" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.220" stroke-width="1"/>
+<line x1="1049.51" y1="721.19" x2="918.08" y2="723.18" stroke="#3b4b5d" stroke-opacity="0.198" stroke-width="1"/>
+<line x1="1049.51" y1="721.19" x2="935.32" y2="530.90" stroke="#3b4b5d" stroke-opacity="0.215" stroke-width="1"/>
+<line x1="1049.51" y1="721.19" x2="830.13" y2="681.94" stroke="#3b4b5d" stroke-opacity="0.200" stroke-width="1"/>
+<line x1="1049.51" y1="721.19" x2="798.34" y2="372.45" stroke="#3b4b5d" stroke-opacity="0.238" stroke-width="1"/>
+<line x1="1049.51" y1="721.19" x2="1135.13" y2="701.30" stroke="#3b4b5d" stroke-opacity="0.193" stroke-width="1"/>
+<line x1="518.99" y1="156.74" x2="772.83" y2="50.00" stroke="#3b4b5d" stroke-opacity="0.147" stroke-width="1"/>
+<line x1="518.99" y1="156.74" x2="744.07" y2="66.33" stroke="#3b4b5d" stroke-opacity="0.151" stroke-width="1"/>
+<line x1="518.99" y1="156.74" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.189" stroke-width="1"/>
+<line x1="518.99" y1="156.74" x2="820.41" y2="172.64" stroke="#3b4b5d" stroke-opacity="0.167" stroke-width="1"/>
+<line x1="518.99" y1="156.74" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.112" stroke-width="1"/>
+<line x1="1058.88" y1="628.60" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.193" stroke-width="1"/>
+<line x1="1058.88" y1="628.60" x2="581.85" y2="160.33" stroke="#3b4b5d" stroke-opacity="0.161" stroke-width="1"/>
+<line x1="1058.88" y1="628.60" x2="885.60" y2="312.77" stroke="#3b4b5d" stroke-opacity="0.224" stroke-width="1"/>
+<line x1="1058.88" y1="628.60" x2="607.38" y2="216.73" stroke="#3b4b5d" stroke-opacity="0.155" stroke-width="1"/>
+<line x1="856.20" y1="452.60" x2="856.76" y2="352.55" stroke="#3b4b5d" stroke-opacity="0.266" stroke-width="1"/>
+<line x1="856.20" y1="452.60" x2="1022.59" y2="678.10" stroke="#3b4b5d" stroke-opacity="0.228" stroke-width="1"/>
+<line x1="856.20" y1="452.60" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.186" stroke-width="1"/>
+<line x1="760.48" y1="69.42" x2="573.31" y2="331.60" stroke="#3b4b5d" stroke-opacity="0.233" stroke-width="1"/>
+<line x1="760.48" y1="69.42" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.143" stroke-width="1"/>
+<line x1="760.48" y1="69.42" x2="1140.00" y2="696.75" stroke="#3b4b5d" stroke-opacity="0.183" stroke-width="1"/>
+<line x1="50.00" y1="517.46" x2="132.68" y2="456.02" stroke="#3b4b5d" stroke-opacity="0.317" stroke-width="1"/>
+<line x1="50.00" y1="517.46" x2="238.76" y2="323.42" stroke="#3b4b5d" stroke-opacity="0.308" stroke-width="1"/>
+<line x1="50.00" y1="517.46" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.280" stroke-width="1"/>
+<line x1="50.00" y1="517.46" x2="303.81" y2="296.22" stroke="#3b4b5d" stroke-opacity="0.303" stroke-width="1"/>
+<line x1="50.00" y1="517.46" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.304" stroke-width="1"/>
+<line x1="91.93" y1="468.60" x2="147.61" y2="459.59" stroke="#3b4b5d" stroke-opacity="0.317" stroke-width="1"/>
+<line x1="91.93" y1="468.60" x2="886.58" y2="240.69" stroke="#3b4b5d" stroke-opacity="0.284" stroke-width="1"/>
+<line x1="91.93" y1="468.60" x2="61.79" y2="480.83" stroke="#3b4b5d" stroke-opacity="0.316" stroke-width="1"/>
+<line x1="91.93" y1="468.60" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.218" stroke-width="1"/>
+<line x1="91.93" y1="468.60" x2="363.48" y2="326.49" stroke="#3b4b5d" stroke-opacity="0.306" stroke-width="1"/>
+<line x1="303.81" y1="296.22" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.291" stroke-width="1"/>
+<line x1="303.81" y1="296.22" x2="894.51" y2="270.34" stroke="#3b4b5d" stroke-opacity="0.285" stroke-width="1"/>
+<line x1="303.81" y1="296.22" x2="238.76" y2="323.42" stroke="#3b4b5d" stroke-opacity="0.296" stroke-width="1"/>
+<line x1="303.81" y1="296.22" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.267" stroke-width="1"/>
+<line x1="303.81" y1="296.22" x2="453.33" y2="330.81" stroke="#3b4b5d" stroke-opacity="0.297" stroke-width="1"/>
+<line x1="856.76" y1="352.55" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.201" stroke-width="1"/>
+<line x1="856.76" y1="352.55" x2="1022.59" y2="678.10" stroke="#3b4b5d" stroke-opacity="0.243" stroke-width="1"/>
+<line x1="542.60" y1="197.19" x2="908.22" y2="670.75" stroke="#3b4b5d" stroke-opacity="0.148" stroke-width="1"/>
+<line x1="542.60" y1="197.19" x2="850.77" y2="278.45" stroke="#3b4b5d" stroke-opacity="0.197" stroke-width="1"/>
+<line x1="542.60" y1="197.19" x2="363.48" y2="326.49" stroke="#3b4b5d" stroke-opacity="0.196" stroke-width="1"/>
+<line x1="542.60" y1="197.19" x2="132.68" y2="456.02" stroke="#3b4b5d" stroke-opacity="0.210" stroke-width="1"/>
+<line x1="908.22" y1="670.75" x2="850.77" y2="278.45" stroke="#3b4b5d" stroke-opacity="0.243" stroke-width="1"/>
+<line x1="908.22" y1="670.75" x2="363.48" y2="326.49" stroke="#3b4b5d" stroke-opacity="0.243" stroke-width="1"/>
+<line x1="908.22" y1="670.75" x2="132.68" y2="456.02" stroke="#3b4b5d" stroke-opacity="0.256" stroke-width="1"/>
+<line x1="607.38" y1="216.73" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.149" stroke-width="1"/>
+<line x1="607.38" y1="216.73" x2="1022.59" y2="678.10" stroke="#3b4b5d" stroke-opacity="0.157" stroke-width="1"/>
+<line x1="607.38" y1="216.73" x2="581.85" y2="160.33" stroke="#3b4b5d" stroke-opacity="0.116" stroke-width="1"/>
+<line x1="612.84" y1="164.51" x2="785.32" y2="275.93" stroke="#3b4b5d" stroke-opacity="0.174" stroke-width="1"/>
+<line x1="612.84" y1="164.51" x2="737.13" y2="82.89" stroke="#3b4b5d" stroke-opacity="0.135" stroke-width="1"/>
+<line x1="612.84" y1="164.51" x2="393.86" y2="480.79" stroke="#3b4b5d" stroke-opacity="0.181" stroke-width="1"/>
+<line x1="612.84" y1="164.51" x2="811.64" y2="259.24" stroke="#3b4b5d" stroke-opacity="0.193" stroke-width="1"/>
+<line x1="612.84" y1="164.51" x2="558.98" y2="540.37" stroke="#3b4b5d" stroke-opacity="0.172" stroke-width="1"/>
+<line x1="1030.25" y1="621.90" x2="612.29" y2="189.43" stroke="#3b4b5d" stroke-opacity="0.163" stroke-width="1"/>
+<line x1="1030.25" y1="621.90" x2="805.84" y2="242.41" stroke="#3b4b5d" stroke-opacity="0.228" stroke-width="1"/>
+<line x1="1030.25" y1="621.90" x2="293.99" y2="277.07" stroke="#3b4b5d" stroke-opacity="0.264" stroke-width="1"/>
+<line x1="1030.25" y1="621.90" x2="584.10" y2="178.17" stroke="#3b4b5d" stroke-opacity="0.168" stroke-width="1"/>
+<line x1="1030.25" y1="621.90" x2="801.25" y2="450.35" stroke="#3b4b5d" stroke-opacity="0.235" stroke-width="1"/>
+<line x1="820.41" y1="172.64" x2="801.22" y2="129.29" stroke="#3b4b5d" stroke-opacity="0.217" stroke-width="1"/>
+<line x1="820.41" y1="172.64" x2="772.83" y2="50.00" stroke="#3b4b5d" stroke-opacity="0.204" stroke-width="1"/>
+<line x1="820.41" y1="172.64" x2="744.07" y2="66.33" stroke="#3b4b5d" stroke-opacity="0.209" stroke-width="1"/>
+<line x1="820.41" y1="172.64" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.246" stroke-width="1"/>
+<line x1="801.22" y1="129.29" x2="772.83" y2="50.00" stroke="#3b4b5d" stroke-opacity="0.197" stroke-width="1"/>
+<line x1="801.22" y1="129.29" x2="744.07" y2="66.33" stroke="#3b4b5d" stroke-opacity="0.202" stroke-width="1"/>
+<line x1="801.22" y1="129.29" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.239" stroke-width="1"/>
+<line x1="347.85" y1="527.24" x2="288.38" y2="491.33" stroke="#3b4b5d" stroke-opacity="0.293" stroke-width="1"/>
+<line x1="347.85" y1="527.24" x2="799.77" y2="100.44" stroke="#3b4b5d" stroke-opacity="0.253" stroke-width="1"/>
+<line x1="347.85" y1="527.24" x2="176.47" y2="509.33" stroke="#3b4b5d" stroke-opacity="0.311" stroke-width="1"/>
+<line x1="347.85" y1="527.24" x2="964.24" y2="254.31" stroke="#3b4b5d" stroke-opacity="0.293" stroke-width="1"/>
+<line x1="558.98" y1="540.37" x2="393.86" y2="480.79" stroke="#3b4b5d" stroke-opacity="0.254" stroke-width="1"/>
+<line x1="558.98" y1="540.37" x2="763.09" y2="95.57" stroke="#3b4b5d" stroke-opacity="0.210" stroke-width="1"/>
+<line x1="558.98" y1="540.37" x2="785.32" y2="275.93" stroke="#3b4b5d" stroke-opacity="0.247" stroke-width="1"/>
+<line x1="558.98" y1="540.37" x2="998.04" y2="744.90" stroke="#3b4b5d" stroke-opacity="0.228" stroke-width="1"/>
+<line x1="811.64" y1="259.24" x2="737.13" y2="82.89" stroke="#3b4b5d" stroke-opacity="0.228" stroke-width="1"/>
+<line x1="811.64" y1="259.24" x2="839.55" y2="279.92" stroke="#3b4b5d" stroke-opacity="0.262" stroke-width="1"/>
+<line x1="811.64" y1="259.24" x2="728.39" y2="299.53" stroke="#3b4b5d" stroke-opacity="0.294" stroke-width="1"/>
+<line x1="811.64" y1="259.24" x2="785.32" y2="275.93" stroke="#3b4b5d" stroke-opacity="0.268" stroke-width="1"/>
+<line x1="811.64" y1="259.24" x2="798.34" y2="372.45" stroke="#3b4b5d" stroke-opacity="0.283" stroke-width="1"/>
+<line x1="830.13" y1="681.94" x2="798.34" y2="372.45" stroke="#3b4b5d" stroke-opacity="0.241" stroke-width="1"/>
+<line x1="830.13" y1="681.94" x2="935.32" y2="530.90" stroke="#3b4b5d" stroke-opacity="0.218" stroke-width="1"/>
+<line x1="830.13" y1="681.94" x2="839.55" y2="279.92" stroke="#3b4b5d" stroke-opacity="0.221" stroke-width="1"/>
+<line x1="798.34" y1="372.45" x2="935.32" y2="530.90" stroke="#3b4b5d" stroke-opacity="0.255" stroke-width="1"/>
+<line x1="798.34" y1="372.45" x2="839.55" y2="279.92" stroke="#3b4b5d" stroke-opacity="0.258" stroke-width="1"/>
+<line x1="798.34" y1="372.45" x2="728.39" y2="299.53" stroke="#3b4b5d" stroke-opacity="0.290" stroke-width="1"/>
+<line x1="573.31" y1="331.60" x2="1140.00" y2="696.75" stroke="#3b4b5d" stroke-opacity="0.251" stroke-width="1"/>
+<line x1="573.31" y1="331.60" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.211" stroke-width="1"/>
+<line x1="894.51" y1="270.34" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.286" stroke-width="1"/>
+<line x1="894.51" y1="270.34" x2="453.33" y2="330.81" stroke="#3b4b5d" stroke-opacity="0.292" stroke-width="1"/>
+<line x1="894.51" y1="270.34" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.262" stroke-width="1"/>
+<line x1="886.58" y1="240.69" x2="147.61" y2="459.59" stroke="#3b4b5d" stroke-opacity="0.281" stroke-width="1"/>
+<line x1="886.58" y1="240.69" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.182" stroke-width="1"/>
+<line x1="886.58" y1="240.69" x2="61.79" y2="480.83" stroke="#3b4b5d" stroke-opacity="0.281" stroke-width="1"/>
+<line x1="886.58" y1="240.69" x2="363.48" y2="326.49" stroke="#3b4b5d" stroke-opacity="0.270" stroke-width="1"/>
+<line x1="744.07" y1="66.33" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.231" stroke-width="1"/>
+<line x1="744.07" y1="66.33" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.154" stroke-width="1"/>
+<line x1="744.07" y1="66.33" x2="61.79" y2="480.83" stroke="#3b4b5d" stroke-opacity="0.253" stroke-width="1"/>
+<line x1="744.07" y1="66.33" x2="147.61" y2="459.59" stroke="#3b4b5d" stroke-opacity="0.253" stroke-width="1"/>
+<line x1="785.32" y1="275.93" x2="393.86" y2="480.79" stroke="#3b4b5d" stroke-opacity="0.256" stroke-width="1"/>
+<line x1="785.32" y1="275.93" x2="737.13" y2="82.89" stroke="#3b4b5d" stroke-opacity="0.209" stroke-width="1"/>
+<line x1="785.32" y1="275.93" x2="839.55" y2="279.92" stroke="#3b4b5d" stroke-opacity="0.243" stroke-width="1"/>
+<line x1="885.60" y1="312.77" x2="581.85" y2="160.33" stroke="#3b4b5d" stroke-opacity="0.185" stroke-width="1"/>
+<line x1="885.60" y1="312.77" x2="822.65" y2="458.35" stroke="#3b4b5d" stroke-opacity="0.246" stroke-width="1"/>
+<line x1="885.60" y1="312.77" x2="902.65" y2="309.89" stroke="#3b4b5d" stroke-opacity="0.242" stroke-width="1"/>
+<line x1="885.60" y1="312.77" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.217" stroke-width="1"/>
+<line x1="584.10" y1="178.17" x2="1075.43" y2="714.13" stroke="#3b4b5d" stroke-opacity="0.166" stroke-width="1"/>
+<line x1="584.10" y1="178.17" x2="612.29" y2="189.43" stroke="#3b4b5d" stroke-opacity="0.109" stroke-width="1"/>
+<line x1="584.10" y1="178.17" x2="805.84" y2="242.41" stroke="#3b4b5d" stroke-opacity="0.174" stroke-width="1"/>
+<line x1="584.10" y1="178.17" x2="1135.13" y2="701.30" stroke="#3b4b5d" stroke-opacity="0.152" stroke-width="1"/>
+<line x1="772.83" y1="50.00" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.226" stroke-width="1"/>
+<line x1="772.83" y1="50.00" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.150" stroke-width="1"/>
+<line x1="772.83" y1="50.00" x2="61.79" y2="480.83" stroke="#3b4b5d" stroke-opacity="0.249" stroke-width="1"/>
+<line x1="850.77" y1="278.45" x2="132.68" y2="456.02" stroke="#3b4b5d" stroke-opacity="0.305" stroke-width="1"/>
+<line x1="850.77" y1="278.45" x2="238.76" y2="323.42" stroke="#3b4b5d" stroke-opacity="0.296" stroke-width="1"/>
+<line x1="850.77" y1="278.45" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.268" stroke-width="1"/>
+<line x1="393.86" y1="480.79" x2="763.09" y2="95.57" stroke="#3b4b5d" stroke-opacity="0.219" stroke-width="1"/>
+<line x1="393.86" y1="480.79" x2="998.04" y2="744.90" stroke="#3b4b5d" stroke-opacity="0.237" stroke-width="1"/>
+<line x1="918.08" y1="723.18" x2="1135.13" y2="701.30" stroke="#3b4b5d" stroke-opacity="0.194" stroke-width="1"/>
+<line x1="918.08" y1="723.18" x2="935.32" y2="530.90" stroke="#3b4b5d" stroke-opacity="0.215" stroke-width="1"/>
+<line x1="801.25" y1="450.35" x2="453.33" y2="330.81" stroke="#3b4b5d" stroke-opacity="0.275" stroke-width="1"/>
+<line x1="801.25" y1="450.35" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.270" stroke-width="1"/>
+<line x1="801.25" y1="450.35" x2="293.99" y2="277.07" stroke="#3b4b5d" stroke-opacity="0.276" stroke-width="1"/>
+<line x1="453.33" y1="330.81" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.298" stroke-width="1"/>
+<line x1="453.33" y1="330.81" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.274" stroke-width="1"/>
+<line x1="1075.43" y1="714.13" x2="1135.13" y2="701.30" stroke="#3b4b5d" stroke-opacity="0.204" stroke-width="1"/>
+<line x1="1075.43" y1="714.13" x2="612.29" y2="189.43" stroke="#3b4b5d" stroke-opacity="0.161" stroke-width="1"/>
+<line x1="1075.43" y1="714.13" x2="805.84" y2="242.41" stroke="#3b4b5d" stroke-opacity="0.225" stroke-width="1"/>
+<line x1="839.55" y1="279.92" x2="737.13" y2="82.89" stroke="#3b4b5d" stroke-opacity="0.203" stroke-width="1"/>
+<line x1="839.55" y1="279.92" x2="728.39" y2="299.53" stroke="#3b4b5d" stroke-opacity="0.270" stroke-width="1"/>
+<line x1="737.13" y1="82.89" x2="728.39" y2="299.53" stroke="#3b4b5d" stroke-opacity="0.235" stroke-width="1"/>
+<line x1="805.84" y1="242.41" x2="612.29" y2="189.43" stroke="#3b4b5d" stroke-opacity="0.168" stroke-width="1"/>
+<line x1="805.84" y1="242.41" x2="293.99" y2="277.07" stroke="#3b4b5d" stroke-opacity="0.269" stroke-width="1"/>
+<line x1="902.65" y1="309.89" x2="822.65" y2="458.35" stroke="#3b4b5d" stroke-opacity="0.240" stroke-width="1"/>
+<line x1="902.65" y1="309.89" x2="581.85" y2="160.33" stroke="#3b4b5d" stroke-opacity="0.179" stroke-width="1"/>
+<line x1="902.65" y1="309.89" x2="996.28" y2="676.86" stroke="#3b4b5d" stroke-opacity="0.221" stroke-width="1"/>
+<line x1="382.06" y1="286.67" x2="996.28" y2="676.86" stroke="#3b4b5d" stroke-opacity="0.259" stroke-width="1"/>
+<line x1="382.06" y1="286.67" x2="1132.36" y2="822.38" stroke="#3b4b5d" stroke-opacity="0.256" stroke-width="1"/>
+<line x1="382.06" y1="286.67" x2="822.65" y2="458.35" stroke="#3b4b5d" stroke-opacity="0.277" stroke-width="1"/>
+<line x1="293.99" y1="277.07" x2="612.29" y2="189.43" stroke="#3b4b5d" stroke-opacity="0.205" stroke-width="1"/>
+<line x1="61.79" y1="480.83" x2="147.61" y2="459.59" stroke="#3b4b5d" stroke-opacity="0.313" stroke-width="1"/>
+<line x1="61.79" y1="480.83" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.214" stroke-width="1"/>
+<line x1="61.79" y1="480.83" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.291" stroke-width="1"/>
+<line x1="176.47" y1="509.33" x2="799.77" y2="100.44" stroke="#3b4b5d" stroke-opacity="0.259" stroke-width="1"/>
+<line x1="176.47" y1="509.33" x2="964.24" y2="254.31" stroke="#3b4b5d" stroke-opacity="0.299" stroke-width="1"/>
+<line x1="176.47" y1="509.33" x2="288.38" y2="491.33" stroke="#3b4b5d" stroke-opacity="0.298" stroke-width="1"/>
+<line x1="238.76" y1="323.42" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.273" stroke-width="1"/>
+<line x1="238.76" y1="323.42" x2="390.05" y2="281.72" stroke="#3b4b5d" stroke-opacity="0.297" stroke-width="1"/>
+<line x1="238.76" y1="323.42" x2="132.68" y2="456.02" stroke="#3b4b5d" stroke-opacity="0.309" stroke-width="1"/>
+<line x1="132.68" y1="456.02" x2="842.98" y2="279.25" stroke="#3b4b5d" stroke-opacity="0.281" stroke-width="1"/>
+<line x1="147.61" y1="459.59" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.214" stroke-width="1"/>
+<line x1="147.61" y1="459.59" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.291" stroke-width="1"/>
+<line x1="363.48" y1="326.49" x2="471.59" y2="211.79" stroke="#3b4b5d" stroke-opacity="0.203" stroke-width="1"/>
+<line x1="471.59" y1="211.79" x2="314.95" y2="478.94" stroke="#3b4b5d" stroke-opacity="0.192" stroke-width="1"/>
+<line x1="288.38" y1="491.33" x2="799.77" y2="100.44" stroke="#3b4b5d" stroke-opacity="0.241" stroke-width="1"/>
+<line x1="288.38" y1="491.33" x2="964.24" y2="254.31" stroke="#3b4b5d" stroke-opacity="0.281" stroke-width="1"/>
+<line x1="964.24" y1="254.31" x2="799.77" y2="100.44" stroke="#3b4b5d" stroke-opacity="0.242" stroke-width="1"/>
+<line x1="1132.36" y1="822.38" x2="996.28" y2="676.86" stroke="#3b4b5d" stroke-opacity="0.203" stroke-width="1"/>
+<line x1="1118.41" y1="661.54" x2="1140.00" y2="696.75" stroke="#3b4b5d" stroke-opacity="0.193" stroke-width="1"/>
+<line x1="1118.41" y1="661.54" x2="998.04" y2="744.90" stroke="#3b4b5d" stroke-opacity="0.199" stroke-width="1"/>
+<line x1="1118.41" y1="661.54" x2="763.09" y2="95.57" stroke="#3b4b5d" stroke-opacity="0.181" stroke-width="1"/>
+<line x1="1022.59" y1="678.10" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.163" stroke-width="1"/>
+<line x1="581.85" y1="160.33" x2="822.65" y2="458.35" stroke="#3b4b5d" stroke-opacity="0.183" stroke-width="1"/>
+<line x1="581.85" y1="160.33" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.155" stroke-width="1"/>
+<line x1="822.65" y1="458.35" x2="1031.05" y2="666.34" stroke="#3b4b5d" stroke-opacity="0.216" stroke-width="1"/>
+<line x1="763.09" y1="95.57" x2="998.04" y2="744.90" stroke="#3b4b5d" stroke-opacity="0.194" stroke-width="1"/>
+<line x1="763.09" y1="95.57" x2="1140.00" y2="696.75" stroke="#3b4b5d" stroke-opacity="0.188" stroke-width="1"/>
+<line x1="1140.00" y1="696.75" x2="998.04" y2="744.90" stroke="#3b4b5d" stroke-opacity="0.206" stroke-width="1"/>
+<line x1="1140.00" y1="696.75" x2="587.08" y2="195.29" stroke="#3b4b5d" stroke-opacity="0.161" stroke-width="1"/>
+<circle cx="612.84" cy="164.51" r="3.00" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.fresh0</title>
+</circle>
+<circle cx="542.60" cy="197.19" r="3.02" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.verts_add_singleton</title>
+</circle>
+<circle cx="612.29" cy="189.43" r="3.05" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.mkBasisLen1Len2Nat</title>
+</circle>
+<circle cx="518.99" cy="156.74" r="3.13" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.allocFreshNat_not_mem</title>
+</circle>
+<circle cx="607.38" cy="216.73" r="3.13" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.wm148_nFresh</title>
+</circle>
+<circle cx="494.54" cy="181.06" r="3.14" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.freshNat_not_mem</title>
+</circle>
+<circle cx="584.10" cy="178.17" r="3.20" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.alloc_injective</title>
+</circle>
+<circle cx="471.59" cy="211.79" r="3.21" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.sigma_mem_verts_of_inLhs</title>
+</circle>
+<circle cx="619.05" cy="190.97" r="3.25" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.init</title>
+</circle>
+<circle cx="587.08" cy="195.29" r="3.28" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.dedupArray</title>
+</circle>
+<circle cx="581.85" cy="160.33" r="3.30" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.exprToJsonNat</title>
+</circle>
+<circle cx="760.48" cy="69.42" r="3.89" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.applyDet</title>
+</circle>
+<circle cx="737.13" cy="82.89" r="3.94" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.apply</title>
+</circle>
+<circle cx="763.09" cy="95.57" r="4.04" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.stateToCountsJsonNat</title>
+</circle>
+<circle cx="1094.73" cy="714.38" r="4.10" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.rule_wellFormed</title>
+</circle>
+<circle cx="772.83" cy="50.00" r="4.15" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.alloc_not_mem</title>
+</circle>
+<circle cx="790.91" cy="95.75" r="4.18" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.rule</title>
+</circle>
+<circle cx="1118.41" cy="661.54" r="4.18" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.parseArg</title>
+</circle>
+<circle cx="1031.05" cy="666.34" r="4.19" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.findIdx</title>
+</circle>
+<circle cx="1135.13" cy="701.30" r="4.22" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.findIdxFuel</title>
+</circle>
+<circle cx="744.07" cy="66.33" r="4.27" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.allocList_nodup</title>
+</circle>
+<circle cx="908.22" cy="670.75" r="4.28" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.wm148_rule_eq</title>
+</circle>
+<circle cx="1049.51" cy="721.19" r="4.33" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.allocFreshNat_injective</title>
+</circle>
+<circle cx="1118.86" cy="811.28" r="4.33" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.P</title>
+</circle>
+<circle cx="918.08" cy="723.18" r="4.34" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh</title>
+</circle>
+<circle cx="1058.88" cy="628.60" r="4.36" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.idx0</title>
+</circle>
+<circle cx="1132.36" cy="822.38" r="4.37" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.Args</title>
+</circle>
+<circle cx="1140.00" cy="696.75" r="4.37" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.getIdx</title>
+</circle>
+<circle cx="799.77" cy="100.44" r="4.39" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.buildWM148Multiway</title>
+</circle>
+<circle cx="1136.91" cy="850.00" r="4.40" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.V</title>
+</circle>
+<circle cx="830.13" cy="681.94" r="4.41" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.JoinableIso</title>
+</circle>
+<circle cx="1099.81" cy="831.16" r="4.42" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.sys</title>
+</circle>
+<circle cx="1022.59" cy="678.10" r="4.42" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.parseArgs</title>
+</circle>
+<circle cx="996.28" cy="676.86" r="4.45" fill="hsl(285 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>main</title>
+</circle>
+<circle cx="801.22" cy="129.29" r="4.50" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.applyWith_eq_add_new</title>
+</circle>
+<circle cx="998.04" cy="744.90" r="4.52" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.run</title>
+</circle>
+<circle cx="1075.43" cy="714.13" r="4.61" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.Applicable</title>
+</circle>
+<circle cx="1048.53" cy="721.32" r="4.61" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.freshNat</title>
+</circle>
+<circle cx="1030.25" cy="621.90" r="4.67" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.input_eq_singleton</title>
+</circle>
+<circle cx="820.41" cy="172.64" r="4.69" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.instRhs_eq_input_add_new</title>
+</circle>
+<circle cx="935.32" cy="530.90" r="4.80" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.mem_rangeFinset</title>
+</circle>
+<circle cx="805.84" cy="242.41" r="4.81" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.freshAssign_alloc</title>
+</circle>
+<circle cx="902.65" cy="309.89" r="4.85" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.rangeFinset</title>
+</circle>
+<circle cx="839.55" cy="279.92" r="4.88" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith</title>
+</circle>
+<circle cx="822.65" cy="458.35" r="4.96" fill="hsl(158 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.CLI.WolframWM148.sigmaFin2ToJsonNat</title>
+</circle>
+<circle cx="558.98" cy="540.37" r="4.97" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.StepWith</title>
+</circle>
+<circle cx="842.98" cy="279.25" r="4.97" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso_of_crossDisjoint</title>
+</circle>
+<circle cx="801.25" cy="450.35" r="5.01" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event</title>
+</circle>
+<circle cx="885.60" cy="312.77" r="5.01" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.alloc</title>
+</circle>
+<circle cx="785.32" cy="275.93" r="5.03" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.allocVec</title>
+</circle>
+<circle cx="886.58" cy="240.69" r="5.03" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.allocList_mem_not_mem_forbidden</title>
+</circle>
+<circle cx="856.20" cy="452.60" r="5.07" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.mkEvent</title>
+</circle>
+<circle cx="803.81" cy="479.43" r="5.08" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.allocFreshNat</title>
+</circle>
+<circle cx="393.86" cy="480.79" r="5.22" fill="hsl(277 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.RuleFresh.WellFormed</title>
+</circle>
+<circle cx="314.95" cy="478.94" r="5.29" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.sigma_fixed_of_inRhs</title>
+</circle>
+<circle cx="798.34" cy="372.45" r="5.44" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.BranchResolves</title>
+</circle>
+<circle cx="894.51" cy="270.34" r="5.46" fill="hsl(92 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.FreshSupply.allocList</title>
+</circle>
+<circle cx="288.38" cy="491.33" r="5.46" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_rename_of_crossDisjoint</title>
+</circle>
+<circle cx="856.76" cy="352.55" r="5.47" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.multiset_foldl_singleton</title>
+</circle>
+<circle cx="964.24" cy="254.31" r="5.48" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.applyWith_iso</title>
+</circle>
+<circle cx="811.64" cy="259.24" r="5.54" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.StepStarWith</title>
+</circle>
+<circle cx="303.81" cy="296.22" r="5.60" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.hgraph_rename_eq_self_of_fix_verts</title>
+</circle>
+<circle cx="363.48" cy="326.49" r="5.61" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.hgraph_rename_eq_self_of_le</title>
+</circle>
+<circle cx="850.77" cy="278.45" r="5.62" fill="hsl(277 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.RuleFresh</title>
+</circle>
+<circle cx="390.05" cy="281.72" r="5.62" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.hgraph_rename_eq_self_of_fix_verts</title>
+</circle>
+<circle cx="238.76" cy="323.42" r="5.74" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.swapPerm_fix_of_mem_verts</title>
+</circle>
+<circle cx="728.39" cy="299.53" r="5.74" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.swapPerm</title>
+</circle>
+<circle cx="573.31" cy="331.60" r="5.75" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant</title>
+</circle>
+<circle cx="453.33" cy="330.81" r="5.78" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.FreshAssign</title>
+</circle>
+<circle cx="347.85" cy="527.24" r="5.79" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.causalInvariant</title>
+</circle>
+<circle cx="293.99" cy="277.07" r="5.81" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.crossDisjoint_of_not_mem_range</title>
+</circle>
+<circle cx="382.06" cy="286.67" r="5.88" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.CrossDisjoint</title>
+</circle>
+<circle cx="61.79" cy="480.83" r="5.90" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.swapPerm_apply_of_forall_ne</title>
+</circle>
+<circle cx="147.61" cy="459.59" r="5.91" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.hgraph_rename_eq_self_of_forall_mem</title>
+</circle>
+<circle cx="50.00" cy="517.46" r="5.94" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.expr_rename_eq_self_of_forall_mem</title>
+</circle>
+<circle cx="176.47" cy="509.33" r="5.95" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.swapPerm_apply_left</title>
+</circle>
+<circle cx="132.68" cy="456.02" r="5.97" fill="hsl(56 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.SystemFresh.Event.expr_rename_eq_self_of_forall_mem</title>
+</circle>
+<circle cx="91.93" cy="468.60" r="6.00" fill="hsl(108 70% 58%)" stroke="#0b0f14" stroke-width="1">
+  <title>HeytingLean.WPP.Wolfram.WM148.hgraph_rename_eq_self_of_forall_mem</title>
+</circle>
+<text x="1170" y="50" fill="#ffffff" font-size="16" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Legend</text>
+<rect x="1170" y="64" width="10" height="10" fill="hsl(56 70% 58%)" stroke="hsl(56 70% 32%)" stroke-width="1"/>
+<text x="1186" y="73" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">SystemFresh <tspan fill="#b8c7d9">(29)</tspan></text>
+<rect x="1170" y="80" width="10" height="10" fill="hsl(108 70% 58%)" stroke="hsl(108 70% 32%)" stroke-width="1"/>
+<text x="1186" y="89" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">WM148 <tspan fill="#b8c7d9">(26)</tspan></text>
+<rect x="1170" y="96" width="10" height="10" fill="hsl(158 70% 58%)" stroke="hsl(158 70% 32%)" stroke-width="1"/>
+<text x="1186" y="105" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">CLI.WolframWM148 <tspan fill="#b8c7d9">(13)</tspan></text>
+<rect x="1170" y="112" width="10" height="10" fill="hsl(92 70% 58%)" stroke="hsl(92 70% 32%)" stroke-width="1"/>
+<text x="1186" y="121" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">FreshSupply <tspan fill="#b8c7d9">(7)</tspan></text>
+<rect x="1170" y="128" width="10" height="10" fill="hsl(277 70% 58%)" stroke="hsl(277 70% 32%)" stroke-width="1"/>
+<text x="1186" y="137" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">RuleFresh <tspan fill="#b8c7d9">(2)</tspan></text>
+<rect x="1170" y="144" width="10" height="10" fill="hsl(285 70% 58%)" stroke="hsl(285 70% 32%)" stroke-width="1"/>
+<text x="1186" y="153" fill="#e6eef7" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Other <tspan fill="#b8c7d9">(1)</tspan></text>
+
+</svg>

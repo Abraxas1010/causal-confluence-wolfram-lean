@@ -112,7 +112,9 @@ private def buildWM148Multiway (maxDepth : Nat) : Json := Id.run do
               Json.mkObj
                 [ ("src", Json.num srcIdx)
                 , ("dst", Json.num dstIdx)
-                , ("sigma", sigmaFin2ToJsonNat σ) ]
+                , ("label", Json.mkObj
+                    [ ("ruleIdx", Json.num 0)
+                    , ("sigma", sigmaFin2ToJsonNat σ) ]) ]
             nextRaw := nextRaw.push t
           else
             pure ()

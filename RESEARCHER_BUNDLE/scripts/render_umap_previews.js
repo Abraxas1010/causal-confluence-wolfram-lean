@@ -115,8 +115,10 @@ function render2d({ data, outPath }) {
   });
 
   let body = "";
-  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">UMAP 2D — Wolfram/WPP proof/declaration map</text>\n`;
-  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Points: declarations • Colors: module family • Edges: kNN similarity links (source-text features)</text>\n`;
+  const title = process.env.UMAP_PREVIEW_TITLE_2D ?? "UMAP 2D — Wolfram/WPP proof/declaration map";
+  const subtitle = process.env.UMAP_PREVIEW_SUBTITLE_2D ?? "Points: declarations • Colors: module family • Edges: kNN similarity links (source-text features)";
+  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(title)}</text>\n`;
+  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(subtitle)}</text>\n`;
 
   body += `<rect x="${margin}" y="${margin}" width="${plotW}" height="${plotH}" fill="#0f1721" stroke="#1c2a3a" stroke-width="1"/>\n`;
 
@@ -266,8 +268,10 @@ function render3dAnimated({ data, outPath }) {
   }
 
   let body = "";
-  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">UMAP 3D — animated preview (rotation)</text>\n`;
-  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Nonlinear visualization aid (not a formal invariant) • For interactive view open wolfram_3d.html</text>\n`;
+  const title = process.env.UMAP_PREVIEW_TITLE_3D_ANIM ?? "UMAP 3D — animated preview (rotation)";
+  const subtitle = process.env.UMAP_PREVIEW_SUBTITLE_3D_ANIM ?? "Nonlinear visualization aid (not a formal invariant) • For interactive view open wolfram_3d.html";
+  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(title)}</text>\n`;
+  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(subtitle)}</text>\n`;
   body += `<rect x="${margin}" y="${margin}" width="${plotW}" height="${plotH}" fill="#0f1721" stroke="#1c2a3a" stroke-width="1"/>\n`;
 
   for (let i = 0; i < items.length; i++) {
@@ -356,8 +360,10 @@ function render3d({ data, outPath }) {
   const canvasPts = pts.map((p) => (p ? toCanvas(p) : null));
 
   let body = "";
-  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">UMAP 3D — Wolfram/WPP proof/declaration map (static projection)</text>\n`;
-  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">Perspective projection of UMAP 3D coordinates • Nearer points are slightly larger</text>\n`;
+  const title = process.env.UMAP_PREVIEW_TITLE_3D ?? "UMAP 3D — Wolfram/WPP proof/declaration map (static projection)";
+  const subtitle = process.env.UMAP_PREVIEW_SUBTITLE_3D ?? "Perspective projection of UMAP 3D coordinates • Nearer points are slightly larger";
+  body += `<text x="${margin}" y="${margin - 18}" fill="#ffffff" font-size="20" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(title)}</text>\n`;
+  body += `<text x="${margin}" y="${margin - 2}" fill="#b8c7d9" font-size="12" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial">${esc(subtitle)}</text>\n`;
 
   body += `<rect x="${margin}" y="${margin}" width="${plotW}" height="${plotH}" fill="#0f1721" stroke="#1c2a3a" stroke-width="1"/>\n`;
 

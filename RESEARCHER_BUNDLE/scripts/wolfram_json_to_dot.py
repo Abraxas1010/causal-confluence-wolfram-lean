@@ -75,6 +75,10 @@ def _depth_map(levels: Optional[List[List[int]]], n_nodes: int) -> Dict[int, int
 def _edge_label(edge: Dict[str, Any]) -> str:
     label = edge.get("label")
     if not isinstance(label, dict):
+        # WM148-style (or other ad-hoc schema): allow a top-level `sigma`.
+        sigma = edge.get("sigma")
+        if isinstance(sigma, list) and len(sigma) == 2 and all(isinstance(x, int) for x in sigma):
+            return f"σ=({sigma[0]},{sigma[1]})"
         return ""
     rule_idx = label.get("ruleIdx")
     sigma = label.get("sigma")
@@ -233,12 +237,17 @@ def main() -> int:
     out_branchial = prefix + "_branchial.dot"
     out_combined = prefix + "_combined.dot"
 
+    has_branchial = isinstance(data.get("branchial"), list)
+
     write_multiway_dot(data, out_multi, include_branchial=False)
-    write_branchial_dot(data, out_branchial)
-    write_multiway_dot(data, out_combined, include_branchial=True)
+    if has_branchial:
+        write_branchial_dot(data, out_branchial)
+        write_multiway_dot(data, out_combined, include_branchial=True)
 
     if args.render_svg:
         for p in (out_multi, out_branchial, out_combined):
+            if not os.path.exists(p):
+                continue
             try_render_svg(p)
 
     return 0
@@ -246,4 +255,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

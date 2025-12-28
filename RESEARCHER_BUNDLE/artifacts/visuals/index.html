@@ -24,7 +24,7 @@
       <h1>Wolfram Physics — Proof/Declaration Map</h1>
       <p class="muted">
         Standalone 2D/3D visualizations of the <code>HeytingLean.WPP.Wolfram</code> slice
-        (confluence/causal-invariance independence + multiway infrastructure).
+        (confluence/causal-invariance independence + WM148 fresh-vertex case study).
       </p>
       <div class="grid">
         <div class="card">
@@ -57,8 +57,48 @@
       </div>
 
       <div class="card" style="margin-top:12px">
+        <h2>WM148 (Fresh-Vertex Semantics) — Proof/Declaration Map</h2>
+        <p class="muted">
+          Focused UMAP visualization of the WM148 causal-invariance development
+          (including the demo executable module).
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h2>WM148 2D Viewer</h2>
+            <p class="muted">Pan/zoom, hover for names, click for details.</p>
+            <p>
+              <a href="./wm148_2d.html"
+                ><img
+                  src="./wm148_2d_preview.svg"
+                  alt="WM148 UMAP 2D preview"
+                  style="width: 100%; max-width: 520px; border: 1px solid #1c2a3a; border-radius: 10px"
+              /></a>
+            </p>
+            <p><a href="./wm148_2d.html">Open <code>wm148_2d.html</code></a></p>
+          </div>
+          <div class="card">
+            <h2>WM148 3D Viewer</h2>
+            <p class="muted">Drag to rotate, wheel to zoom, hover/click nodes.</p>
+            <div style="margin: 0.5rem 0 0.75rem">
+              <iframe
+                src="./wm148_3d.html?embed=1"
+                title="WM148 UMAP 3D interactive preview"
+                style="width: 100%; height: 320px; border: 1px solid #1c2a3a; border-radius: 10px"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p class="muted">If WebGL is unavailable: <a href="./wm148_3d_preview.svg">static preview</a>.</p>
+            <p><a href="./wm148_3d.html">Open <code>wm148_3d.html</code></a></p>
+          </div>
+        </div>
+        <p class="muted" style="margin-bottom:0">
+          Data source: <code>wm148_proofs.json</code>.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:12px">
         <h2>Multiway Graph Visualizations</h2>
-        <p class="muted">Static DOT/SVG graphs of the two counterexamples:</p>
+        <p class="muted">Static DOT/SVG graphs (counterexamples + WM148):</p>
         <ul>
           <li><strong>CE1</strong> (Confluent but NOT causally invariant):
             <ul>
@@ -74,6 +114,24 @@
               <li><a href="./ce2_depth2_combined.svg">Combined view</a></li>
             </ul>
           </li>
+          <li><strong>WM148</strong> (fresh-vertex semantics; bounded multiway demo):
+            <ul>
+              <li><a href="./wm148_depth3_multiway.svg">Multiway graph (depth 3)</a></li>
+              <li><a href="./wm148_import_graph.svg">Import graph (SVG)</a> / <a href="./wm148_import_graph.html">import graph (HTML)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h2>Interactive Multiway Viewer</h2>
+        <p class="muted">
+          Interactive viewer for bounded multiway graphs (CE1/CE2/WM148-depth3 built-in).
+          You can also load <code>generated_ce1.json</code>, <code>generated_ce2.json</code>, or <code>generated_wm148.json</code>.
+        </p>
+        <ul>
+          <li><a href="../wolfram_viewer.html">Open viewer (<code>artifacts/wolfram_viewer.html</code>)</a></li>
+          <li><a href="../../wolfram_viewer.html">Wrapper (<code>wolfram_viewer.html</code>)</a></li>
         </ul>
       </div>
 
@@ -108,6 +166,7 @@
           <li><code>CE2.causalInvariant</code> — CE2 is causally invariant</li>
           <li><code>CE2.not_confluentNF</code> — CE2 is NOT confluent</li>
           <li><code>stepStates_iff_step</code> — Bridge: Finset ↔ Step relation</li>
+          <li><code>WM148.causalInvariant</code> — WM148 is causally invariant (fresh-vertex semantics)</li>
         </ul>
       </div>
 

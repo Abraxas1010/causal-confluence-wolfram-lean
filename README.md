@@ -19,16 +19,19 @@
 
 Part of the broader HeytingLean formal verification project: https://apoth3osis.io
 
-## What’s New (WM148)
+## Results (One Story)
 
-This repo now also includes a Wolfram Physics Project example **WM148**:
+This repo mechanizes two complementary facts about Wolfram/SetReplace-style rewriting:
 
-- rule: `{{x,y}} → {{x,y},{y,z}}` (one fresh vertex `z`)
-- semantics: explicit fresh allocation + equivalence up to vertex renaming (`HGraph.Iso`)
-- mechanized theorem: `WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`
-- executable demo: `lake exe wolfram_wm148_demo` (emits bounded multiway JSON)
+1. **Independence (CE1/CE2)**: confluence and causal invariance are independent properties.
+2. **WM148 (Wolfram Physics Project)**: under an explicit fresh-vertex semantics and equivalence up to vertex renaming,
+   WM148 is causally invariant (in the sense of `SystemFresh.CausalInvariant`).
 
-## The Independence Theorem
+The point is that the counterexamples rule out “confluence ⇒ causal invariance” under naive matching, while WM148
+demonstrates a principled semantics (fresh allocation + α-equivalence) where a concrete WPP model satisfies causal
+invariance.
+
+### A) Independence Theorem (CE1/CE2)
 
 <p align="center">
   <img src="RESEARCHER_BUNDLE/artifacts/visuals/ce1_depth3_combined.svg" alt="CE1 Combined Graph" width="700"/>
@@ -73,7 +76,23 @@ This formalization proves they are **independent**:
 
 ---
 
-## Interactive Proof Graph Viewers
+### B) WM148 Case Study (Fresh-Vertex Semantics)
+
+<p align="center">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wm148_depth3_multiway.svg" alt="WM148 Multiway Graph (depth 3)" width="700"/>
+</p>
+
+<p align="center"><em>WM148 bounded multiway graph (depth 3; deterministic fresh allocator)</em></p>
+
+- rule: `{{x,y}} → {{x,y},{y,z}}` (one fresh vertex `z`)
+- semantics: explicit fresh allocation + equivalence up to vertex renaming (`HGraph.Iso`)
+- mechanized theorem: `WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)`
+- executable demo: `lake exe wolfram_wm148_demo` (emits bounded multiway JSON; default `--maxDepth 6`)
+- import graph (WM148 slice): `RESEARCHER_BUNDLE/artifacts/visuals/wm148_import_graph.svg` / `RESEARCHER_BUNDLE/artifacts/visuals/wm148_import_graph.html`
+
+---
+
+## Proof Visualizations
 
 Explore the proof structure in 2D and 3D:
 
@@ -98,12 +117,35 @@ Explore the proof structure in 2D and 3D:
 </tr>
 </table>
 
+WM148-only proof/declaration map:
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>WM148 2D Proof Map</strong><br/>
+<em>Pan, zoom, search declarations</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_2d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wm148_2d_preview.svg" alt="WM148 UMAP 2D preview" width="100%"/>
+</a><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_2d.html">wm148_2d.html</a> (GitHub Pages)
+</td>
+<td align="center" width="50%">
+<strong>WM148 3D Proof Map</strong><br/>
+<em>Rotate, zoom, explore clusters</em><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d_preview_animated.svg" alt="WM148 UMAP 3D animated preview" width="100%"/>
+</a><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wm148_3d.html">wm148_3d.html</a> (GitHub Pages)
+</td>
+</tr>
+</table>
+
 Declarations visualized with UMAP embeddings:
 - Color-coded by module family (Hypergraph, Rewrite, CausalGraph, Multiway, etc.)
 - Click nodes to see theorem details, file location, and code snippets.
 - kNN edges show proof similarity neighborhoods.
 
-Interactive multiway viewer (load `generated_ce1.json` / `generated_ce2.json` / `generated_wm148.json`):
+Interactive multiway viewer (CE1/CE2/WM148-depth3 built-in; or load `generated_ce1.json` / `generated_ce2.json` / `generated_wm148.json`):
 - GitHub Pages: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html
 - Offline: `RESEARCHER_BUNDLE/wolfram_viewer.html` (wrapper) or `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html` (direct)
 
