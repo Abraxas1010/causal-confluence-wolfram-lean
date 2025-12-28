@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["7753433734340802465"],
-  "i": "4749065095743439237",
+ {"o": ["9387095060551651174"],
+  "i": "8539220249928924110",
   "c": "9169528904851856134"},
  "log":
  [{"message":
@@ -37,7 +37,7 @@
   ["Lean 4.24.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
    "1165570713881806064"],
   ["/home/stepanie/Downloads/heyting-surreal/WIP/Wolfram_PaperPack/RESEARCHER_BUNDLE/HeytingLean/WPP/Wolfram/Multiway.lean",
-   "9490020558429721947"],
+   "17808322128036663495"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "12684295761721788836"}
+ "depHash": "11223852696106086594"}

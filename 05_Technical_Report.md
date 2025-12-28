@@ -205,7 +205,7 @@ Two offline options are provided:
      - `*_branchial.dot/.svg`
      - `*_combined.dot/.svg`
 
-3. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema):
+3. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema for CE1/CE2 + WM148):
    - `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
    - `tools/wolfram_ce1_ce2.wl` (convenience loader)
 

@@ -22,10 +22,13 @@ From this folder:
 3. `lake build wolfram_multiway_demo -- -DwarningAsError=true`
 4. `lake exe wolfram_multiway_demo > artifacts/generated_ce1.json`
 5. `lake exe wolfram_multiway_demo -- --sys ce2 --maxDepth 2 > artifacts/generated_ce2.json`
-6. `lake build wolfram_bundle_demo -- -DwarningAsError=true`
-7. `lake exe wolfram_bundle_demo`
-8. `cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_add1`
-9. `./artifacts/compiler/bin/wpp_add1` (expected output: `42`)
+6. `lake build wolfram_wm148_demo -- -DwarningAsError=true`
+7. `lake exe wolfram_wm148_demo > artifacts/generated_wm148.json`
+8. `lake exe wolfram_wm148_demo -- --maxDepth 3 > artifacts/generated_wm148_wlcheck.json`
+9. `lake build wolfram_bundle_demo -- -DwarningAsError=true`
+10. `lake exe wolfram_bundle_demo`
+11. `cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_add1`
+12. `./artifacts/compiler/bin/wpp_add1` (expected output: `42`)
 
 ## Optional: regenerate visuals (offline)
 
@@ -38,16 +41,19 @@ From this folder (requires `python3`; SVG rendering additionally uses GraphViz `
 ## Optional: Wolfram Language replication (no Lean required)
 
 If you have Mathematica / Wolfram Engine available, this bundle includes a pure Wolfram Language script that
-reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`:
+reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`, and a small WM148 bounded
+multiway JSON used for cross-checking the fresh-vertex semantics:
 
 1. `Get["tools/wolfram_ce1_ce2.wl"];`
 2. `Export["ce1_from_wl.json", CE1JSON[3], "JSON"];`
 3. `Export["ce2_from_wl.json", CE2JSON[2], "JSON"];`
+4. `Export["wm148_from_wl.json", WM148JSON[3], "JSON"];`
 
 Compare the outputs to:
 
 - `artifacts/generated_ce1.json`
 - `artifacts/generated_ce2.json`
+- `artifacts/generated_wm148_wlcheck.json`
 
 If you have `wolframscript` installed (Wolfram Engine) **or** `mathics` installed (open-source WL runtime),
 you can run an automated check:

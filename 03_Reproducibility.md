@@ -87,18 +87,21 @@ cd RESEARCHER_BUNDLE && lake exe wolfram_wm148_demo -- --maxDepth 6
 ## Optional: Wolfram Language replication (no Lean required)
 
 If you have Mathematica / Wolfram Engine available, the researcher bundle includes a pure Wolfram Language script
-that reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`:
+that reproduces the CE1/CE2 bounded multiway JSON format emitted by `wolfram_multiway_demo`, and a small WM148 bounded
+multiway JSON used to cross-check the fresh-vertex semantics:
 
 ```wl
 Get["RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl"];
 Export["ce1_from_wl.json", CE1JSON[3], "JSON"];
 Export["ce2_from_wl.json", CE2JSON[2], "JSON"];
+Export["wm148_from_wl.json", WM148JSON[3], "JSON"];
 ```
 
 Compare to:
 
 - `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
 - `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
+- `RESEARCHER_BUNDLE/artifacts/generated_wm148_wlcheck.json`
 
 If you have `wolframscript` installed, run the automated cross-check:
 

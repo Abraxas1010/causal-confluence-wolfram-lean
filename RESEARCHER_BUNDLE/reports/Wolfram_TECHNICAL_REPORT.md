@@ -60,12 +60,13 @@ multiway/branchial structure).
 
 ### Artifacts and visuals
 
-- `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json` (produced by the verifier)
+- `artifacts/generated_ce1.json`, `artifacts/generated_ce2.json`, `artifacts/generated_wm148.json` (produced by the verifier)
+- `artifacts/generated_wm148_wlcheck.json` (small WM148 JSON used by the WL cross-check)
 - `artifacts/wolfram_viewer.html` (offline viewer; pan/zoom; node inspection)
 - `artifacts/visuals/` (DOT + SVG graphs; multiway/branchial/combined)
 - `artifacts/compiler/ir/` (LambdaIR + MiniC text artifacts)
 - `artifacts/compiler/c/` (emitted C)
-- `tools/wolfram_ce1_ce2.wl` (pure Wolfram Language replication of CE1/CE2 bounded multiway JSON)
+- `tools/wolfram_ce1_ce2.wl` (pure Wolfram Language replication of CE1/CE2 + WM148 bounded multiway JSON)
 
 ---
 

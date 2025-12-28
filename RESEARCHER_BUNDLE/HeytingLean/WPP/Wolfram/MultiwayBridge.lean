@@ -28,12 +28,9 @@ section Finite
 
 variable [Fintype P] [DecidableEq P] [Fintype V] [DecidableEq V]
 
-open scoped Classical
-
 /-- One-step Wolfram `Step` is exactly the `Finset` successor membership from `stepStates`. -/
 theorem stepStates_iff_step {s t : HGraph V} :
     t ∈ sys.stepStates s ↔ Step (sys := sys) s t := by
-  classical
   constructor
   · intro ht
     rcases (sys.mem_stepStates_iff (P := P) (V := V) (s := s) (t := t)).1 ht with
@@ -43,7 +40,6 @@ theorem stepStates_iff_step {s t : HGraph V} :
     · simpa [EventData.Applicable, Event.Applicable, Event.input, e] using hedApp
     · simpa [EventData.apply, Event.apply, Event.input, Event.output, e] using hEq
   · rintro ⟨e, happ, hEq⟩
-    classical
     set ed : sys.EventData := (e.idx, e.σ) with hed
     have hedAll : ed ∈ sys.allEventData := by
       have : ed.2 ∈ allSubsts (P := P) (V := V) :=
@@ -58,7 +54,6 @@ theorem stepStates_iff_step {s t : HGraph V} :
 /-- `WppRule.StepStar` for the finite `toWppRule` coincides with `System.StepStar`. -/
 theorem wpp_stepStar_iff_stepStar {s t : HGraph V} :
     WppRule.StepStar (R := sys.toWppRule) s t ↔ StepStar (sys := sys) s t := by
-  classical
   constructor
   · intro h
     induction h with

@@ -737,13 +737,16 @@ This work:
 2. **Continuous limits**: Connect to differential geometry / spacetime metrics
 3. **Quantum mechanics**: Formalize branchial space and Hilbert space correspondences
 4. **Computational complexity**: Analyze decidability of causal invariance checking
-5. **Wolfram Language cross-checks**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces CE1/CE2 bounded multiway JSON;
-   extend this to an automatic exporter for arbitrary systems and (optionally) SetReplace/WolframModel execution.
+5. **Wolfram Language cross-checks**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces CE1/CE2 bounded multiway JSON, and a
+   small WM148 bounded multiway JSON (with deterministic fresh vertices) used to cross-check the fresh-vertex semantics; extend this
+   to an automatic exporter for arbitrary systems and (optionally) SetReplace/WolframModel execution.
 6. **Unify the two invariance notions (termination bridge)**: relate `SystemFresh.CausalInvariant` (branch-pair resolution up to
    `HGraph.Iso`) to `Properties.CausalInvariant` (causal-graph invariance of normal-form evolutions) under an explicit
    termination hypothesis and a compatibility lemma between “joinability up to iso” and causal-graph construction.
 7. **Reduce classical footprint (best effort)**: isolate uses of `Classical.choice` (notably, generic fresh supplies for
    infinite vertex types) and provide constructive instances/lemmas for concrete vertex types (e.g. `Nat`) where possible.
+   Note: even the non-fresh SetReplace core uses `System.Event.apply`, which is defined via Mathlib’s `Multiset.sub` and currently
+   pulls in `Classical.choice` through the `List.diff` permutation coherence used to lift subtraction to quotient-multisets.
 
 ---
 

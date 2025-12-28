@@ -210,7 +210,8 @@ cc artifacts/compiler/c/wpp_add1.c -O2 -std=c11 -o artifacts/compiler/bin/wpp_ad
 ### Run in Wolfram Language (optional)
 
 This repo ships a pure **Wolfram Language** script that reproduces the CE1/CE2 bounded multiway JSON
-output of `wolfram_multiway_demo`, for cross-checking against Wolfram/SetReplace tooling:
+output of `wolfram_multiway_demo`, and a small WM148 bounded multiway JSON used to cross-check the
+fresh-vertex semantics:
 
 - `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
 
@@ -220,12 +221,14 @@ In Mathematica / Wolfram Engine:
 Get["RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl"];
 Export["ce1_from_wl.json", CE1JSON[3], "JSON"];
 Export["ce2_from_wl.json", CE2JSON[2], "JSON"];
+Export["wm148_from_wl.json", WM148JSON[3], "JSON"];
 ```
 
 Compare against the Lean-produced files:
 
 - `RESEARCHER_BUNDLE/artifacts/generated_ce1.json`
 - `RESEARCHER_BUNDLE/artifacts/generated_ce2.json`
+- `RESEARCHER_BUNDLE/artifacts/generated_wm148_wlcheck.json`
 
 If you have `wolframscript` installed, the bundle also provides an automated cross-check:
 

@@ -14,7 +14,7 @@
        [["@WolframBundle:extraDep", "1723"]]],
       ["imports",
        [["HeytingLean.WPP.Wolfram.Branchial transitive imports (legacy)",
-         "6327757755975516975"],
+         "2800599474549785145"],
         ["HeytingLean.WPP.Wolfram.Branchial:importAllArts",
          "4938605588509371964"],
         ["HeytingLean.WPP.Wolfram.ConfluenceCausalInvariance transitive imports (legacy)",
@@ -36,4 +36,4 @@
    "11399568416257324970"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "4688018242463087480"}
+ "depHash": "4888828801528813357"}

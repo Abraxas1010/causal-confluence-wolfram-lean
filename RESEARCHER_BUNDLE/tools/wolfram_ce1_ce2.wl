@@ -22,6 +22,7 @@ BeginPackage["HeytingLeanWolframBridge`"];
 
 CE1System::usage = "CE1System is the CE1 counterexample system (confluent ∧ ¬causal-invariant) as a WL association.";
 CE2System::usage = "CE2System is the CE2 counterexample system (causal-invariant ∧ ¬confluent) as a WL association.";
+WM148System::usage = "WM148System is the Wolfram Physics universe WM148 (fresh-vertex rule {{x,y}} -> {{x,y},{y,z}}) as a WL association.";
 
 ToJSONString::usage =
   "ToJSONString[x] encodes a JSON-compatible WL expression (numbers, strings, lists, associations, booleans, Null) as a JSON string. \
@@ -32,12 +33,15 @@ BuildMultiwayJSON::usage =
 
 CE1JSON::usage = "CE1JSON[maxDepth] returns the multiway JSON object for CE1.";
 CE2JSON::usage = "CE2JSON[maxDepth] returns the multiway JSON object for CE2.";
+WM148JSON::usage = "WM148JSON[maxDepth] returns the multiway JSON object for WM148 (deterministic fresh vertices).";
 
 CE1JSONString::usage = "CE1JSONString[maxDepth] returns CE1JSON[maxDepth] encoded as a JSON string.";
 CE2JSONString::usage = "CE2JSONString[maxDepth] returns CE2JSON[maxDepth] encoded as a JSON string.";
+WM148JSONString::usage = "WM148JSONString[maxDepth] returns WM148JSON[maxDepth] encoded as a JSON string.";
 
 ExportCE1JSON::usage = "ExportCE1JSON[path, maxDepth] writes CE1JSON[maxDepth] to `path` as JSON.";
 ExportCE2JSON::usage = "ExportCE2JSON[path, maxDepth] writes CE2JSON[maxDepth] to `path` as JSON.";
+ExportWM148JSON::usage = "ExportWM148JSON[path, maxDepth] writes WM148JSON[maxDepth] to `path` as JSON.";
 
 CompareWithLeanJSON::usage =
   "CompareWithLeanJSON[obj, leanPath] imports `leanPath` as JSON and returns an association with equality and (if different) a minimal summary.";
@@ -320,6 +324,117 @@ ExportCE1JSON[path_String] := ExportCE1JSON[path, 3];
 
 ExportCE2JSON[path_String, maxDepth_Integer] /; maxDepth >= 0 := Export[path, CE2JSON[maxDepth], "JSON"];
 ExportCE2JSON[path_String] := ExportCE2JSON[path, 2];
+
+(* ------------------------- *)
+(* WM148 (fresh-vertex)       *)
+(* ------------------------- *)
+
+WM148System = <|
+  "init" -> {{0, 0}}
+|>;
+
+MaxVertexOfState[state_List] := Module[{flat = Flatten[state]},
+  If[flat === {}, 0, Max[flat]]
+];
+
+HeytingLeanWolframBridge`BuildWM148JSON[maxDepth_Integer?NonNegative] := Module[
+  {nodes, nodeKeys, edges, levels, currStates, nodeIdOfState, getOrAddNode, init,
+   maxVertex, verts, basis},
+
+  init = NormalizeHGraph[WM148System["init"]];
+
+  nodes = {init};
+  nodeKeys = {HGraphKey[init]};
+  edges = {};
+  levels = {{0}};
+  currStates = {init};
+
+  nodeIdOfState = Function[{g},
+    Module[{key, pos},
+      key = HGraphKey[g];
+      pos = FirstPosition[nodeKeys, key, Missing["NotFound"]];
+      If[pos === Missing["NotFound"], Missing["NotFound"], pos[[1]] - 1]
+    ]
+  ];
+
+  getOrAddNode = Function[{g},
+    Module[{key, pos, id},
+      key = HGraphKey[g];
+      pos = FirstPosition[nodeKeys, key, Missing["NotFound"]];
+      If[pos === Missing["NotFound"],
+        AppendTo[nodeKeys, key];
+        AppendTo[nodes, NormalizeHGraph[g]];
+        id = Length[nodes] - 1;
+        id,
+        pos[[1]] - 1
+      ]
+    ]
+  ];
+
+  Do[
+    Module[{nextRaw = {}},
+      Do[
+        Module[{s = currStates[[k]], srcId, maxV, vals},
+          srcId = nodeIdOfState[s];
+          maxV = MaxVertexOfState[s];
+          vals = Range[0, maxV];
+          Do[
+            Module[{a = vals[[ia]], b = vals[[ib]], lhsEdge, z, t, dstId},
+              lhsEdge = {a, b};
+              If[MemberQ[s, lhsEdge],
+                z = maxV + 1;
+                t = NormalizeHGraph@Join[s, {{b, z}}];
+                dstId = getOrAddNode[t];
+                AppendTo[edges, <|
+                  "src" -> srcId,
+                  "dst" -> dstId,
+                  "label" -> <|"ruleIdx" -> 0, "sigma" -> {a, b}|>
+                |>];
+                AppendTo[nextRaw, t],
+                Null
+              ]
+            ],
+            {ia, Length[vals]}, {ib, Length[vals]}
+          ];
+        ],
+        {k, Length[currStates]}
+      ];
+
+      Module[{nextStates, nextLevelIds},
+        nextStates = DeleteDuplicatesByKey[nextRaw, HGraphKey];
+        nextLevelIds = nodeIdOfState /@ nextStates;
+        levels = Append[levels, nextLevelIds];
+        currStates = nextStates;
+      ];
+    ],
+    {maxDepth}
+  ];
+
+  maxVertex = If[nodes === {}, 0, Max[MaxVertexOfState /@ nodes]];
+  verts = Range[0, maxVertex];
+  basis = BasisLen1Len2[verts];
+
+  <|
+    "system" -> "wm148",
+    "maxDepth" -> maxDepth,
+    "maxVertex" -> maxVertex,
+    "basis_len1_len2" -> basis,
+    "nodes" -> (HGraphCountsVector[#, basis] & /@ nodes),
+    "edges" -> edges,
+    "levels" -> levels
+  |>
+];
+
+HeytingLeanWolframBridge`WM148JSON[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`BuildWM148JSON[maxDepth];
+HeytingLeanWolframBridge`WM148JSON[] := HeytingLeanWolframBridge`WM148JSON[3];
+
+HeytingLeanWolframBridge`WM148JSONString[maxDepth_Integer] /; maxDepth >= 0 :=
+  HeytingLeanWolframBridge`ToJSONString[HeytingLeanWolframBridge`WM148JSON[maxDepth]];
+HeytingLeanWolframBridge`WM148JSONString[] := HeytingLeanWolframBridge`WM148JSONString[3];
+
+ExportWM148JSON[path_String, maxDepth_Integer] /; maxDepth >= 0 := Export[path, WM148JSON[maxDepth], "JSON"];
+ExportWM148JSON[path_String] := ExportWM148JSON[path, 3];
 
 CompareWithLeanJSON[obj_Association, leanPath_String] := Module[{leanObj, eq},
   leanObj = Import[leanPath, "JSON"];

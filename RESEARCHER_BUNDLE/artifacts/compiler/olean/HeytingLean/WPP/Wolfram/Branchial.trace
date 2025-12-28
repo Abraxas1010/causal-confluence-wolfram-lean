@@ -19,7 +19,7 @@
         ["HeytingLean.WPP.Wolfram.Multiway transitive imports (legacy)",
          "6288560456561813037"],
         ["HeytingLean.WPP.Wolfram.Multiway:importAllArts",
-         "9993316477290345845"]]]]],
+         "13305972444236157705"]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -31,4 +31,4 @@
    "8345429914607851818"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "8399562677345073786"}
+ "depHash": "14015495937011859010"}

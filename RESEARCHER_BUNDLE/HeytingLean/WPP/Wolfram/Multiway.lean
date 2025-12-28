@@ -61,7 +61,6 @@ def allSubsts : Finset (P → V) :=
 
 /-- `allSubsts` really enumerates *all* functions `P → V`. -/
 lemma mem_allSubsts (σ : P → V) : σ ∈ allSubsts (P := P) (V := V) := by
-  classical
   let f : ∀ a, a ∈ (Finset.univ : Finset P) → V := fun a _ => σ a
   have hf : f ∈ (Finset.univ : Finset P).pi (fun _ : P => (Finset.univ : Finset V)) := by
     -- Membership in `pi` is pointwise membership in `Finset.univ`.

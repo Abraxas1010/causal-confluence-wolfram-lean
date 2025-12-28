@@ -93,7 +93,8 @@ Optional follow-ons (now implemented):
 2. **Richer visuals**: offline HTML viewer and GraphViz exports are shipped in `Wolfram_PaperPack`
    and mirrored into the self-contained `RESEARCHER_BUNDLE`.
 3. **Wolfram Language cross-check**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces the CE1/CE2 bounded multiway JSON
-   format in pure Wolfram Language (no Lean required), enabling a side-by-side comparison in Wolfram tooling.
+   format in pure Wolfram Language, and a small WM148 bounded multiway JSON used to cross-check the fresh-vertex semantics
+   (no Lean required), enabling a side-by-side comparison in Wolfram tooling.
 
 ### C. Documentation debt (not a Lean blocker)
 

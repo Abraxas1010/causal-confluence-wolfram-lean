@@ -112,6 +112,8 @@ No project-specific axioms were introduced.
 ## Optional “Perfection” Upgrades
 
 - Minimize `Classical.choice`: isolate any avoidable classical choice in the Wolfram slice and re-run `#print axioms` to check whether it drops out.
+  Note: `System.Event.apply` is defined using `Multiset.sub` (SetReplace-faithful multiset subtraction), and Mathlib’s `Multiset.sub`
+  currently depends on `Classical.choice` via the `List.diff` permutation coherence used to lift subtraction to quotient-multisets.
 - Add a bridge result (or clearly-marked future work) relating branch-pair resolution (`SystemFresh.CausalInvariant`) to normal-form
   causal-graph invariance (`Properties.CausalInvariant`) under an explicit termination hypothesis, so WM148 and CE1/CE2 sit under one
   unified formal narrative.
