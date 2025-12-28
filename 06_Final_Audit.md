@@ -1,12 +1,22 @@
 # Final Audit — Wolfram / SetReplace Formalization (HeytingLean WPP)
 
-**Date:** 2025-12-27  
-**Source branch (HeytingLean monorepo):** `quantum_extended`  
-**Source commit (baseline):** `102957ac` (“Wolfram: add WM148 causal invariance proof + demo bundle”)
+**Date:** 2025-12-28  
+**Authoritative source branch (HeytingLean monorepo):** `quantum_extended`
+
+This PaperPack is mirrored into the standalone repository:
+
+- https://github.com/Abraxas1010/causal-confluence-wolfram-lean
 
 ## [STATUS: PASSED]
 
 This audit is a submission-readiness check: the *Lean proof tree used for the Wolfram/SetReplace results* must contain **no** `sorry`/`admit` and must pass strict builds and executable QA per `AGENTS.md`.
+
+### Status
+
+- [STATUS: PASSED] for standalone `main` @ `b3545c7` (repo: https://github.com/Abraxas1010/causal-confluence-wolfram-lean)
+- Ran `RESEARCHER_BUNDLE/scripts/verify_wolfram.sh` with strict flags (`-DwarningAsError=true -Dno sorry`), builds + runs all `lean_exe`, compiles + runs emitted C, WL cross-check via Mathics, robustness + portability; exit code `0`.
+
+These documentation-only edits do not affect the audited Lean proof tree, so the QA status remains valid for the mechanized claims.
 
 ### Scope Audited
 
@@ -81,6 +91,30 @@ The key theorems depend only on the standard Lean kernel axioms:
 - `Quot.sound`
 
 No project-specific axioms were introduced.
+
+## Formal Foundations
+
+- No proof escapes in the audited Lean sources: no `sorry`/`admit`/`axiom`/`constant` under `RESEARCHER_BUNDLE/HeytingLean/**`
+  (confirmed by the verifier’s grep + strict build).
+- Kernel footprint of the headline results is “mathlib-standard only”: `propext`, `Classical.choice`, `Quot.sound`
+  (see `RESEARCHER_BUNDLE/reports/AXIOMS_PRINT.txt`).
+
+## Main Formalism Concerns (Not Failures)
+
+- There are two “causal invariance” notions in play:
+  - causal-graph invariance for normal-form evolutions (`HeytingLean.WPP.Wolfram.Properties.CausalInvariant`), and
+  - branch-pair resolution up to iso for fresh-vertex semantics (`HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`).
+  The README is careful; `TECHNICAL_REPORT_FULL.md` now also contains an explicit “two notions” paragraph to preempt reviewer confusion.
+- `ConfluentNF` / `Properties.CausalInvariant` are phrased via “reachable normal forms” and can be vacuous for non-terminating systems.
+  CE1/CE2 are terminating and explicitly exhibit reachable normal forms (see e.g. `Counterexamples.CE1.terminatingFrom_init` and
+  `Counterexamples.CE2.terminatingFrom_init`), but we now state this explicitly where the properties are introduced in `TECHNICAL_REPORT_FULL.md`.
+
+## Optional “Perfection” Upgrades
+
+- Minimize `Classical.choice`: isolate any avoidable classical choice in the Wolfram slice and re-run `#print axioms` to check whether it drops out.
+- Add a bridge result (or clearly-marked future work) relating branch-pair resolution (`SystemFresh.CausalInvariant`) to normal-form
+  causal-graph invariance (`Properties.CausalInvariant`) under an explicit termination hypothesis, so WM148 and CE1/CE2 sit under one
+  unified formal narrative.
 
 ### Notes on Token-Scan “False Positives”
 

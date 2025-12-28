@@ -182,6 +182,25 @@ def CausalInvariant (sys : System V P) : Prop :=
 ```
 All maximal evolutions have isomorphic causal graphs.
 
+**Important semantics note (non-termination / vacuity):** the two definitions above quantify only over *reachable normal forms*.
+If a system has no reachable normal forms (e.g. a non-terminating system), then `ConfluentNF` and `Properties.CausalInvariant`
+may hold *vacuously*. Our counterexamples CE1/CE2 are terminating and explicitly exhibit reachable normal forms, so the
+independence result is not a vacuity artifact.
+
+**Two notions of “causal invariance” used in this package:**
+
+1. **Normal-form causal-graph invariance (Piskunov / terminating):**
+   - Lean name: `HeytingLean.WPP.Wolfram.Properties.CausalInvariant`
+   - Meaning: any two evolutions from `sys.init` to normal forms have isomorphic causal graphs.
+2. **Branch-pair resolution up to renaming (Wolfram Physics / fresh vertices):**
+   - Lean name: `HeytingLean.WPP.Wolfram.SystemFresh.CausalInvariant`
+   - Meaning: every one-step fork (with explicit fresh choices) resolves by reconverging to isomorphic states
+     (`HGraph.Iso`), i.e. joinability up to vertex renaming.
+
+CE1/CE2 live under the first notion (normal forms + causal graphs). The WM148 case study is proved under the second notion,
+because it is stated as a *local fork-resolution property* in the fresh-vertex semantics and does not require a global
+termination hypothesis.
+
 ---
 
 ## 4. Repository Structure
@@ -720,6 +739,11 @@ This work:
 4. **Computational complexity**: Analyze decidability of causal invariance checking
 5. **Wolfram Language cross-checks**: `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl` reproduces CE1/CE2 bounded multiway JSON;
    extend this to an automatic exporter for arbitrary systems and (optionally) SetReplace/WolframModel execution.
+6. **Unify the two invariance notions (termination bridge)**: relate `SystemFresh.CausalInvariant` (branch-pair resolution up to
+   `HGraph.Iso`) to `Properties.CausalInvariant` (causal-graph invariance of normal-form evolutions) under an explicit
+   termination hypothesis and a compatibility lemma between “joinability up to iso” and causal-graph construction.
+7. **Reduce classical footprint (best effort)**: isolate uses of `Classical.choice` (notably, generic fresh supplies for
+   infinite vertex types) and provide constructive instances/lemmas for concrete vertex types (e.g. `Nat`) where possible.
 
 ---
 
