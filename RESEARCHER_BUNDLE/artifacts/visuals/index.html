@@ -26,6 +26,16 @@
         Standalone 2D/3D visualizations of the <code>HeytingLean.WPP.Wolfram</code> slice
         (confluence/causal-invariance independence + WM148 fresh-vertex case study).
       </p>
+
+      <div class="card" style="margin-bottom:12px">
+        <h2>Proof ↔ Hypergraph Bridge</h2>
+        <p class="muted" style="margin-top:0">
+          Click a theorem/definition in the proof maps to jump directly to the corresponding Wolfram multiway/hypergraph
+          visualizations and the interactive viewer.
+        </p>
+        <p style="margin-bottom:0"><a href="./proof_hypergraph_bridge.html">Open <code>proof_hypergraph_bridge.html</code></a></p>
+      </div>
+
       <div class="grid">
         <div class="card">
           <h2>2D Viewer</h2>
@@ -130,8 +140,8 @@
           You can also load <code>generated_ce1.json</code>, <code>generated_ce2.json</code>, or <code>generated_wm148.json</code>.
         </p>
         <ul>
-          <li><a href="../wolfram_viewer.html">Open viewer (<code>artifacts/wolfram_viewer.html</code>)</a></li>
-          <li><a href="../../wolfram_viewer.html">Wrapper (<code>wolfram_viewer.html</code>)</a></li>
+          <li><a href="../wolfram_viewer.html?demo=ce1">Open viewer (CE1)</a> / <a href="../wolfram_viewer.html?demo=ce2">CE2</a> / <a href="../wolfram_viewer.html?demo=wm148">WM148</a></li>
+          <li><a href="../../wolfram_viewer.html?demo=ce1">Wrapper (CE1)</a> / <a href="../../wolfram_viewer.html?demo=ce2">CE2</a> / <a href="../../wolfram_viewer.html?demo=wm148">WM148</a></li>
         </ul>
       </div>
 
@@ -160,11 +170,11 @@
       <div class="card" style="margin-top:12px">
         <h2>Key Theorems (Proof DAGs)</h2>
         <ul>
-          <li><code>confluence_causal_invariance_independent</code> — Main independence theorem</li>
-          <li><code>CE1.confluentNF</code> — CE1 is confluent</li>
-          <li><code>CE1.not_causalInvariant</code> — CE1 is NOT causally invariant</li>
-          <li><code>CE2.causalInvariant</code> — CE2 is causally invariant</li>
-          <li><code>CE2.not_confluentNF</code> — CE2 is NOT confluent</li>
+          <li><code>Counterexamples.confluence_causal_invariance_independent</code> — Main independence theorem</li>
+          <li><code>Counterexamples.CE1.confluentNF</code> — CE1 is confluent</li>
+          <li><code>Counterexamples.CE1.not_causalInvariant</code> — CE1 is NOT causally invariant</li>
+          <li><code>Counterexamples.CE2.causalInvariant</code> — CE2 is causally invariant</li>
+          <li><code>Counterexamples.CE2.not_confluentNF</code> — CE2 is NOT confluent</li>
           <li><code>stepStates_iff_step</code> — Bridge: Finset ↔ Step relation</li>
           <li><code>WM148.causalInvariant</code> — WM148 is causally invariant (fresh-vertex semantics)</li>
         </ul>

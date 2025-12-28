@@ -477,9 +477,11 @@ WM148: Wolfram Physics Project case study (fresh-vertex semantics)
   demoSelect.addEventListener("change", (ev) => {
     const val = ev.target.value;
     if (val === "custom") {
+      setQueryDemo(null);
       fileInput.click();
     } else if (DEMO_DATA[val]) {
       loadData(DEMO_DATA[val], val.toUpperCase());
+      setQueryDemo(val);
     }
   });
 
@@ -499,6 +501,32 @@ WM148: Wolfram Physics Project case study (fresh-vertex semantics)
     }
   });
 
-  // Auto-load CE1 on page load
-  loadData(DEMO_DATA.ce1, "CE1");
+  function setQueryDemo(val) {
+    try {
+      const url = new URL(window.location.href);
+      if (val) url.searchParams.set("demo", val);
+      else url.searchParams.delete("demo");
+      history.replaceState(null, "", url.toString());
+    } catch (_) {
+      // Ignore URL API failures (e.g. file:// URLs in some browsers)
+    }
+  }
+
+  // Auto-load based on query param (?demo=ce1|ce2|wm148); default CE1.
+  (() => {
+    let demo = null;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      demo = params.get("demo");
+    } catch (_) {}
+    if (demo && DEMO_DATA[demo]) {
+      demoSelect.value = demo;
+      loadData(DEMO_DATA[demo], demo.toUpperCase());
+      setQueryDemo(demo);
+      return;
+    }
+    demoSelect.value = "ce1";
+    loadData(DEMO_DATA.ce1, "CE1");
+    setQueryDemo("ce1");
+  })();
 </script>

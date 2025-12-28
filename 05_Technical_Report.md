@@ -198,10 +198,15 @@ Sample artifacts (committed):
 Two offline options are provided:
 
 1. **HTML viewer** (no dependencies; pan/zoom; node inspection):
-   - `artifacts/wolfram_viewer.html`
-   - `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html`
+   - `artifacts/wolfram_viewer.html` (supports `?demo=ce1|ce2|wm148`)
+   - `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html` (supports `?demo=ce1|ce2|wm148`)
 
-2. **GraphViz exports** from JSON:
+2. **Proof ↔ Hypergraph Bridge** (click proof nodes to jump to hypergraph/multiway artifacts):
+   - `artifacts/visuals/proof_hypergraph_bridge.html`
+   - `RESEARCHER_BUNDLE/artifacts/visuals/proof_hypergraph_bridge.html`
+   - Proof maps: `visuals/wolfram_2d.html`, `visuals/wolfram_3d.html`, `visuals/wm148_2d.html`, `visuals/wm148_3d.html`
+
+3. **GraphViz exports** from JSON:
    - Script:
      - `tools/wolfram_json_to_dot.py`
      - `RESEARCHER_BUNDLE/scripts/wolfram_json_to_dot.py`
@@ -210,7 +215,7 @@ Two offline options are provided:
      - `*_branchial.dot/.svg`
      - `*_combined.dot/.svg`
 
-3. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema for CE1/CE2 + WM148):
+4. **Wolfram Language replication** (no Lean required; emits the same bounded multiway JSON schema for CE1/CE2 + WM148):
    - `RESEARCHER_BUNDLE/tools/wolfram_ce1_ce2.wl`
    - `tools/wolfram_ce1_ce2.wl` (convenience loader)
 

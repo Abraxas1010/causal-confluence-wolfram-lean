@@ -41,6 +41,14 @@
         Embedded from <a href="./artifacts/wolfram_viewer.html"><code>artifacts/wolfram_viewer.html</code></a>.
       </div>
     </header>
-    <iframe src="./artifacts/wolfram_viewer.html" title="Wolfram Multiway Viewer"></iframe>
+    <iframe id="viewer" src="./artifacts/wolfram_viewer.html" title="Wolfram Multiway Viewer"></iframe>
+    <script>
+      ;(() => {
+        const iframe = document.getElementById('viewer')
+        if (!iframe) return
+        const qs = window.location.search || ''
+        iframe.src = './artifacts/wolfram_viewer.html' + qs
+      })()
+    </script>
   </body>
 </html>

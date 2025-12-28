@@ -671,18 +671,37 @@ Located in `artifacts/`:
 | `ce1_multiway_depth3.json` | CE1 multiway exploration to depth 3 |
 | `ce2_multiway_depth2.json` | CE2 multiway exploration to depth 2 |
 | `wolfram_viewer.html` | Offline interactive graph viewer |
+| `visuals/index.html` | Visuals landing page (proof maps + graphs) |
+| `visuals/wolfram_2d.html` | 2D proof/declaration map (UMAP) |
+| `visuals/wolfram_3d.html` | 3D proof/declaration map (UMAP/WebGL) |
+| `visuals/wm148_2d.html` | WM148-only 2D proof/declaration map |
+| `visuals/wm148_3d.html` | WM148-only 3D proof/declaration map |
+| `visuals/proof_hypergraph_bridge.html` | Proof-map nodes annotated with hypergraph/multiway artifacts |
 | `visuals/*.dot` | GraphViz source files |
 | `visuals/*.svg` | Rendered graph images |
 
-### 10.3 Offline Viewer
+### 10.4 Offline Viewer
 
-Open `artifacts/wolfram_viewer.html` in any browser:
+Open `artifacts/wolfram_viewer.html` in any browser (supports `?demo=ce1|ce2|wm148`):
 - Pan/zoom navigation
 - Click nodes to inspect state details
 - Toggle between multiway and branchial views
 - No server or dependencies required
 
-### 10.4 GraphViz Export
+### 10.5 Proof Maps and the Proof ↔ Hypergraph Bridge
+
+Open the proof/declaration maps in any browser:
+
+- `artifacts/visuals/wolfram_2d.html` (2D) / `artifacts/visuals/wolfram_3d.html` (3D)
+- `artifacts/visuals/wm148_2d.html` / `artifacts/visuals/wm148_3d.html` (WM148-only slice)
+
+Key nodes (e.g. `Counterexamples.CE1.not_causalInvariant`, `Counterexamples.CE2.not_confluentNF`, `WM148.causalInvariant`) are annotated with a
+clickable **Artifacts** panel linking directly to the corresponding Wolfram hypergraph/multiway assets
+(static SVGs + deep-links into the interactive multiway viewer). The dedicated bridge page is:
+
+- `artifacts/visuals/proof_hypergraph_bridge.html`
+
+### 10.6 GraphViz Export
 
 Use `tools/wolfram_json_to_dot.py` to regenerate visuals:
 
@@ -692,7 +711,7 @@ python3 tools/wolfram_json_to_dot.py artifacts/ce1_multiway_depth3.json
 dot -Tsvg ce1_multiway.dot -o ce1_multiway.svg
 ```
 
-### 10.5 Sample JSON Output (CE1)
+### 10.7 Sample JSON Output (CE1)
 
 From `artifacts/ce1_multiway_depth3.json`:
 

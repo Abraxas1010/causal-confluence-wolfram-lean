@@ -28,6 +28,7 @@
 
     <script src="./vendor/three.min.js"></script>
     <script src="./wolfram_proofs_data.js"></script>
+    <script src="./wolfram_artifacts_data.js"></script>
     <script>
       ;(() => {
         const params = new URLSearchParams(window.location.search)
@@ -40,6 +41,7 @@
         const data = window.WOLFRAM_PROOFS || { items: [], edges: [] }
         const items = data.items || []
         const edges = data.edges || []
+        const artifacts = window.WOLFRAM_ARTIFACTS || {}
 
         const tip = document.getElementById('tip')
         const details = document.getElementById('details')
@@ -97,9 +99,15 @@
         const meshes = []
         for (let i=0;i<items.length;i++){
           const it = items[i]
-          const m = new THREE.MeshPhongMaterial({ color: colorForFamily(it.family || ''), shininess: 30 })
+          const hasArt = !!(it && it.name && artifacts[it.name])
+          const m = new THREE.MeshPhongMaterial({
+            color: colorForFamily(it.family || ''),
+            shininess: 30,
+            emissive: hasArt ? 0x101018 : 0x000000
+          })
           const mesh = new THREE.Mesh(geom, m)
           mesh.position.set(xyz[i].x, xyz[i].y, xyz[i].z)
+          if (hasArt) mesh.scale.setScalar(1.25)
           mesh.userData = { idx: i }
           group.add(mesh)
           meshes.push(mesh)
@@ -192,6 +200,24 @@
           }
           const hideTip = () => { tip.style.display='none' }
           const escapeHtml = (s) => String(s).replace(/[&<>\"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c))
+          const artifactsHtml = (it) => {
+            const a = artifacts[it.name]
+            if (!a) return ''
+            const title = a.title ? `<div class="muted">${escapeHtml(a.title)}</div>` : ''
+            const preview = a.preview
+              ? `<div style="margin-top:10px">
+                   <a href="${escapeHtml(a.preview.src)}">
+                     <img src="${escapeHtml(a.preview.src)}" alt="${escapeHtml(a.preview.alt||'Artifact preview')}" style="width:100%; border:1px solid #24364a; border-radius:10px" />
+                   </a>
+                 </div>`
+              : ''
+            const links = Array.isArray(a.links) && a.links.length
+              ? `<div style="margin-top:10px">
+                   ${a.links.map((ln) => `<div><a href="${escapeHtml(ln.href)}">${escapeHtml(ln.label||ln.href)}</a></div>`).join('')}
+                 </div>`
+              : ''
+            return `<div style="margin-top:12px"><strong>Artifacts</strong>${title}${preview}${links}</div>`
+          }
           const showDetails = (it) => {
             const loc = it.path ? `${it.path}:${it.line||1}` : ''
             details.style.display = 'block'
@@ -199,7 +225,8 @@
               `<h3>${escapeHtml(it.name||'')}</h3>` +
               `<div class="muted">${escapeHtml(it.kind||'')} &middot; <code>${escapeHtml(it.family||'')}</code></div>` +
               (loc ? `<div style="margin-top:6px"><code>${escapeHtml(loc)}</code></div>` : '') +
-              (it.snippet ? `<div style="margin-top:10px" class="muted">${escapeHtml(it.snippet)}</div>` : '')
+              (it.snippet ? `<div style="margin-top:10px" class="muted">${escapeHtml(it.snippet)}</div>` : '') +
+              artifactsHtml(it)
           }
           const pick = (ev) => {
             const rect = renderer.domElement.getBoundingClientRect()

@@ -112,6 +112,36 @@ the two evolutions have isomorphic causal graphs (`HeytingLean.WPP.Wolfram.Count
 
 Explore the proof structure in 2D and 3D:
 
+### Proof ↔ Hypergraph Bridge
+
+Click a theorem node in the proof map and use the **Artifacts** panel to jump directly to the corresponding
+multiway/hypergraph visualizations and interactive viewer.
+
+- GitHub Pages: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/proof_hypergraph_bridge.html
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>Proof Map (3D preview)</strong><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d.html">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/wolfram_3d_preview_animated.svg" alt="UMAP 3D animated preview" width="100%"/>
+</a>
+</td>
+<td align="center" width="50%">
+<strong>Hypergraph/Multiway Artifact (CE1 preview)</strong><br/>
+<a href="https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/visuals/ce1_depth3_combined.svg">
+  <img src="RESEARCHER_BUNDLE/artifacts/visuals/ce1_depth3_combined.svg" alt="CE1 combined graph" width="100%"/>
+</a>
+</td>
+</tr>
+</table>
+
+Direct deep-links to the interactive multiway viewer:
+
+- CE1: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html?demo=ce1
+- CE2: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html?demo=ce2
+- WM148: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html?demo=wm148
+
 <table>
 <tr>
 <td align="center" width="50%">
@@ -162,8 +192,8 @@ Declarations visualized with UMAP embeddings:
 - kNN edges show proof similarity neighborhoods.
 
 Interactive multiway viewer (CE1/CE2/WM148-depth3 built-in; or load `generated_ce1.json` / `generated_ce2.json` / `generated_wm148.json`):
-- GitHub Pages: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html
-- Offline: `RESEARCHER_BUNDLE/wolfram_viewer.html` (wrapper) or `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html` (direct)
+- GitHub Pages: https://abraxas1010.github.io/causal-confluence-wolfram-lean/RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html (supports `?demo=ce1|ce2|wm148`)
+- Offline: `RESEARCHER_BUNDLE/wolfram_viewer.html` (wrapper; supports `?demo=...`) or `RESEARCHER_BUNDLE/artifacts/wolfram_viewer.html` (direct)
 
 **UMAP note (interpretation + limitations):**
 - UMAP is a non-linear projection of high-dimensional feature vectors into 2D/3D; here the features are derived from Lean source text statistics and structural signals.
@@ -274,21 +304,21 @@ See also the (static) pipeline diagram:
 
 ```lean
 -- Main independence result
-theorem confluence_causal_invariance_independent :
+theorem Counterexamples.confluence_causal_invariance_independent :
   (∃ sys, ConfluentNF sys ∧ ¬CausalInvariant sys) ∧
   (∃ sys, CausalInvariant sys ∧ ¬ConfluentNF sys)
 
 -- CE1: confluent but not causally invariant
-theorem CE1.confluentNF : ConfluentNF CE1.system
-theorem CE1.not_causalInvariant : ¬CausalInvariant CE1.system
-theorem CE1.causalGraphGC_iso_short_long :
-  CausalGraph.Iso (CE1.sys.causalGraphGCOf [CE1.e13] CE1.s2)
-    (CE1.sys.causalGraphGCOf [CE1.e12, CE1.e23] CE1.s2)
+theorem Counterexamples.CE1.confluentNF : ConfluentNF Counterexamples.CE1.sys
+theorem Counterexamples.CE1.not_causalInvariant : ¬CausalInvariant Counterexamples.CE1.sys
+theorem Counterexamples.CE1.causalGraphGC_iso_short_long :
+  CausalGraph.Iso (Counterexamples.CE1.sys.causalGraphGCOf [Counterexamples.CE1.e13] Counterexamples.CE1.s2)
+    (Counterexamples.CE1.sys.causalGraphGCOf [Counterexamples.CE1.e12, Counterexamples.CE1.e23] Counterexamples.CE1.s2)
 
 -- CE2: causally invariant but not confluent
-theorem CE2.causalInvariant : CausalInvariant CE2.system
-theorem CE2.not_confluentNF : ¬ConfluentNF CE2.system
-theorem CE2.causalInvariantGC : GCausalInvariant CE2.sys
+theorem Counterexamples.CE2.causalInvariant : CausalInvariant Counterexamples.CE2.sys
+theorem Counterexamples.CE2.not_confluentNF : ¬ConfluentNF Counterexamples.CE2.sys
+theorem Counterexamples.CE2.causalInvariantGC : GCausalInvariant Counterexamples.CE2.sys
 
 -- WM148: causally invariant (fresh-vertex semantics; branch-pair resolution up to renaming)
 theorem WM148.causalInvariant : SystemFresh.CausalInvariant (sys := WM148.sys)

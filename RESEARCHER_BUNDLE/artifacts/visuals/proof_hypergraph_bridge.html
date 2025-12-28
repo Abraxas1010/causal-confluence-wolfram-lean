@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wolfram Physics — Proof ↔ Hypergraph Bridge</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: #0b0f14;
+        color: #e6eef7;
+      }
+      a { color:#8ab4f8; text-decoration:none; }
+      a:hover { text-decoration:underline; }
+      code { background:#0b1320; border:1px solid #1c2a3a; border-radius: 6px; padding:2px 6px; }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 22px 16px 38px; }
+      .card { background:#0f1721; border:1px solid #1c2a3a; border-radius:12px; padding: 14px 16px; }
+      .muted { color:#b8c7d9; }
+      h1 { margin: 0 0 8px; }
+      h2 { margin: 0 0 10px; font-size: 16px; }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+      @media (min-width: 920px){ .grid { grid-template-columns: 1fr 1fr; } }
+      .row { display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
+      .btn {
+        display:inline-block; padding: 6px 10px; border-radius: 10px;
+        border: 1px solid #24364a; background:#132033; color:#e6eef7;
+      }
+      .btn:hover { background:#182a42; }
+      img { width: 100%; border: 1px solid #1c2a3a; border-radius: 10px; background:#0b0f14; }
+      iframe { width: 100%; height: 420px; border: 1px solid #1c2a3a; border-radius: 12px; background:#0b0f14; }
+      .k { font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="row" style="justify-content:space-between; align-items:baseline">
+        <h1>Proof ↔ Hypergraph Bridge</h1>
+        <a class="muted" href="./index.html">&larr; visuals index</a>
+      </div>
+      <p class="muted">
+        The proof maps (<a href="./wolfram_2d.html">2D</a>/<a href="./wolfram_3d.html">3D</a>) are annotated with
+        artifact links: click a theorem/definition and the details pane shows the corresponding Wolfram multiway/hypergraph
+        visualizations and interactive viewer deep-links.
+      </p>
+
+      <div class="card">
+        <h2>How to Use</h2>
+        <ol class="muted" style="margin: 0; padding-left: 1.2rem">
+          <li>Open a proof map: <a href="./wolfram_2d.html">2D</a> or <a href="./wolfram_3d.html">3D</a>.</li>
+          <li>Search for one of: <code>Counterexamples.CE1.not_causalInvariant</code>, <code>Counterexamples.CE2.not_confluentNF</code>, <code>WM148.causalInvariant</code>.</li>
+          <li>Click the node; in the details pane, use the <span class="k">Artifacts</span> section to jump to the matching hypergraph assets.</li>
+        </ol>
+      </div>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h2>CE1 — Confluent ∧ ¬CausalInvariant</h2>
+          <div class="row">
+            <a class="btn" href="./wolfram_2d.html">Open proof map (2D)</a>
+            <a class="btn" href="./wolfram_3d.html">Open proof map (3D)</a>
+            <a class="btn" href="../wolfram_viewer.html?demo=ce1">Open multiway viewer</a>
+          </div>
+          <p class="muted" style="margin:10px 0 8px">
+            Primary nodes: <code>HeytingLean.WPP.Wolfram.Counterexamples.CE1.confluentNF</code>,
+            <code>HeytingLean.WPP.Wolfram.Counterexamples.CE1.not_causalInvariant</code>.
+          </p>
+          <a href="./ce1_depth3_combined.svg"><img src="./ce1_depth3_combined.svg" alt="CE1 combined graph" /></a>
+        </div>
+
+        <div class="card">
+          <h2>CE2 — CausalInvariant ∧ ¬Confluent</h2>
+          <div class="row">
+            <a class="btn" href="./wolfram_2d.html">Open proof map (2D)</a>
+            <a class="btn" href="./wolfram_3d.html">Open proof map (3D)</a>
+            <a class="btn" href="../wolfram_viewer.html?demo=ce2">Open multiway viewer</a>
+          </div>
+          <p class="muted" style="margin:10px 0 8px">
+            Primary nodes: <code>HeytingLean.WPP.Wolfram.Counterexamples.CE2.causalInvariant</code>,
+            <code>HeytingLean.WPP.Wolfram.Counterexamples.CE2.not_confluentNF</code>.
+          </p>
+          <a href="./ce2_depth2_combined.svg"><img src="./ce2_depth2_combined.svg" alt="CE2 combined graph" /></a>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h2>WM148 — Fresh-Vertex Semantics Case Study</h2>
+          <div class="row">
+            <a class="btn" href="./wm148_2d.html">Open WM148 proof map (2D)</a>
+            <a class="btn" href="./wm148_3d.html">Open WM148 proof map (3D)</a>
+            <a class="btn" href="../wolfram_viewer.html?demo=wm148">Open multiway viewer</a>
+          </div>
+          <p class="muted" style="margin:10px 0 8px">
+            Primary node: <code>HeytingLean.WPP.Wolfram.WM148.causalInvariant</code>.
+          </p>
+          <a href="./wm148_depth3_multiway.svg"><img src="./wm148_depth3_multiway.svg" alt="WM148 multiway graph" /></a>
+        </div>
+        <div class="card">
+          <h2>Interactive Viewer (Embed)</h2>
+          <p class="muted" style="margin:0 0 10px">
+            The embedded viewer defaults to CE1; use the selector inside to switch systems.
+          </p>
+          <iframe src="../wolfram_viewer.html?demo=ce1" title="Wolfram multiway viewer"></iframe>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        Tip: nodes with attached artifacts are rendered slightly larger (and with a subtle halo) in the proof maps.
+      </p>
+    </div>
+  </body>
+</html>

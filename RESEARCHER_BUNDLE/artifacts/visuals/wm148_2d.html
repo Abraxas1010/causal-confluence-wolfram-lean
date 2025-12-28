@@ -39,11 +39,13 @@
     <canvas id="c"></canvas>
 
     <script src="./wm148_proofs_data.js"></script>
+    <script src="./wolfram_artifacts_data.js"></script>
     <script>
       ;(() => {
         const data = window.WM148_PROOFS || { items: [], edges: [] }
         const items = data.items || []
         const edges = data.edges || []
+        const artifacts = window.WOLFRAM_ARTIFACTS || {}
         const canvas = document.getElementById('c')
         const ctx = canvas.getContext('2d')
         const tip = document.getElementById('tip')
@@ -143,6 +145,27 @@
         }
         const hideTip = () => { tip.style.display='none' }
 
+        const hasArtifact = (it) => !!(it && it.name && artifacts[it.name])
+
+        const artifactsHtml = (it) => {
+          const a = artifacts[it.name]
+          if (!a) return ''
+          const title = a.title ? `<div class="muted">${escapeHtml(a.title)}</div>` : ''
+          const preview = a.preview
+            ? `<div style="margin-top:10px">
+                 <a href="${escapeHtml(a.preview.src)}">
+                   <img src="${escapeHtml(a.preview.src)}" alt="${escapeHtml(a.preview.alt||'Artifact preview')}" style="width:100%; border:1px solid #24364a; border-radius:10px" />
+                 </a>
+               </div>`
+            : ''
+          const links = Array.isArray(a.links) && a.links.length
+            ? `<div style="margin-top:10px">
+                 ${a.links.map((ln) => `<div><a href="${escapeHtml(ln.href)}">${escapeHtml(ln.label||ln.href)}</a></div>`).join('')}
+               </div>`
+            : ''
+          return `<div style="margin-top:12px"><strong>Artifacts</strong>${title}${preview}${links}</div>`
+        }
+
         const showDetails = (it) => {
           const loc = it.path ? `${it.path}:${it.line||1}` : ''
           details.style.display = 'block'
@@ -150,7 +173,8 @@
             `<h3>${escapeHtml(it.name||'')}</h3>` +
             `<div class="muted">${escapeHtml(it.kind||'')} &middot; <code>${escapeHtml(it.family||'')}</code></div>` +
             (loc ? `<div style="margin-top:6px"><code>${escapeHtml(loc)}</code></div>` : '') +
-            (it.snippet ? `<div style="margin-top:10px" class="muted">${escapeHtml(it.snippet)}</div>` : '')
+            (it.snippet ? `<div style="margin-top:10px" class="muted">${escapeHtml(it.snippet)}</div>` : '') +
+            artifactsHtml(it)
         }
 
         const escapeHtml = (s) => String(s).replace(/[&<>\"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c))
@@ -181,7 +205,7 @@
             const p = it.pos
             if (!p) continue
             const x = toX(p.x), y = toY(p.y)
-            const r = (selected === i) ? 7 : (hover === i ? 6 : 4.5)
+            const r = (selected === i) ? 7 : (hover === i ? 6 : (hasArtifact(it) ? 5.5 : 4.5))
             ctx.beginPath()
             ctx.fillStyle = colorForFamily(it.family || '')
             ctx.arc(x, y, r, 0, Math.PI*2)
@@ -189,6 +213,13 @@
             ctx.strokeStyle = '#0b0f14'
             ctx.lineWidth = 1
             ctx.stroke()
+            if (hasArtifact(it)) {
+              ctx.strokeStyle = 'rgba(255,255,255,0.65)'
+              ctx.lineWidth = 1.2
+              ctx.beginPath()
+              ctx.arc(x, y, r + 2.2, 0, Math.PI * 2)
+              ctx.stroke()
+            }
           }
         }
 
@@ -243,4 +274,3 @@
     </script>
   </body>
 </html>
-
