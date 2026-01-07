@@ -1,0 +1,7 @@
+
+# Lake build artifacts
+.lake/
+RESEARCHER_BUNDLE/.lake/
+*.olean
+*.ilean
+
